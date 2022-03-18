@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:07:29 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/18 14:29:06 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/18 20:07:24 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -14,7 +14,10 @@
 int main(void)
 {
 	char	*input;
-	char	**sp_input
-	input = readline("$> ");
-	sp_input = split_it(input);
+
+	while (1)
+	{
+		input = readline("$> ");
+		check_errors(input);
+	}
 }
