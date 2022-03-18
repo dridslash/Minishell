@@ -6,28 +6,23 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:19:59 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/18 13:07:53 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/18 14:32:34 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
 
 char **split_first_input(char *input)
 {
+	int		stop;
 	int		i;
 	char	**return_value;
 
 	i = 0;
+	stop = 0;
 	while (input[i] != '\0')
 	{
 		if (input[i] == '|')
-			push_before_pipe(input, i, return_value);
+			push(input, i, return_value, &stop);
 		i++;
 	}
-}
-
-int	is_del(char *input, int index)
-{
-	if (input[i] == '|' || input[i] == '>')
-		return (1);
-	return (0);
 }
