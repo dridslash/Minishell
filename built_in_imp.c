@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/18 12:22:05 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/18 15:09:15 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,23 +77,36 @@ t_env *ft_env(char **envi)
     return main_env;
 }
 
+int get_equal_index(char *table)
+{
+    int i = 0;
+    while(table[i])
+    {
+        if(table[i] == '=')
+            return (i);
+        i++;
+    }
+    return (-1);
+}
+
 void ft_export_var(t_env **envv,char **argv)
 {
     int i =0;
     int pattern_counter = 0;
     int index_tmp = 1;
     t_env *tmp = (*envv);
+    t_env *aff = (*envv);
     if(ft_strcmp(argv[index_tmp],"export") == 0)
      {
          if(argv[index_tmp + 1] != NULL)
          {
-             create_env(envv,argv[index_tmp + 1]);
+             if (ft_strnstr())
          }
      }
-    while(tmp)
+    while(aff)
     {
-        printf("%s\n",tmp->path_env);
-        tmp = tmp->next_env;
+        printf("%s\n",aff->path_env);
+        aff = aff->next_env;
     }
     
 }
