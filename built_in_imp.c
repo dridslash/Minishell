@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/18 15:09:15 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/18 15:16:24 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void ft_export_var(t_env **envv,char **argv)
      {
          if(argv[index_tmp + 1] != NULL)
          {
-             if (ft_strnstr())
+             //if (ft_strnstr())
          }
      }
     while(aff)
