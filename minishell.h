@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:13:11 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/18 14:31:55 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/18 14:56:12 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,9 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-char **split_first_input(char *input);
+char	**split_first_input(char *input);
+char	**push(char *input, int i, char **pt, int *stop);
+char	**alloc_space(char *input, int i, int stop, char *pt);
+int		len_of(char **string);
+
 #endif
