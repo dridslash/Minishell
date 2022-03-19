@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:23:27 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/19 16:12:51 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/19 18:51:06 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -24,6 +24,10 @@ void	check_errors(char *input)
 			check_after_output_redirection(input, &i);
 		else if (input[i] == '<')
 			check_after_input_redirection(input, &i);
+		else if (input[i] == 34)
+			check_double_quotes(input, &i);
+		else if (input[i] == 39)
+			check_single_quotes(input, &i);
 		i++;
 	}
 }

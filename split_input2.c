@@ -6,15 +6,15 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 16:11:10 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/19 16:12:54 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/19 18:55:46 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
 
 void	skip_quotes(char *string, int *i, int *word_count)
 {
-	*word_count += 1;
-	(*i)++;
+	if (string[i])
+	/*(*i)++;
 	while (string[*i] == 34 || string[*i] == 39)
 		(*i)++;
 	if (find_quote(string, *i) == 0)
@@ -26,7 +26,7 @@ void	skip_quotes(char *string, int *i, int *word_count)
 		&& string[*i] != '\0')
 		(*i)++;
 	while (string[*i] == 34 || string[*i] == 39)
-		(*i)++;
+		(*i)++;*/
 	(*i)--;
 }
 

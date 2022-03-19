@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 16:11:25 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/19 16:12:32 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/19 18:55:47 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -39,6 +39,7 @@ int	count_words(char *string)
 char	**split_input(char *input)
 {
 	char	**ret_value;
+	//int		*size_of_words;
 
 	ret_value = malloc(sizeof(char *) * count_words(input) + 1);
 	return (ret_value);
@@ -64,8 +65,7 @@ void	skip_words(char *string, int *i, int *word_count)
 {
 	while (string[*i] != '\0' && string[*i] != '<'
 		&& string[*i] != '>' && string[*i] != '|'
-		&& string[*i] != ' ' && string[*i] != 34
-		&& string[*i] != 39)
+		&& string[*i] != ' ')
 		(*i)++;
 	(*i)--;
 	*word_count += 1;
