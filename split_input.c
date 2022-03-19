@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/19 16:11:25 by oessayeg          #+#    #+#             */
+/*   Updated: 2022/03/19 16:12:32 by oessayeg         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "minishell.h"
 
 int	count_words(char *string)
@@ -25,12 +36,12 @@ int	count_words(char *string)
 	return (ret_value);
 }
 
-char **split_input(char *input)
+char	**split_input(char *input)
 {
 	char	**ret_value;
-	
+
 	ret_value = malloc(sizeof(char *) * count_words(input) + 1);
-	return(ret_value);
+	return (ret_value);
 }
 
 void	skip_spaces(char *string, int *i)

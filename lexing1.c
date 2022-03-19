@@ -6,12 +6,12 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:19:59 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/19 11:55:40 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/19 16:12:00 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
 
-char **split_first_input(char *input)
+char	**split_first_input(char *input)
 {
 	int		stop;
 	int		i;
