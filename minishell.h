@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:13:11 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/18 19:46:30 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/19 13:43:02 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@
 # include <readline/history.h>
 
 char	**split_first_input(char *input);
-char	**push(char *input, int i, char **pt, int *stop);
-char	**alloc_space(char *input, int i, int stop, char *pt);
-int		len_of(char **string);
+char	**split_input(char *input);
+int		count_words(char *string);
+void	skip_spaces(char *string, int *i);
+void	skip_redirections(char *string, int *i, int *word_count);
 void	check_errors(char *input);
 void	check_after_pipe(char *input, int *i);
 void	check_after_output_redirection(char *input, int *i);
 void	check_after_input_redirection(char *input, int *i);
 void	exit_error(void);
+void	skip_words(char *string, int *i, int *word_count);
 #endif
