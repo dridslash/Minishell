@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/18 19:23:01 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/19 16:09:40 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void ft_cd(int argc, char **argv)
      if(argv[index_tmp + 1] != NULL)
      {
         if(chdir(argv[index_tmp + 1]) != 0)
-         perror("my shell : cd ");
+         perror(">>shell : cd ");
      }
      else
      chdir(get_home);
@@ -64,7 +64,7 @@ void ft_cd(int argc, char **argv)
      else
      {
          if(chdir(argv[index_tmp]) != 0)
-         perror("my shell : cd ");
+         perror(">>shell : cd ");
      }
 }
 
@@ -162,6 +162,80 @@ void part_one_of_export(t_env **envv,char **argv,int index_tmp)
          }
          
 }
+int check_for_minus(char *your_path)
+{
+    int i =0;
+    while(your_path[i])
+    {
+            if(your_path[i] == '-' && (i < get_equal_index(your_path)))
+             {
+               return (1);  
+             }
+             i++;
+    }
+    return (0);
+}
+int check_for_plus(char *your_path)
+{
+    int i =0;
+    while(your_path[i])
+    {
+            if(your_path[i] == '+' && your_path[i + 1] != '=')
+             {
+               return (2);  
+             }
+             i++;
+    }
+    return (0);
+}
+
+int check_for_digits(char *your_path)
+{
+    int i =0;
+    while(your_path[i])
+    {
+            if(ft_isdigit(your_path[i]) && i == 0)
+             {
+               return (3);  
+             }
+             i++;
+    }
+    return (0);
+}
+
+int check_for_space(char *your_path)
+{
+     int i = 0;
+    while(your_path[i])
+    {
+            if(your_path[i] == ' ' && i > get_equal_index(your_path))
+             {
+               return (7);
+             }
+             else if (your_path[i] == ' ' && i < get_equal_index(your_path))
+             {
+                 return (4);
+             }
+             i++;
+    }
+    return (0);
+}
+
+int check_errors(char *your_path)
+{
+    int i = 0;
+    i = check_for_space(your_path);
+    if(i > 0)
+    return (i);
+    i = check_for_digits(your_path);
+    if(i > 0)
+    return (i);
+    i = check_for_minus(your_path);
+    if(i > 0)
+    return (i);
+    i = check_for_plus(your_path);
+    return (i);
+}
 
 void ft_export_var(t_env **envv,char **argv)
 {
@@ -169,21 +243,41 @@ void ft_export_var(t_env **envv,char **argv)
     int equal_sing_her = 0;
     int index_tmp = 1;
     char *holder = argv[index_tmp + 1];
+    char *trimed;
     if(ft_strcmp(argv[index_tmp],"export") == 0)
      {
-         while(holder[i])
+         if (check_errors(holder) == 2)
          {
-             if(holder[i] == '+' && holder[i + 1] != '=')
-             {
-             printf("really + without an = go out !! \n");
-               break;  
-             }
-             if (/*holder[i] == '-' ||*/ (holder[i] == '-' && holder[i + 1] == '='))
-             {
-                printf("minus sign no no !! \n");
-               break;  
-             }
-             i++;
+               printf("really + without an = go out !! \n");
+               return;
+         }
+         if (check_errors(holder) == 1)
+         {
+              printf("minus no no no !! \n");
+               return;
+         }
+         if (check_errors(holder) == 3)
+         {
+              printf("digit error no no no !! \n");
+               return;
+         }
+         if(check_errors(holder) == 7)
+         {
+             trimed = get_name_of_env_var(holder);
+             trimed = ft_strjoin_non_free(trimed,"=");
+            create_env(envv,trimed);
+            t_env *aff = (*envv);
+            while(aff)
+                {
+                 printf("%s\n",aff->path_env);
+                 aff = aff->next_env;
+                } 
+               return;
+         }
+         if (check_errors(holder) == 4)
+         {
+              printf("space error no no no !! \n");
+               return;
          }
          part_one_of_export(envv,argv,index_tmp);
      }
