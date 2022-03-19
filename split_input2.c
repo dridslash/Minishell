@@ -6,14 +6,25 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 16:11:10 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/19 18:56:33 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/19 19:27:46 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
 
 void	skip_quotes(char *string, int *i, int *word_count)
 {
-	if (string[i])
+	int	count_quotes;
+
+	count_quotes = 0;
+	if ()
+	{
+		while (string[*i])
+		{
+		
+		}
+	}
+	else
+
 	/*(*i)++;
 	while (string[*i] == 34 || string[*i] == 39)
 		(*i)++;
