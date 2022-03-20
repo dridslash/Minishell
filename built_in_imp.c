@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/19 16:09:40 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/20 14:31:19 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,9 +221,100 @@ int check_for_space(char *your_path)
     return (0);
 }
 
+int check_empty_path_name(char *your_path)
+{
+    if(get_equal_index(your_path) == 0)
+    {
+        return (9);
+    }
+    return (0);
+}
+
+char *get_after_dollar(char *your_path)
+{
+    int  i =0;
+    while(your_path[i])
+    {
+        if(your_path[i] == '$')
+        {
+            return (&your_path[i + 1]);
+        }
+        i++;
+    }
+    return (NULL);
+}
+
+char *get_after_equal(char *your_path)
+{
+    int  i =0;
+    while(your_path[i])
+    {
+        if(your_path[i] == '=')
+        {
+            return (&your_path[i + 1]);
+        }
+        i++;
+    }
+    return (NULL);
+}
+char *search_in_env(t_env **envv,char * your_var)
+{
+    t_env *aff = (*envv);
+    while(aff)
+             {
+                 if(ft_strcmp(get_name_of_env_var(aff->path_env),get_name_of_env_var(your_var)) == 0)
+                 {
+                     return(get_after_equal(aff->path_env));
+                 }
+                 aff = aff->next_env;
+             }
+    return (ft_strdup(""));
+}
+
+void handle_dollar_export(t_env **envv,char **argv,int index_tmp)
+{
+            
+     int i =0;
+    int locker = 0;
+    t_env *aff = (*envv);
+    char *holder = argv[index_tmp + 1];
+    char *holder_try = ft_strdup("$hellofwfw=pl");
+    char **big_boy;
+    char *value_dollar;
+    if(argv[index_tmp + 1] != NULL && get_equal_index(argv[index_tmp + 1]) != -1)
+         {
+             if(holder_try[0] == '$')
+             {
+                 printf("go away $ in first we are not that rich !!\n");
+             }
+             else
+             {
+            value_dollar = search_in_env(envv,get_after_dollar(holder_try));
+            printf("%s\n",value_dollar);
+            big_boy = ft_split(holder_try,'$');
+            big_boy[0] = ft_strjoin(big_boy[0],value_dollar);
+            big_boy[0] = ft_strjoin(big_boy[0],"=");
+            big_boy[0] = ft_strjoin(big_boy[0],get_after_equal(holder_try));
+            create_env(envv,big_boy[0]);
+             while(aff)
+                {
+                 printf("%s\n",aff->path_env);
+                 aff = aff->next_env;
+                }
+             }
+         }
+         else
+         {
+             printf("insert an equal or go away man !!");
+         }
+}
+
 int check_errors(char *your_path)
 {
     int i = 0;
+     i = check_empty_path_name(your_path);
+    if(i > 0)
+    return (i);
     i = check_for_space(your_path);
     if(i > 0)
     return (i);
@@ -279,7 +370,13 @@ void ft_export_var(t_env **envv,char **argv)
               printf("space error no no no !! \n");
                return;
          }
-         part_one_of_export(envv,argv,index_tmp);
+         if(check_errors(holder) == 9)
+         {
+             printf("i handeled the no name env go away zsh !!\n");
+             return;
+         }
+         handle_dollar_export(envv,argv,index_tmp);
+        // part_one_of_export(envv,argv,index_tmp);
      }
     
 }
@@ -287,7 +384,6 @@ void ft_export_var(t_env **envv,char **argv)
 int main(int argc,char **argv, char **env)
 {
     t_env *envv = ft_env(env);
-   ft_export_var(&envv,argv);
-    // ft_cd(argc , argv);
+    ft_export_var(&envv,argv);
     return 0;
 }
