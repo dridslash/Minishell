@@ -6,39 +6,30 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 16:11:10 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/19 19:27:46 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/20 12:36:42 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
 
 void	skip_quotes(char *string, int *i, int *word_count)
 {
-	int	count_quotes;
+	char	val;
 
-	count_quotes = 0;
-	if ()
-	{
-		while (string[*i])
-		{
-		
-		}
-	}
+	if (string[*i] == 34)
+		val = 34;
 	else
-
-	/*(*i)++;
-	while (string[*i] == 34 || string[*i] == 39)
-		(*i)++;
-	if (find_quote(string, *i) == 0)
+		val = 39;
+	(*i)++;
+	while (string[*i] != '\0')
 	{
-		(*i)--;
-		return ;
-	}
-	while (string[*i] != 34 && string[*i] != 39
-		&& string[*i] != '\0')
+		if (string[*i] == val && (string[*i + 1] == ' '
+			|| string[*i + 1] == '\0'))
+		{
+			*word_count += 1;
+			return ;
+		}
 		(*i)++;
-	while (string[*i] == 34 || string[*i] == 39)
-		(*i)++;*/
-	(*i)--;
+	}
 }
 
 int	find_quote(char *string, int i)
