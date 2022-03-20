@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/20 14:31:19 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/20 15:55:23 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,14 +154,22 @@ void part_one_of_export(t_env **envv,char **argv,int index_tmp)
                 {
                  printf("%s\n",aff->path_env);
                  aff = aff->next_env;
-                } 
+                }
          }
          else
          {
              printf("insert an equal or go away man !!");
          }
-         
 }
+
+void part_two_of_export(t_env **envv, char **argv, int index_tmp)
+{
+    int i = 0;
+    int index_tmp = 1;
+    char *holder = argv[index_tmp + 1];
+    
+}
+
 int check_for_minus(char *your_path)
 {
     int i =0;
@@ -283,7 +291,7 @@ void handle_dollar_export(t_env **envv,char **argv,int index_tmp)
     char *value_dollar;
     if(argv[index_tmp + 1] != NULL && get_equal_index(argv[index_tmp + 1]) != -1)
          {
-             if(holder_try[0] == '$')
+             if(search_in_env(envv,get_after_dollar(holder_try)) == NULL)
              {
                  printf("go away $ in first we are not that rich !!\n");
              }
@@ -307,6 +315,18 @@ void handle_dollar_export(t_env **envv,char **argv,int index_tmp)
          {
              printf("insert an equal or go away man !!");
          }
+}
+
+int check_if_there_is_a_dollar(char * your_path)
+{
+    int i = 0;
+    while(your_path[i])
+    {
+        if (your_path[i] == '$')
+        return (1);
+        i++;
+    }
+    return (0);
 }
 
 int check_errors(char *your_path)
@@ -375,8 +395,17 @@ void ft_export_var(t_env **envv,char **argv)
              printf("i handeled the no name env go away zsh !!\n");
              return;
          }
+         
+         if (check_if_there_is_a_dollar(holder) == 1)
+         {
          handle_dollar_export(envv,argv,index_tmp);
-        // part_one_of_export(envv,argv,index_tmp);
+         return;
+         }
+         else
+         {
+         part_one_of_export(envv,argv,index_tmp);
+         return;
+         }
      }
     
 }
