@@ -1,36 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   split_input2.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 16:11:10 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/20 12:36:42 by oessayeg         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 #include "minishell.h"
 
 void	skip_quotes(char *string, int *i, int *word_count)
 {
 	char	val;
 
+	val = 39;
 	if (string[*i] == 34)
 		val = 34;
-	else
-		val = 39;
 	(*i)++;
-	while (string[*i] != '\0')
+	*word_count += 1;
+	while (1)
 	{
-		if (string[*i] == val && (string[*i + 1] == ' '
-			|| string[*i + 1] == '\0'))
-		{
-			*word_count += 1;
-			return ;
-		}
-		(*i)++;
+		go_to_quote(string, i, val);
+		if (string[*i] == '\0' || string[*i] == ' '
+			|| string[*i] == '|' || string[*i] == '<'
+			|| string[*i] == '>')
+			break;
+		if (find_end(string, i, &val))
+			break;
 	}
-}
+	(*i)--;
+}	
 
 int	find_quote(char *string, int i)
 {
@@ -44,4 +34,45 @@ int	find_quote(char *string, int i)
 		i++;
 	}
 	return (0);
+}
+
+int	*len_words(int size, char *string)
+{
+	int	*ret_array;
+	int	i;
+	int	arr_index;
+
+	i = 0;
+	arr_index = 0;
+	ret_array = ft_calloc(size);
+	while (string[i] != '\0')
+	{
+		if (string[i] == ' ')
+			skip_spaces(string, &i);
+		else if (string[i] == '|')
+			pipe_size(ret_array, &arr_index);
+		else if (string[i] == '>' || string[i] == '<')
+			redirection_size(string, &i, ret_array, &arr_index);
+		else if (string[i] != 34 && string[i] != 39)
+			word_size(string, &i, ret_array, &arr_index);
+		else
+			quotes_size(string, &i, ret_array, &arr_index);
+		i++;
+	}
+	return (ret_array);
+}
+
+int	*ft_calloc(int size)
+{
+	int	*arr;
+	int	i;
+
+	i = 0;
+	arr = malloc(sizeof(int) * size);
+	while (i < size)
+	{
+		arr[i] = 0;
+		i++;
+	}
+	return (arr);
 }

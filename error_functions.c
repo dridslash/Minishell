@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:23:27 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/20 12:12:55 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/20 15:45:41 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -15,6 +15,11 @@ void	check_errors(char *input)
 {
 	int	i;
 
+	i = 0;
+	while (input[i] == ' ')
+		i++;
+	if (input[i] == '|')
+		exit_error();
 	i = 0;
 	while (input[i] != '\0')
 	{
