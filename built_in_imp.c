@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/20 15:55:23 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/20 16:40:09 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,20 @@ int get_equal_index(char *table)
     return (-1);
 }
 
+char *get_after_equal(char *your_path)
+{
+    int  i =0;
+    while(your_path[i])
+    {
+        if(your_path[i] == '=')
+        {
+            return (&your_path[i + 1]);
+        }
+        i++;
+    }
+    return (NULL);
+}
+
 void append_env_vr(t_env **envv,char *var)
 {
     t_env *tmp;
@@ -117,7 +131,7 @@ char *get_name_of_env_var(char *tb)
     char *chr = ft_strdup(tb);
     while(chr[i])
     {
-        if(chr[i] == '=')
+        if(chr[i] == '=' || (chr[i] == '+' && chr[i + 1] == '='))
         {
         chr[i] = '\0';
         break;
@@ -165,9 +179,23 @@ void part_one_of_export(t_env **envv,char **argv,int index_tmp)
 void part_two_of_export(t_env **envv, char **argv, int index_tmp)
 {
     int i = 0;
-    int index_tmp = 1;
     char *holder = argv[index_tmp + 1];
-    
+     t_env *iterta = (*envv);
+     t_env *aff = (*envv);
+     while(iterta)
+     {
+         if(ft_strcmp(get_name_of_env_var(iterta->path_env),get_name_of_env_var(holder)) == 0)
+         {
+            iterta->path_env = ft_strjoin_non_free(iterta->path_env,get_after_equal(holder));
+             break;
+         }
+         iterta = iterta->next_env;
+     }
+     while(aff)
+        {
+                 printf("%s\n",aff->path_env);
+                 aff = aff->next_env;
+        }
 }
 
 int check_for_minus(char *your_path)
@@ -196,6 +224,21 @@ int check_for_plus(char *your_path)
     }
     return (0);
 }
+
+int check_for_plus_to_export(char *your_path)
+{
+    int i =0;
+    while(your_path[i])
+    {
+            if(your_path[i] == '+' && your_path[i + 1] == '=')
+             {
+               return (8);  
+             }
+             i++;
+    }
+    return (0);
+}
+
 
 int check_for_digits(char *your_path)
 {
@@ -252,19 +295,7 @@ char *get_after_dollar(char *your_path)
     return (NULL);
 }
 
-char *get_after_equal(char *your_path)
-{
-    int  i =0;
-    while(your_path[i])
-    {
-        if(your_path[i] == '=')
-        {
-            return (&your_path[i + 1]);
-        }
-        i++;
-    }
-    return (NULL);
-}
+
 char *search_in_env(t_env **envv,char * your_var)
 {
     t_env *aff = (*envv);
@@ -395,7 +426,11 @@ void ft_export_var(t_env **envv,char **argv)
              printf("i handeled the no name env go away zsh !!\n");
              return;
          }
-         
+         if(check_for_plus_to_export(holder) == 8)
+         {
+             part_two_of_export(envv,argv,index_tmp);
+             return;
+         }
          if (check_if_there_is_a_dollar(holder) == 1)
          {
          handle_dollar_export(envv,argv,index_tmp);

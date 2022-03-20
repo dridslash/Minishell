@@ -6,13 +6,13 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:35:34 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/14 14:11:42 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/20 16:30:20 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "commands.h"
 
-char	*ft_strjoin_non_free(char const *s1, char const *s2)
+char	*ft_strjoin_non_free(char  *s1, char  *s2)
 {
 	int		i;
 	int		res;

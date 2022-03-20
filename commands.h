@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:04:12 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/19 15:46:50 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/20 16:30:37 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		count_argc(char **argv);
 char	**get_params(int index, char **argv);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int     ft_strcmp(char  *s1,char    *s2);
-char	*ft_strjoin_non_free(char const *s1, char const *s2);
+char	*ft_strjoin_non_free(char  *s1, char  *s2);
 void    add_cmd(t_cmd **father_of_cmds , int in_file_op, int out_file_op, char **cmd_w_arg);
 int     ft_isdigit(int arg);
 int     ft_isalpha(int chr);
