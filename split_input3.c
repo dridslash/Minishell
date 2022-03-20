@@ -68,10 +68,12 @@ void	quotes_size(char *string, int *i, int *arr, int *arr_i)
 			*arr_i += 1;
 			break;
 		}
-		if (find_end(string, i, &val))
-		{
-			*arr_i += 1;
+		if (f_end(string, i, arr, arr_i) == 1)
 			break;
+		else if (f_end(string, i, arr, arr_i) == 2)
+		{
+			val = string[*i];
+			(*i)++;
 		}
 	}
 	(*i)--;

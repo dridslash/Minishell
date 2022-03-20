@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:13:11 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/20 17:48:22 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:55:11 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		find_quote(char *string, int i);
 int		*len_words(int size, char *string);
 int		*ft_calloc(int size);
 int		find_end(char *string, int *i, char *q);
+int		f_end(char *string, int *i, int *arr, int *arr_i);
 void	skip_spaces(char *string, int *i);
 void	skip_redirections(char *string, int *i, int *word_count);
 void	check_errors(char *input);
