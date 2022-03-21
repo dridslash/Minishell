@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:13:11 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/21 14:24:46 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:59:03 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int		*len_words(int size, char *string);
 int		*ft_calloc(int size);
 int		find_end(char *string, int *i, char *q);
 int		f_end(char *string, int *i, int *arr, int *arr_i);
+int		in(char *string, int *i1, char *split_input, int *i);
+int		another_q(char *string, int *i1, char *split_input, int *i);
 void	skip_spaces(char *string, int *i);
 void	skip_redirections(char *string, int *i, int *word_count);
 void	check_errors(char *input);
@@ -41,7 +43,6 @@ void	check_single_quotes(char *input, int *i);
 void	exit_error(void);
 void	skip_words(char *string, int *i, int *word_count);
 void	skip_quotes(char *string, int *i, int *word_count);
-
 void	pipe_size(int *arr, int *arr_i);
 void	redirection_size(char *string, int *i, int *arr, int *arr_i);
 void	word_size(char *string, int *i, int *arr, int *arr_i);
@@ -53,4 +54,7 @@ void	add_redi(char *string, int *i1, char *split_input);
 void	add_word(char *string, int *i1, char *split_input);
 void	add_in_quote(char *string, int *i1, char *split_input);
 void	to_quote(char *string, int *i1, char *split_input, int *i);
+void	go_to_quote2(char *string, int *i1, char *split_input, int *i);
+void	add_zero(char *string, int *i1, char *split_input, int *i);
+
 #endif

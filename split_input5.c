@@ -9,6 +9,7 @@ char **fill_me(char **split_input, char *string)
 	i2 = 0;
 	while (string[i1] != '\0')
 	{
+		printf("Char is : %c\n", string[i1]);
 		if (string[i1] == ' ')
 			skip_spaces(string, &i1);
 		else if (string[i1] == '|')

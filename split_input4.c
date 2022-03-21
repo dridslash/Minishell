@@ -52,3 +52,9 @@ int	find_end(char *string, int *i, char *q)
 	}
 	return (1);
 }
+
+void	add_zero(char *string, int *i1, char *split_input, int *i)
+{
+	if (string[*i1] == '\0')
+		split_input[*i] = '\0';
+}

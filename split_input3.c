@@ -23,7 +23,7 @@ void	word_size(char *string, int *i, int *arr, int *arr_i)
 {
 	while (string[*i] != '\0' && string[*i] != '<'
 		&& string[*i] != '>' && string[*i] != '|'
-		&& string[*i] != ' ' && string[*i] != 34 
+		&& string[*i] != ' ' && string[*i] != 39 
 		&& string[*i] != 34)
 	{
 		arr[*arr_i]++;
@@ -74,9 +74,11 @@ char **alloc_words(int *arr, int words, char **ret)
 	i = 0;
 	while (i < words)
 	{
+		printf("%d ", arr[i]);
 		ret[i] = malloc(sizeof(char) * arr[i] + 1);
 		i++;
 	}
+	printf("\n\n");
 	ret[i] = NULL;
 	return (ret);
 }
