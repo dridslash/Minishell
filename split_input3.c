@@ -23,35 +23,19 @@ void	word_size(char *string, int *i, int *arr, int *arr_i)
 {
 	while (string[*i] != '\0' && string[*i] != '<'
 		&& string[*i] != '>' && string[*i] != '|'
-		&& string[*i] != ' ')
+		&& string[*i] != ' ' && string[*i] != 34 
+		&& string[*i] != 34)
 	{
 		arr[*arr_i]++;
 		(*i)++;
 	}
+	if (string[*i] == 34 || string[*i] == 39)
 	(*i)--;
 	*arr_i += 1;
 }
 
 void	quotes_size(char *string, int *i, int *arr, int *arr_i)
 {
-	/*char q;
-
-	q = 39;
-	if (string[*i] == 34)
-		q = 34;
-	(*i)++;
-	while (string[*i] != '\0')
-	{
-		if ((string[*i] == q && (string[*i + 1] == ' '
-			|| string[*i + 1] == '\0')) || string[*i] == '\0')
-		{
-			*arr_i += 1;
-			return ;
-		}
-		if (string[*i] != q)
-			arr[*arr_i]++;
-		(*i)++;
-	}*/
 	char	val;
 
 	val = 39;

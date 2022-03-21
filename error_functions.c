@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:23:27 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/20 15:45:41 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/21 10:32:24 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -47,6 +47,7 @@ void	check_after_input_redirection(char *input, int *i)
 	if (input[*i] == '|' || input[*i] == '\0' || input[*i] == '>'
 		|| input[*i] == '<')
 		exit_error();
+	(*i)--;
 }
 
 void	check_after_output_redirection(char *input, int *i)
@@ -60,6 +61,7 @@ void	check_after_output_redirection(char *input, int *i)
 		|| input[*i] == '|' || input[*i] == '<'
 		|| input[*i] == '>')
 		exit_error();
+	(*i)--;
 }
 
 void	check_after_pipe(char *input, int *i)
@@ -69,6 +71,7 @@ void	check_after_pipe(char *input, int *i)
 		(*i)++;
 	if (input[*i] == '|')
 		exit_error();
+	(*i)--;
 }
 
 void	exit_error(void)

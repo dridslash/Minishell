@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 16:11:25 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/20 19:08:34 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/21 10:54:55 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -40,17 +40,18 @@ char	**split_input(char *input)
 	char	**ret;
 	int		*size_of_words;
 
+	printf("Words %d\n", count_words(input));
 	ret = malloc(sizeof(char *) * count_words(input) + 1);
-	size_of_words = len_words(count_words(input), input);
-	ret = alloc_words(size_of_words, count_words(input), ret);
+	//size_of_words = len_words(count_words(input), input);
+	//ret = alloc_words(size_of_words, count_words(input), ret);
 	//ret = fill_me(ret, input);
 	//Test
-	int	i = 0;
+	/*int	i = 0;
 	while (i < count_words(input))
 	{
 		printf("%d ", size_of_words[i]);
 		i++;
-	}
+	}*/
 	//Test end
 	return (ret);
 }
@@ -75,8 +76,14 @@ void	skip_words(char *string, int *i, int *word_count)
 {
 	while (string[*i] != '\0' && string[*i] != '<'
 		&& string[*i] != '>' && string[*i] != '|'
-		&& string[*i] != ' ')
+		&& string[*i] != ' ' && string[*i] != 34
+		&& string[*i] != 39)
 		(*i)++;
+	if (string[*i] == 34 || string[*i] == 39)
+	{
+		skip_quotes(string, i, word_count);
+		return ;
+	}
 	(*i)--;
 	*word_count += 1;
 }
