@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:13:11 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/20 18:55:11 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/21 14:24:46 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 char	**split_input(char *input);
 char	**alloc_words(int *arr, int words, char **ret);
+char	**fill_me(char **split_input, char *string);
+int		another_quote(char *string, int *i1, char *split_string, int *i);
 int		count_words(char *string);
 int		find_quote(char *string, int i);
 int		*len_words(int size, char *string);
@@ -45,5 +47,10 @@ void	redirection_size(char *string, int *i, int *arr, int *arr_i);
 void	word_size(char *string, int *i, int *arr, int *arr_i);
 void	quotes_size(char *string, int *i, int *arr, int *arr_i);
 void	go_to_quote(char *string, int *i, char q);
-void	g_quote(char *string, int *i, int *arr, int *arr_i);
+void	g_quote(char *string, int *i, int *n, char q);
+void	add_pipe(char *split_input);
+void	add_redi(char *string, int *i1, char *split_input);
+void	add_word(char *string, int *i1, char *split_input);
+void	add_in_quote(char *string, int *i1, char *split_input);
+void	to_quote(char *string, int *i1, char *split_input, int *i);
 #endif

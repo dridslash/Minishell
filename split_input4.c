@@ -1,10 +1,10 @@
 #include "minishell.h"
 
-void	g_quote(char *string, int *i, int *arr, int *arr_i)
+void	g_quote(char *string, int *i, int *n, char q)
 {
-	while (string[*i] != 34 && string[*i] != 39)
+	while (string[*i] != q)
 	{
-		arr[*arr_i]++;
+		(*n)++;
 		(*i)++;
 	}
 	(*i)++;
@@ -16,6 +16,35 @@ int	f_end(char *string, int *i, int *arr, int *arr_i)
 	{
 		if (string[*i] == 34 || string[*i] == 39)
 			return (2);
+		if (string[*i] == ' ' || string[*i] == '|'
+			|| string[*i] == '<' || string[*i] == '>')
+		{
+			*arr_i += 1;
+			return (1);
+		}
+		arr[*arr_i] += 1;
+		(*i)++;
+	}
+	return (1);
+}
+
+void	go_to_quote(char *string, int *i, char q)
+{
+	while (string[*i] != q)
+		(*i)++;
+	(*i)++;
+}
+
+int	find_end(char *string, int *i, char *q)
+{
+	while (string[*i] != '\0')
+	{
+		if (string[*i] == 34 || string[*i] == 39)
+		{
+			*q = string[*i];
+			(*i)++;
+			return (0);
+		}
 		if (string[*i] == ' ' || string[*i] == '|'
 			|| string[*i] == '<' || string[*i] == '>')
 			return (1);
