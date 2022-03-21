@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:04:12 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/20 16:30:37 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/20 18:23:50 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct t_envir
 
 
 char	**ft_split(char const *s, char c);
+void    sort_alpha(t_env **envv);
 char	*ft_strtrim(char const *s1, char const *set);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);

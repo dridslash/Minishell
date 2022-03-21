@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/20 16:40:09 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/20 18:25:04 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -379,6 +379,18 @@ int check_errors(char *your_path)
     return (i);
 }
 
+void display_sorted_env_vars(t_env **envv)
+{
+    t_env *aff;
+    aff =(*envv);
+    sort_alpha(envv);
+    // while(aff)
+    // {
+    //     printf("declare -x %s\n",aff->path_env);
+    //     aff = aff->next_env;
+    // }
+}
+
 void ft_export_var(t_env **envv,char **argv)
 {
     int i =0;
@@ -388,6 +400,8 @@ void ft_export_var(t_env **envv,char **argv)
     char *trimed;
     if(ft_strcmp(argv[index_tmp],"export") == 0)
      {
+         if(argv[index_tmp + 1] != NULL)
+         {
          if (check_errors(holder) == 2)
          {
                printf("really + without an = go out !! \n");
@@ -441,13 +455,18 @@ void ft_export_var(t_env **envv,char **argv)
          part_one_of_export(envv,argv,index_tmp);
          return;
          }
+         }
+         else
+         {
+             display_sorted_env_vars(envv);
+         }
      }
-    
 }
 
 int main(int argc,char **argv, char **env)
 {
     t_env *envv = ft_env(env);
-    ft_export_var(&envv,argv);
+    display_sorted_env_vars(&envv);
+    // ft_export_var(&envv,argv);
     return 0;
 }
