@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/22 19:11:05 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/22 19:19:57 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_env *ft_env(char **envi)
     create_env(&main_env,envi[i]);
     i++;
     }
-    return main_env;
+    return (main_env);
 }
 
 int get_equal_index(char *table)
