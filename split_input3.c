@@ -23,7 +23,7 @@ void	word_size(char *string, int *i, int *arr, int *arr_i)
 {
 	while (string[*i] != '\0' && string[*i] != '<'
 		&& string[*i] != '>' && string[*i] != '|'
-		&& string[*i] != ' ' && string[*i] != 39 
+		&& string[*i] != ' ' && string[*i] != 39
 		&& string[*i] != 34)
 	{
 		arr[*arr_i]++;
@@ -54,10 +54,10 @@ void	quotes_size(char *string, int *i, int *arr, int *arr_i)
 			|| string[*i] == '>')
 		{
 			*arr_i += 1;
-			break;
+			break ;
 		}
 		if (f_end(string, i, arr, arr_i) == 1)
-			break;
+			break ;
 		else if (f_end(string, i, arr, arr_i) == 2)
 		{
 			val = string[*i];
@@ -67,7 +67,7 @@ void	quotes_size(char *string, int *i, int *arr, int *arr_i)
 	(*i)--;
 }
 
-char **alloc_words(int *arr, int words, char **ret)
+char	**alloc_words(int *arr, int words, char **ret)
 {
 	int	i;
 

@@ -15,9 +15,9 @@ void	skip_quotes(char *string, int *i, int *word_count)
 		if (string[*i] == '\0' || string[*i] == ' '
 			|| string[*i] == '|' || string[*i] == '<'
 			|| string[*i] == '>')
-			break;
+			break ;
 		if (find_end(string, i, &val))
-			break;
+			break ;
 	}
 	(*i)--;
 }	

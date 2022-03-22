@@ -23,7 +23,7 @@ int	another_quote(char *string, int *i1, char *split_string, int *i)
 
 void	go_to_quote2(char *string, int *i1, char *split_input, int *i)
 {
-	char q;
+	char	q;
 
 	q = string[*i1];
 	*i1 += 1;
@@ -87,9 +87,9 @@ void	add_word(char *string, int *i1, char *split_input, int *i2)
 		{
 			go_to_quote2(string, i1, split_input, &i);
 			if (in(string, i1, split_input, &i))
-				break;
+				break ;
 			if (another_q(string, i1, split_input, &i) == 1)
-				break;
+				break ;
 		}
 	}
 	inc_dec(i1, i2);

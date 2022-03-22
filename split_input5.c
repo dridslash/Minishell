@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-char **fill_me(char **split_input, char *string)
+char	**fill_me(char **split_input, char *string)
 {
 	int	i1;
 	int	i2;
@@ -63,10 +63,10 @@ void	add_in_quote(char *string, int *i1, char *split_input, int *i2)
 			|| string[*i1] == '>')
 		{
 			split_input[i] = '\0';
-			break;
+			break ;
 		}
 		if (another_quote(string, i1, split_input, &i) == 1)
-			break;
+			break ;
 	}
 	(*i1)--;
 	*i2 += 1;
@@ -74,7 +74,7 @@ void	add_in_quote(char *string, int *i1, char *split_input, int *i2)
 
 void	to_quote(char *string, int *i1, char *split_input, int *i)
 {
-	char q;
+	char	q;
 
 	q = string[*i1];
 	(*i1)++;
