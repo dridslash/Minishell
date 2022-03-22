@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:04:12 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/20 18:23:50 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/22 19:00:40 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void    add_cmd(t_cmd **father_of_cmds , int in_file_op, int out_file_op, char *
 int     ft_isdigit(int arg);
 int     ft_isalpha(int chr);
 int     ft_isascii(int arg);
+int     ft_atoi(const char *nptr);
 
 #endif

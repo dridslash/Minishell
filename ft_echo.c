@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/22 12:03:52 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/22 12:13:32 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void ft_echo(int argc, char **argv)
         }
     }
     else
-    printf("there is no echo\n");
+    printf("there is no echo - echo - echo \n");
 }
 int main(int argc, char **argv)
 {

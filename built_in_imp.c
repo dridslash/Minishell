@@ -6,18 +6,24 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/21 14:09:31 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/22 19:01:58 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "commands.h" 
 
-void ft_pwd()
+void ft_pwd(int argc , char **argv)
 {
+    int index_tmp=1;
+    if((argv[index_tmp] != NULL) && (ft_strcmp(argv[index_tmp], "pwd") == 0))
+    {
     char current_dir[FILE_N_MAX];
     current_dir[FILE_N_MAX - 1] = '\0';
     getcwd(current_dir,FILE_N_MAX);
     printf("%s\n",current_dir);
+    }
+    else
+    printf("print pwd or im not showing you the current dir -- hint ;)");
 }
 
 t_env *bring_last(t_env *father_of_env)
@@ -458,9 +464,107 @@ void ft_export_var(t_env **envv,char **argv)
      }
 }
 
+int get_index_of_env_var(t_env **envv,char * your_path)
+{
+    int index = 0;
+    t_env *tmp = (*envv);
+    while(tmp)
+    {
+        if(ft_strcmp(get_name_of_env_var(tmp->path_env) , get_name_of_env_var(your_path)) == 0)
+        {
+            return (index);
+        }
+        index++;
+        tmp = tmp->next_env;
+    }
+    return (-1);
+}
+
+void ft_unset(t_env **envv,char **argv)
+{
+    t_env *looper = (*envv);
+    t_env *prev;
+    t_env *this;
+    int index_tmp = 1;
+    char *holder;
+    int index_var;
+    t_env *tmp;
+    if(argv[index_tmp] != NULL && (ft_strcmp(argv[index_tmp],"unset") == 0))
+    {
+        if(argv[index_tmp + 1] != NULL)
+        {
+            holder = get_name_of_env_var(argv[index_tmp + 1]);
+            index_var = get_index_of_env_var(envv, argv[index_tmp + 1]);
+    while(looper != NULL)
+    {
+        if(ft_strcmp(get_name_of_env_var(looper->path_env),holder) == 0)
+        {
+            if(get_index_of_env_var(envv,looper->path_env) == 0)
+            {
+                this = looper->next_env;
+                (*envv) = this;
+                looper->next_env = NULL;
+                break;
+                free(looper);
+            }
+            else
+            {
+                tmp = looper;
+                prev->next_env = tmp->next_env;
+                tmp->next_env = NULL;
+                free(tmp);
+            }
+        }
+        prev = looper;
+        looper = looper->next_env;
+    }
+        }
+        else
+        {}
+    }
+    else
+    printf("where is the unset !!! dooo ittt !!!\n");
+    
+}
+
+void ft_exit(int argc, char **argv)
+{
+    int index_tmp = 1;
+    int status = 0;
+    if(argv[index_tmp] != NULL && (ft_strcmp(argv[index_tmp], "exit") == 0))
+    {
+        if(argv[index_tmp + 1] != NULL)
+        {
+            status = ft_atoi(argv[index_tmp + 1]);
+            exit(status);
+        }
+        else
+        exit(0);
+    }
+    else
+    printf("you wanna exit without exit go go go !!!\n");
+}
+
 int main(int argc,char **argv, char **env)
 {
     t_env *envv = ft_env(env);
-    display_sorted_env_vars(&envv);
+    t_env *aff  = envv;
+    // printf("\n----------------------------------------------------------------\n");
+    // while(aff)
+    //             {
+    //              printf("%s\n",aff->path_env);
+    //              aff = aff->next_env;
+    //             }
+    // printf("\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n");
+    // ft_unset(&envv,argv);
+    //aff = envv;
+    // printf("\n----------------------------------------------------------------\n");
+    // while(aff)
+    //             {
+    //              printf("%s\n",aff->path_env);
+    //              aff = aff->next_env;
+    //             }
+    // printf("\n----------------------------------------------------------------\n");
+    //ft_exit(argc,argv);
     return 0;
 }
