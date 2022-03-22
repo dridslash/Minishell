@@ -1,13 +1,14 @@
 #include "minishell.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	char	*input;
 	char	**input_split;
 
+	input = NULL;
 	while (1)
 	{
-		input = readline("$> ");
+		take_input(&input);
 		if (check_errors(input))
 			input_split = split_input(input);
 	}

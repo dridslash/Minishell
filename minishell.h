@@ -7,10 +7,13 @@
 # include <strings.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <limits.h>
+
 
 char	**split_input(char *input);
 char	**alloc_words(int *arr, int words, char **ret);
 char	**fill_me(char **split_input, char *string);
+char	*ft_strjoin(char *s1, char *s2);
 int		another_quote(char *string, int *i1, char *split_string, int *i);
 int		count_words(char *string);
 int		find_quote(char *string, int i);
@@ -22,8 +25,9 @@ int		in(char *string, int *i1, char *split_input, int *i);
 int		another_q(char *string, int *i1, char *split_input, int *i);
 void	skip_spaces(char *string, int *i);
 void	skip_redirections(char *string, int *i, int *word_count);
-
+void	take_input(char **input);
 //Error functions
+int		pipe_in_end(char *input);
 int		check_errors(char *input);
 int		pipe_beggining(char *input);
 int		check_after_pipe(char *input, int *i);
@@ -49,4 +53,5 @@ void	to_quote(char *string, int *i1, char *split_input, int *i);
 void	go_to_quote2(char *string, int *i1, char *split_input, int *i);
 void	add_zero(char *string, int *i1, char *split_input, int *i);
 void	inc_dec(int *i1, int *i2);
+
 #endif

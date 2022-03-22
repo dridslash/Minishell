@@ -55,6 +55,8 @@ int	find_end(char *string, int *i, char *q)
 
 void	add_zero(char *string, int *i1, char *split_input, int *i)
 {
-	if (string[*i1] == '\0')
+	if (string[*i1] == '\0' || string[*i1] == '<'
+		|| string[*i1] == '>' || string[*i1] == '|'
+		|| string[*i1] == ' ')
 		split_input[*i] = '\0';
 }
