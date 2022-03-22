@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/22 19:01:58 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/22 19:11:05 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -504,8 +504,8 @@ void ft_unset(t_env **envv,char **argv)
                 this = looper->next_env;
                 (*envv) = this;
                 looper->next_env = NULL;
-                break;
                 free(looper);
+                break;
             }
             else
             {
