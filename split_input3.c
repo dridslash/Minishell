@@ -74,11 +74,9 @@ char	**alloc_words(int *arr, int words, char **ret)
 	i = 0;
 	while (i < words)
 	{
-		printf("%d ", arr[i]);
 		ret[i] = malloc(sizeof(char) * arr[i] + 1);
 		i++;
 	}
-	printf("\n\n");
 	ret[i] = NULL;
 	return (ret);
 }

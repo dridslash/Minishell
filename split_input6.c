@@ -33,6 +33,7 @@ void	go_to_quote2(char *string, int *i1, char *split_input, int *i)
 		(*i1)++;
 		(*i)++;
 	}
+	(*i1)++;
 }
 
 int	in(char *string, int *i1, char *split_input, int *i)
@@ -86,7 +87,7 @@ void	add_word(char *string, int *i1, char *split_input, int *i2)
 		while (1)
 		{
 			go_to_quote2(string, i1, split_input, &i);
-			if (in(string, i1, split_input, &i))
+			if (in(string, i1, split_input, &i) == 1)
 				break ;
 			if (another_q(string, i1, split_input, &i) == 1)
 				break ;
