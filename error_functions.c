@@ -6,38 +6,36 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:23:27 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/21 10:32:24 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/22 12:38:40 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
 
-void	check_errors(char *input)
+int	check_errors(char *input)
 {
 	int	i;
 
-	i = 0;
-	while (input[i] == ' ')
-		i++;
-	if (input[i] == '|')
-		exit_error();
+	if (pipe_beggining(input) == 0)
+		return (0);
 	i = 0;
 	while (input[i] != '\0')
 	{
-		if (input[i] == '|')
-			check_after_pipe(input, &i);
-		else if (input[i] == '>')
-			check_after_output_redirection(input, &i);
-		else if (input[i] == '<')
-			check_after_input_redirection(input, &i);
-		else if (input[i] == 34)
-			check_double_quotes(input, &i);
-		else if (input[i] == 39)
-			check_single_quotes(input, &i);
+		if (input[i] == '|' && !check_after_pipe(input, &i))
+			return (0);
+		else if (input[i] == '>' && !check_out_red(input, &i))
+			return (0);
+		else if (input[i] == '<' && !check_in_red(input, &i))
+			return (0);
+		else if (input[i] == 34 && !check_d_quotes(input, &i))
+			return (0);
+		else if (input[i] == 39 && !check_s_quotes(input, &i))
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
-void	check_after_input_redirection(char *input, int *i)
+int	check_in_red(char *input, int *i)
 {
 	(*i)++;
 	if (input[*i] == '<')
@@ -46,11 +44,15 @@ void	check_after_input_redirection(char *input, int *i)
 		(*i)++;
 	if (input[*i] == '|' || input[*i] == '\0' || input[*i] == '>'
 		|| input[*i] == '<')
-		exit_error();
+	{
+		write(2, "Input Error !\n", 14);
+		return (0);
+	}
 	(*i)--;
+	return (1);
 }
 
-void	check_after_output_redirection(char *input, int *i)
+int	check_out_red(char *input, int *i)
 {
 	(*i)++;
 	if (input[*i] == '>')
@@ -60,22 +62,24 @@ void	check_after_output_redirection(char *input, int *i)
 	if (input[*i] == '\0' || input[*i] == '\n'
 		|| input[*i] == '|' || input[*i] == '<'
 		|| input[*i] == '>')
-		exit_error();
+	{
+		write(2, "Input Error !\n", 14);
+		return (0);
+	}
 	(*i)--;
+	return (1);
 }
 
-void	check_after_pipe(char *input, int *i)
+int	check_after_pipe(char *input, int *i)
 {
 	(*i)++;
 	while (input[*i] == ' ')
 		(*i)++;
 	if (input[*i] == '|')
-		exit_error();
+	{
+		write(2, "Input Error !\n", 14);
+		return (0);
+	}
 	(*i)--;
-}
-
-void	exit_error(void)
-{
-	printf("Input Error !\n");
-	exit(EXIT_FAILURE);
+	return (1);
 }

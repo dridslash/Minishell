@@ -66,7 +66,7 @@ int	another_q(char *string, int *i1, char *input_string, int *i)
 	return (0);
 }
 
-void	add_word(char *string, int *i1, char *split_input)
+void	add_word(char *string, int *i1, char *split_input, int *i2)
 {
 	int	i;
 
@@ -92,5 +92,5 @@ void	add_word(char *string, int *i1, char *split_input)
 				break;
 		}
 	}
-	(*i1)--;
+	inc_dec(i1, i2);
 }

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 12:13:11 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/21 18:59:03 by oessayeg         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -34,13 +22,17 @@ int		in(char *string, int *i1, char *split_input, int *i);
 int		another_q(char *string, int *i1, char *split_input, int *i);
 void	skip_spaces(char *string, int *i);
 void	skip_redirections(char *string, int *i, int *word_count);
-void	check_errors(char *input);
-void	check_after_pipe(char *input, int *i);
-void	check_after_output_redirection(char *input, int *i);
-void	check_after_input_redirection(char *input, int *i);
-void	check_double_quotes(char *input, int *i);
-void	check_single_quotes(char *input, int *i);
-void	exit_error(void);
+
+//Error functions
+int		check_errors(char *input);
+int		pipe_beggining(char *input);
+int		check_after_pipe(char *input, int *i);
+int		check_out_red(char *input, int *i);
+int		check_in_red(char *input, int *i);
+int		check_d_quotes(char *input, int *i);
+int		check_s_quotes(char *input, int *i);
+//Error functions end
+
 void	skip_words(char *string, int *i, int *word_count);
 void	skip_quotes(char *string, int *i, int *word_count);
 void	pipe_size(int *arr, int *arr_i);
@@ -49,12 +41,12 @@ void	word_size(char *string, int *i, int *arr, int *arr_i);
 void	quotes_size(char *string, int *i, int *arr, int *arr_i);
 void	go_to_quote(char *string, int *i, char q);
 void	g_quote(char *string, int *i, int *n, char q);
-void	add_pipe(char *split_input);
-void	add_redi(char *string, int *i1, char *split_input);
-void	add_word(char *string, int *i1, char *split_input);
-void	add_in_quote(char *string, int *i1, char *split_input);
+void	add_pipe(char *split_input, int *i2);
+void	add_redi(char *string, int *i1, char *split_input, int *i2);
+void	add_word(char *string, int *i1, char *split_input, int *i2);
+void	add_in_quote(char *string, int *i1, char *split_input, int *i2);
 void	to_quote(char *string, int *i1, char *split_input, int *i);
 void	go_to_quote2(char *string, int *i1, char *split_input, int *i);
 void	add_zero(char *string, int *i1, char *split_input, int *i);
-
+void	inc_dec(int *i1, int *i2);
 #endif

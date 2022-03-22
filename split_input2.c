@@ -76,3 +76,9 @@ int	*ft_calloc(int size)
 	}
 	return (arr);
 }
+
+void	inc_dec(int *i1, int *i2)
+{
+	(*i1)--;
+	(*i2)++;
+}
