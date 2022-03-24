@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 16:11:25 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/22 15:53:13 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/24 20:21:54 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -48,6 +48,7 @@ char	**split_input(char *input)
 	int	i = -1;
 	while (ret[++i] != NULL)
 		printf("|%s|\n", ret[i]);
+	printf("\n\n");
 	//fin test
 	return (ret);
 }

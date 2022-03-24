@@ -50,6 +50,96 @@ char *search_in_env(t_env **envv,char * your_var)
                  }
                  aff = aff->next_env;
              }
-    return (ft_strdup(""));
+    return (NULL);
+}
+
+int     ft_strcmp(char  *s1,char    *s2)
+{
+	while(*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+	{
+		   s1++;
+		      s2++;
+	}
+	return *s1 - *s2;
+}
+
+char *get_name_of_env_var(char *tb)
+{
+    int  i =0;
+    int index_tmp = 2;
+    char *chr = ft_strdup(tb);
+    while(chr[i])
+    {
+        if(chr[i] == '=' || (chr[i] == '+' && chr[i + 1] == '='))
+        {
+        chr[i] = '\0';
+        break;
+        }
+        i++;
+    }
+    return (chr);
+}
+
+char *get_after_equal(char *your_path)
+{
+    int  i =0;
+    while(your_path[i])
+    {
+        if(your_path[i] == '=')
+        {
+            return (&your_path[i + 1]);
+        }
+        i++;
+    }
+    return (NULL);
+}
+
+char	*ft_strdup(char *src)
+{
+	size_t	i;
+	size_t	len;
+	char	*t;
+
+	len = 0;
+	len = ft_strlen(src);
+	t = (char *)malloc(sizeof(char) * (len + 1));
+	i = 0;
+	if (t == NULL)
+	{
+		return (0);
+	}
+	while (src[i] != '\0')
+	{
+		t[i] = src[i];
+		i++;
+	}
+	t[i] = '\0';
+	return (t);
+}
+
+int	ft_strlen(char *s)
+{
+	int	len;
+
+	len = 0;
+	while (*s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+char *get_after_dollar(char *your_path)
+{
+    int  i;
+
+	i = 0;
+    while (your_path[i])
+    {
+        if (your_path[i] == '$')
+            return (&your_path[i + 1]);
+        i++;
+    }
+    return (NULL);
 }
 //EXECUTION

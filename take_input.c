@@ -50,6 +50,8 @@ char	*t_strjoin(char *s1, char *s2)
 	int		i1;
 	int		i2;
 
+	if (s1 == NULL)
+		return (ft_strdup(s2));
 	ret_string = malloc(sizeof(char) * (len(s1) + len(s2) + 1));
 	i1 = 0;
 	i2 = 0;
@@ -67,4 +69,24 @@ char	*t_strjoin(char *s1, char *s2)
 	ret_string[i1] = '\0';
 	free(s1);
 	return (ret_string);
+}
+
+char *char_join(char *string, char c)
+{
+	char	*return_string;
+	int 	i;
+
+	if (string == NULL)
+		return (ft_strdup(&c));
+	i = 0;
+	return_string = malloc(sizeof(char) * ft_strlen(string) + 2);
+	while (string[i] != '\0')
+	{
+		return_string[i] = string[i];
+		i++;
+	}
+	return_string[i] = c;
+	return_string[i + 1] = '\0';
+	free (string);
+	return (return_string);
 }

@@ -41,9 +41,13 @@ int		check_s_quotes(char *input, int *i);
 //Error functions end
 
 //Dollar handling
+void	check_dollar(char *input, int *i1, char **split_input, t_env *env);
 void	check_env(char *input, char **split_input, t_env *env);
 void	skip_red2(char *input, int *i1, int *i2);
-
+void	get_dollar1(char *input, int *i1, char **string, t_env *env);
+void	get_dol_double_q(char *input, int *i1, char **string, t_env *env);
+void	get_single_q_dollar(char *input, int *i1, char **string);
+char	*char_join(char *string, char c);
 //Dollar handling
 
 void	skip_words(char *string, int *i, int *word_count);
