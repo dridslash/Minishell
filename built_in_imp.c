@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/22 19:19:57 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/23 14:27:53 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,16 @@ void ft_cd(int argc, char **argv)
      {
      if(argv[index_tmp + 1] != NULL)
      {
+          if(ft_strcmp(argv[index_tmp + 1],"~") == 0)
+          {
+              if(chdir(get_home))
+                 perror(">>shell : cd ");
+          }
+          else
+          {
         if(chdir(argv[index_tmp + 1]) != 0)
          perror(">>shell : cd ");
+          }
      }
      else
      chdir(get_home);
