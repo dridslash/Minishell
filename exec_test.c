@@ -38,4 +38,18 @@ void    create_env(t_env **envv,char *path_env)
     last_env_var->next_env = element_path;
     element_path->next_env = NULL;
 }
+
+char *search_in_env(t_env **envv,char * your_var)
+{
+    t_env *aff = (*envv);
+    while(aff)
+             {
+                 if(ft_strcmp(get_name_of_env_var(aff->path_env),get_name_of_env_var(your_var)) == 0)
+                 {
+                     return(get_after_equal(aff->path_env));
+                 }
+                 aff = aff->next_env;
+             }
+    return (ft_strdup(""));
+}
 //EXECUTION
