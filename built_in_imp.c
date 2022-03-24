@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/23 14:27:53 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/24 18:20:14 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,6 +286,20 @@ int check_for_space(char *your_path)
     return (0);
 }
 
+int check_simple_quote(char *your_path)
+{
+    int i = 0;
+    while(your_path[i])
+    {
+        if(your_path[i] == '\'')
+        {
+            return (10);
+        }
+        i++;
+    }
+    return (0);
+}
+
 int check_empty_path_name(char *your_path)
 {
     if(get_equal_index(your_path) == 0)
@@ -377,6 +391,9 @@ int check_if_there_is_a_dollar(char * your_path)
 int check_errors(char *your_path)
 {
     int i = 0;
+     i = check_simple_quote(your_path);
+    if(i > 0)
+    return (i);
      i = check_empty_path_name(your_path);
     if(i > 0)
     return (i);
@@ -447,6 +464,11 @@ void ft_export_var(t_env **envv,char **argv)
          if(check_errors(holder) == 9)
          {
              printf("i handeled the no name env go away zsh !!\n");
+             return;
+         }
+         if(check_errors(holder) == 10)
+         {
+             printf("i handeled single quote problem ho ho !!\n");
              return;
          }
          if(check_for_plus_to_export(holder) == 8)
@@ -556,7 +578,13 @@ void ft_exit(int argc, char **argv)
 int main(int argc,char **argv, char **env)
 {
     t_env *envv = ft_env(env);
-    t_env *aff  = envv;
+   // ft_export_var(&envv,argv);
+    //t_env *aff  = envv;
+    // while(aff)
+    // {
+    //     printf("%s\n",aff->path_env);
+    //     aff = aff->next_env;
+    // }
     // printf("\n----------------------------------------------------------------\n");
     // while(aff)
     //             {
