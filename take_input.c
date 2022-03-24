@@ -8,7 +8,9 @@ void	take_input(char **input)
 	while (pipe_in_end(*input))
 	{
 		tmp = readline("> ");
-		*input = ft_strjoin(*input, tmp);
+		*input = t_strjoin(*input, tmp);
+		if (tmp)
+			free(tmp);
 	}
 }
 
@@ -42,7 +44,7 @@ int	len(char *string)
 	return (i);
 }
 
-char *ft_strjoin(char *s1, char *s2)
+char	*t_strjoin(char *s1, char *s2)
 {
 	char	*ret_string;
 	int		i1;
@@ -64,6 +66,5 @@ char *ft_strjoin(char *s1, char *s2)
 	}
 	ret_string[i1] = '\0';
 	free(s1);
-	free(s2);
 	return (ret_string);
 }

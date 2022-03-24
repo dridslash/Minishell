@@ -9,11 +9,13 @@
 # include <readline/history.h>
 # include <limits.h>
 
-
+//EXEC
+# include "exec_test.h"
+//EXEC
 char	**split_input(char *input);
 char	**alloc_words(int *arr, int words, char **ret);
 char	**fill_me(char **split_input, char *string);
-char	*ft_strjoin(char *s1, char *s2);
+char	*t_strjoin(char *s1, char *s2);
 int		another_quote(char *string, int *i1, char *split_string, int *i);
 int		count_words(char *string);
 int		find_quote(char *string, int i);
@@ -26,6 +28,7 @@ int		another_q(char *string, int *i1, char *split_input, int *i);
 void	skip_spaces(char *string, int *i);
 void	skip_redirections(char *string, int *i, int *word_count);
 void	take_input(char **input);
+
 //Error functions
 int		pipe_in_end(char *input);
 int		check_errors(char *input);
@@ -36,6 +39,12 @@ int		check_in_red(char *input, int *i);
 int		check_d_quotes(char *input, int *i);
 int		check_s_quotes(char *input, int *i);
 //Error functions end
+
+//Dollar handling
+void	check_env(char *input, char **split_input, t_env *env);
+void	skip_red2(char *input, int *i1, int *i2);
+
+//Dollar handling
 
 void	skip_words(char *string, int *i, int *word_count);
 void	skip_quotes(char *string, int *i, int *word_count);
