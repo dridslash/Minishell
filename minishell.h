@@ -38,6 +38,7 @@ int		check_out_red(char *input, int *i);
 int		check_in_red(char *input, int *i);
 int		check_d_quotes(char *input, int *i);
 int		check_s_quotes(char *input, int *i);
+int		check_do(char *input, int *i);
 //Error functions end
 
 //Dollar handling

@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:23:27 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/22 18:25:25 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/25 16:11:55 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -26,11 +26,23 @@ int	check_errors(char *input)
 			return (0);
 		else if (input[i] == '<' && !check_in_red(input, &i))
 			return (0);
+		else if (input[i] == '$' && !check_do(input, &i))
+			return (0);
 		else if (input[i] == 34 && !check_d_quotes(input, &i))
 			return (0);
 		else if (input[i] == 39 && !check_s_quotes(input, &i))
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	check_do(char *input, int *i)
+{
+	if (input[*i + 1] == '$')
+	{
+		write(2, "Input Error !\n", 14);
+		return (0);
 	}
 	return (1);
 }
