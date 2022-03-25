@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:22:42 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/24 18:20:14 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/03/25 17:04:49 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,8 @@ void part_two_of_export(t_env **envv, char **argv, int index_tmp)
 {
     int i = 0;
     char *holder = argv[index_tmp + 1];
+    char *joined;
+    int found = 1;
      t_env *iterta = (*envv);
      t_env *aff = (*envv);
      while(iterta)
@@ -201,15 +203,19 @@ void part_two_of_export(t_env **envv, char **argv, int index_tmp)
          if(ft_strcmp(get_name_of_env_var(iterta->path_env),get_name_of_env_var(holder)) == 0)
          {
             iterta->path_env = ft_strjoin_non_free(iterta->path_env,get_after_equal(holder));
+            found = 0;
              break;
          }
          iterta = iterta->next_env;
      }
-     while(aff)
-        {
-                 printf("%s\n",aff->path_env);
-                 aff = aff->next_env;
-        }
+       if (found == 1)
+         {
+             joined = get_name_of_env_var(holder);
+             joined = ft_strjoin_non_free(joined,"=");
+             joined = ft_strjoin_non_free(joined,get_after_equal(holder));
+             create_env(envv,joined);
+             return;
+         }
 }
 
 int check_for_minus(char *your_path)
@@ -388,6 +394,26 @@ int check_if_there_is_a_dollar(char * your_path)
     return (0);
 }
 
+int check_is_exportable(char *your_path)
+{
+    int i = 0;
+    while(your_path[i] != '=')
+    {
+        if(ft_isascii(your_path[i]))
+        {
+            if((ft_isdigit(your_path[i]) == 0) && (ft_isalpha(your_path[i]) == 0) && (your_path[i] != '='))
+            {
+                if (your_path[i] == '+' && (your_path[i + 1] == '='))
+                return (0);
+                else
+                return (11);
+            }
+        }
+        i++;
+    }
+    return (0);
+}
+
 int check_errors(char *your_path)
 {
     int i = 0;
@@ -433,7 +459,7 @@ void ft_export_var(t_env **envv,char **argv)
                printf("really + without an = go out !! \n");
                return;
          }
-         if (check_errors(holder) == 1)
+        if (check_errors(holder) == 1)
          {
               printf("minus no no no !! \n");
                return;
@@ -443,7 +469,7 @@ void ft_export_var(t_env **envv,char **argv)
               printf("digit error no no no !! \n");
                return;
          }
-         if(check_errors(holder) == 7)
+         if (check_errors(holder) == 7)
          {
              trimed = get_name_of_env_var(holder);
              trimed = ft_strjoin_non_free(trimed,"=");
@@ -461,17 +487,22 @@ void ft_export_var(t_env **envv,char **argv)
               printf("space error no no no !! \n");
                return;
          }
-         if(check_errors(holder) == 9)
+         if (check_errors(holder) == 9)
          {
              printf("i handeled the no name env go away zsh !!\n");
              return;
          }
-         if(check_errors(holder) == 10)
+         if (check_errors(holder) == 10)
          {
              printf("i handeled single quote problem ho ho !!\n");
              return;
          }
-         if(check_for_plus_to_export(holder) == 8)
+         if (check_is_exportable(holder) == 11)
+         {
+             printf("i handeled ascii go away zsh !!\n");
+             return;
+         }
+         if (check_for_plus_to_export(holder) == 8)
          {
              part_two_of_export(envv,argv,index_tmp);
              return;
@@ -578,7 +609,13 @@ void ft_exit(int argc, char **argv)
 int main(int argc,char **argv, char **env)
 {
     t_env *envv = ft_env(env);
-   // ft_export_var(&envv,argv);
+   ft_export_var(&envv,argv);
+   t_env *aff = (envv);
+    // while(aff)
+    //     {
+    //              printf("%s\n",aff->path_env);
+    //              aff = aff->next_env;
+    //     }
     //t_env *aff  = envv;
     // while(aff)
     // {
