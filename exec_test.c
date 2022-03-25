@@ -41,6 +41,7 @@ void    create_env(t_env **envv,char *path_env)
 
 char *search_in_env(t_env **envv,char * your_var)
 {
+	printf("%s\n", your_var);
     t_env *aff = (*envv);
     while(aff)
              {
@@ -65,7 +66,7 @@ int     ft_strcmp(char  *s1,char    *s2)
 
 char *get_name_of_env_var(char *tb)
 {
-    int  i =0;
+    int  i = 0;
     int index_tmp = 2;
     char *chr = ft_strdup(tb);
     while(chr[i])

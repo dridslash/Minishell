@@ -18,5 +18,9 @@ char	*ft_strdup(char *src);
 int		ft_strlen(char *s);
 char	*get_after_dollar(char *your_path);
 //EXECUTION
+//
+//test
+char *search_test(t_env **envv, char *your_var);
 
+//test
 #endif

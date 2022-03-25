@@ -5,10 +5,14 @@ void	take_input(char **input)
 	char	*tmp;
 
 	*input = readline("$> ");
+	if (*input == NULL)
+		exit(0);
 	while (pipe_in_end(*input))
 	{
 		tmp = readline("> ");
 		*input = t_strjoin(*input, tmp);
+		if (*input == NULL)
+			exit(0);
 		if (tmp)
 			free(tmp);
 	}

@@ -47,6 +47,7 @@ void	skip_red2(char *input, int *i1, int *i2);
 void	get_dollar1(char *input, int *i1, char **string, t_env *env);
 void	get_dol_double_q(char *input, int *i1, char **string, t_env *env);
 void	get_single_q_dollar(char *input, int *i1, char **string);
+void	get_after_q2(char *input, int *i1, char **string, t_env *env);
 char	*char_join(char *string, char c);
 //Dollar handling
 

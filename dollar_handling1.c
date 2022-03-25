@@ -76,14 +76,10 @@ void	get_dollar1(char *input, int *i1, char **string, t_env *env)
 	}
 	(*i1)--;
 	t = s;
-	s = search_in_env(&env, get_after_dollar(s));
+	s = search_in_env(&env, s);
 	free(t);
 	if (s == NULL)
-	{
-		if (*string == NULL)
-			*string = t_strjoin(*string, "nothing");
 		return ;
-	}
 	*string = t_strjoin(*string, s);
 }
 
@@ -98,7 +94,7 @@ void	get_dol_double_q(char *input, int *i1, char **string, t_env *env)
 	while (input[*i1] != '\"' && input[*i1] != '\0')
 	{
 		if (input[*i1] == '$')
-			get_dollar1(input, i1, string, env);
+			get_after_q2(input, i1, string, env);
 		else
 			*string = char_join(*string, input[*i1]);
 		(*i1)++;
