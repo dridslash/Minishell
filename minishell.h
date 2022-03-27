@@ -50,7 +50,6 @@ void	get_dol_double_q(char *input, int *i1, char **string, t_env *env);
 void	get_single_q_dollar(char *input, int *i1, char **string);
 void	get_after_q2(char *input, int *i1, char **string, t_env *env);
 char	*char_join(char *string, char c);
-char	*search_in_env1();
 //Dollar handling
 
 void	skip_words(char *string, int *i, int *word_count);
@@ -79,4 +78,9 @@ char	**ft_split(char *s, char d);
 
 //Search in env test
 char	*search_in_env1(t_env *env, char *var);
+void	env_join(char **string, char *string1, t_env *en, int *i);
+int	f_isalpha(char c);
+int	f_isdigit(char c);
+int	check_dollar_end(char **str, int *i, char *string);
+void	join_mark(char **ret_string, char *split_string, int *i);
 #endif
