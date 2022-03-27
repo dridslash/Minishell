@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "minishell.h"
 
-int	count_w(char const *st, char deli)
+int	coun(char *st, char deli)
 {
 	int	count;
 	int	compteur;
@@ -31,7 +31,7 @@ int	count_w(char const *st, char deli)
 	return (count);
 }
 
-int	*len_of_words(char const *my_string, char dtr)
+int	*len_of_w(char *my_string, char dtr)
 {
 	int	n;
 	int	*array_of_sizes;
@@ -39,7 +39,7 @@ int	*len_of_words(char const *my_string, char dtr)
 
 	index = 0;
 	n = 0;
-	array_of_sizes = ft_calloc(count_w(my_string, dtr));
+	array_of_sizes = ft_calloc(coun(my_string, dtr));
 	if (!array_of_sizes)
 		return (0);
 	while (my_string[n] == dtr)
@@ -59,7 +59,7 @@ int	*len_of_words(char const *my_string, char dtr)
 	return (array_of_sizes);
 }
 
-char	**copy_strings(char **re_string, char const *strii, char dm, int n)
+char	**copy_strings(char **re_string, char *strii, char dm, int n)
 {
 	int	i1;
 	int	i2;
@@ -85,7 +85,7 @@ char	**copy_strings(char **re_string, char const *strii, char dm, int n)
 	return (re_string);
 }
 
-int	give_index(char const *sttt, char ddd)
+int	give_index(char *sttt, char ddd)
 {
 	int	lo;
 
@@ -95,7 +95,7 @@ int	give_index(char const *sttt, char ddd)
 	return (lo);
 }
 
-char	**ft_split(char const *s, char d)
+char	**ft_split(char *s, char d)
 {
 	char	**return_string;
 	int		*sizes_in_arr;
@@ -106,11 +106,11 @@ char	**ft_split(char const *s, char d)
 		return (NULL);
 	m = 0;
 	com = 0;
-	sizes_in_arr = len_of_words(s, d);
-	return_string = (char **)malloc(sizeof(char *) * (count_w(s, d) + 1));
+	sizes_in_arr = len_of_w(s, d);
+	return_string = (char **)malloc(sizeof(char *) * (coun(s, d) + 1));
 	if (!(return_string))
 		return (NULL);
-	while (com < count_w(s, d))
+	while (com < coun(s, d))
 	{
 		return_string[com] = (char *)malloc(sizeof(char) * sizes_in_arr[com]);
 		if (!return_string[com])

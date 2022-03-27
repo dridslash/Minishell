@@ -4,13 +4,15 @@
 //EXECUTION
 t_env *ft_env(char **envi)
 {
-    int i = 0;
+    int i;
+
+    i = 0;
     t_env *main_env = malloc(sizeof(t_env));
     main_env = NULL;
     while(envi[i])
     {
-    create_env(&main_env,envi[i]);
-    i++;
+   	 create_env(&main_env,envi[i]);
+    	i++;
     }
     return (main_env);
 }
@@ -41,7 +43,6 @@ void    create_env(t_env **envv,char *path_env)
 
 char *search_in_env(t_env **envv,char * your_var)
 {
-	printf("%s\n", your_var);
     t_env *aff = (*envv);
     while(aff)
              {

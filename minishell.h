@@ -50,6 +50,7 @@ void	get_dol_double_q(char *input, int *i1, char **string, t_env *env);
 void	get_single_q_dollar(char *input, int *i1, char **string);
 void	get_after_q2(char *input, int *i1, char **string, t_env *env);
 char	*char_join(char *string, char c);
+char	*search_in_env1();
 //Dollar handling
 
 void	skip_words(char *string, int *i, int *word_count);
@@ -69,4 +70,13 @@ void	go_to_quote2(char *string, int *i1, char *split_input, int *i);
 void	add_zero(char *string, int *i1, char *split_input, int *i);
 void	inc_dec(int *i1, int *i2);
 
+//Ft_split
+int	coun(char *st, char deli);
+int	*len_of_w(char *my_string, char dtr);
+char	**copy_strings(char **re_string, char *strii, char dm, int n);
+int	give_index(char *sttt, char ddd);
+char	**ft_split(char *s, char d);
+
+//Search in env test
+char	*search_in_env1(t_env *env, char *var);
 #endif
