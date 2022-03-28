@@ -21,35 +21,15 @@ int	count_words(char *string)
 	while (string[i] != '\0')
 	{
 		if (string[i] == ' ')
-		{
 			skip_spaces(string, &i);
-		//	printf("Space here, words : %d\n", ret_value);
-		//	printf("Index : %d\n", i);
-		}
 		else if (string[i] == '|')
-		{
 			ret_value++;
-		//	printf("Pipe here, words : %d\n", ret_value);
-		//	printf("Index : %d\n", i);
-		}
 		else if (string[i] == '>' || string[i] == '<')
-		{
 			skip_redirections(string, &i, &ret_value);
-		//	printf("Redirections here, words : %d\n", ret_value);
-		//	printf("Index : %d\n", i);
-		}
 		else if (string[i] != 34 && string[i] != 39)
-		{
 			skip_words(string, &i, &ret_value);
-		//	printf("Words here, words : %d\n", ret_value);
-		//	printf("Index : %d\n", i);
-		}
 		else
-		{
 			skip_quotes(string, &i, &ret_value);
-		//	printf("Quotes here, words : %d\n", ret_value);
-		//	printf("Index : %d\n", i);
-		}
 		i++;
 	}
 	return (ret_value);
@@ -64,12 +44,6 @@ char	**split_input(char *input)
 	size_of_words = len_words(count_words(input), input);
 	ret = alloc_words(size_of_words, count_words(input), ret);
 	ret = fill_me(ret, input);
-	//test
-	/*int	i = -1;
-	while (ret[++i] != NULL)
-		printf("|%s|\n", ret[i]);
-	printf("\n\n");*/
-	//fin test
 	return (ret);
 }
 
@@ -91,7 +65,6 @@ void	skip_redirections(char *string, int *i, int *word_count)
 
 void	skip_words(char *string, int *i, int *word_count)
 {
-	//printf("Char is %c, index is %d\n", string[*i], *i);
 	while (string[*i] != '\0' && string[*i] != '<'
 		&& string[*i] != '>' && string[*i] != '|'
 		&& string[*i] != ' ' && string[*i] != 34

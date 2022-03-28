@@ -6,7 +6,7 @@ void	take_input(char **input)
 
 	*input = readline("$> ");
 	if (*input == NULL)
-		exit(0);
+		exit(EXIT_FAILURE);
 	while (pipe_in_end(*input))
 	{
 		tmp = readline("> ");

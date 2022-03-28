@@ -76,10 +76,7 @@ void	get_dollar1(char *input, int *i1, char **string, t_env *env)
 	}
 	(*i1)--;
 	t = s;
-	//s = search_in_env(&env, s + 1);
-	//test
 	s = search_in_env1(env, s);
-	//end test
 	free(t);
 	if (s == NULL)
 		return ;

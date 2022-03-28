@@ -18,6 +18,7 @@ int	main(int argc, char *argv[], char **env)
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
 			int j = -1;
+			printf("Input is : %s\n", input);
 			printf("Words : %d\n", count_words(input));
 			while (++j < count_words(input))
 				printf("|%s|\n", input_split[j]);

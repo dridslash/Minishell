@@ -26,12 +26,12 @@ int	check_errors(char *input)
 			return (0);
 		else if (input[i] == '<' && !check_in_red(input, &i))
 			return (0);
-		else if (input[i] == '$' && !check_do(input, &i))
-			return (0);
 		else if (input[i] == 34 && !check_d_quotes(input, &i))
 			return (0);
 		else if (input[i] == 39 && !check_s_quotes(input, &i))
 			return (0);
+		//else if (input[i] == '$' && !check_do(input, &i))
+		//	return (0);
 		i++;
 	}
 	return (1);
