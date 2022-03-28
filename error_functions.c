@@ -50,7 +50,7 @@ int	check_do(char *input, int *i)
 int	check_in_red(char *input, int *i)
 {
 	(*i)++;
-	if (input[*i] == '<')
+	if (input[*i] == '<' || input[*i] == '>')
 		(*i)++;
 	while (input[*i] == ' ')
 		(*i)++;
