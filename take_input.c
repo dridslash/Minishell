@@ -3,16 +3,22 @@
 void	take_input(char **input)
 {
 	char	*tmp;
+	int		i;
 
 	*input = readline("$> ");
 	if (*input == NULL)
 		exit(EXIT_FAILURE);
+	i = 0;
+	while (*input[i] == ' ')
+		i++;
+	if (*input[i] == '|')
+		return ;
 	while (pipe_in_end(*input))
 	{
 		tmp = readline("> ");
 		*input = t_strjoin(*input, tmp);
 		if (*input == NULL)
-			exit(0);
+			exit(EXIT_FAILURE);
 		if (tmp)
 			free(tmp);
 	}
