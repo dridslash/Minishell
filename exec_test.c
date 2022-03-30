@@ -59,10 +59,10 @@ int     ft_strcmp(char  *s1,char    *s2)
 {
 	while(*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
 	{
-		   s1++;
-		      s2++;
+		s1++;
+		s2++;
 	}
-	return *s1 - *s2;
+	return (*s1 - *s2);
 }
 
 char *get_name_of_env_var(char *tb)
@@ -95,29 +95,6 @@ char *get_after_equal(char *your_path)
     }
     return (NULL);
 }
-
-/*char	*ft_strdup(char *src)
-{
-	size_t	i;
-	size_t	len;
-	char	*t;
-
-	len = 0;
-	len = ft_strlen(src);
-	t = (char *)malloc(sizeof(char) * (len + 1));
-	i = 0;
-	if (t == NULL)
-	{
-		return (0);
-	}
-	while (src[i] != '\0')
-	{
-		t[i] = src[i];
-		i++;
-	}
-	t[i] = '\0';
-	return (t);
-}*/
 
 int	ft_strlen(char *s)
 {

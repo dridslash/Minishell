@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split_input5.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/30 11:27:40 by oessayeg          #+#    #+#             */
+/*   Updated: 2022/03/30 13:11:14 by oessayeg         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "minishell.h"
 
 char	**fill_me(char **split_input, char *string)
@@ -26,7 +37,7 @@ char	**fill_me(char **split_input, char *string)
 
 void	add_pipe(char *split_input, int *i2)
 {
-	split_input[0] = '|';
+	split_input[0] = '\v';
 	split_input[1] = '\0';
 	(*i2)++;
 }

@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:09:05 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 11:14:36 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:56:46 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINISHELL_H
@@ -19,6 +19,7 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <limits.h>
+# include <fcntl.h>
 
 //EXEC
 # include "exec_test.h"
@@ -81,17 +82,17 @@ void	add_zero(char *string, int *i1, char *split_input, int *i);
 void	inc_dec(int *i1, int *i2);
 
 //Ft_split
-int	coun(char *st, char deli);
-int	*len_of_w(char *my_string, char dtr);
-int	give_index(char *sttt, char ddd);
+int		coun(char *st, char deli);
+int		*len_of_w(char *my_string, char dtr);
+int		give_index(char *sttt, char ddd);
 char	**copy_strings(char **re_string, char *strii, char dm, int n);
 char	**ft_split(char *s, char d);
 
 //Search in env test
 char	*search_in_env1(t_env *env, char *var);
-int	f_isalpha(char c);
-int	f_isdigit(char c);
-int	check_dollar_end(char **str, int *i, char *string);
+int		f_isalpha(char c);
+int		f_isdigit(char c);
+int		check_dollar_end(char **str, int *i, char *string);
 void	env_join(char **string, char *string1, t_env *en, int *i);
 void	join_mark(char **ret_string, char *split_string, int *i);
 
@@ -107,5 +108,24 @@ void	get_after_nl(char *buff);
 void	ft_zero(char *buff);
 int		check_nl(char *string);
 int		f_strlen(char *string);
+
+//Parsing final step
+void	create_list(t_cmd **structure);
+void	alloc_words2(char **ret, char **split, int len);
+char	**remove_null(char **split, int nb);
+t_cmd	*parse_everything(char **split_input, int nb);
+t_cmd	*alloc_linked_list(char **split);
+
+//Opening files
+void	open_files(char **split_input2, int *i, t_cmd *tmp);
+void	append_red(t_cmd *cmd, char *file);
+void	in_output_red(t_cmd *cmd, char *file, char option);
+
+//Pushing arguments
+void	push_string(char *to_push, t_cmd *cmd);
+void	here_doc_p(char **split_input, int *i, t_cmd *cmd);
+void	here_doc_p(char **split_input, int *i, t_cmd *cmd);
+void	push_limiter(char *to_push, t_cmd *cmd);
+int		len_dp(char **p);
 
 #endif

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dollar_handling3.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/30 11:26:57 by oessayeg          #+#    #+#             */
+/*   Updated: 2022/03/30 12:40:39 by oessayeg         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "minishell.h"
 
 char	*search_in_env1(t_env *env, char *string)
@@ -23,7 +34,6 @@ char	*search_in_env1(t_env *env, char *string)
 	}
 	if (is_in_end)
 		ret_string = char_join(ret_string, '$');
-	printf("%s\n", ret_string);
 	return (ret_string);
 }
 
