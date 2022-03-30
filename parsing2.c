@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:23:35 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 16:59:21 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/30 19:49:15 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -28,7 +28,7 @@ void	append_red(t_cmd *cmd, char *file)
 	if (cmd->out_file_op < 0)
 	{
 		perror(file);
-		cmd->out_file_op = 1;
+		cmd->out_file_op = -100;
 	}
 }
 
@@ -40,7 +40,7 @@ void	in_output_red(t_cmd *cmd, char *file, char option)
 		if (cmd->out_file_op < 0)
 		{
 			perror(file);
-			cmd->out_file_op = 1;
+			cmd->out_file_op = -100;
 		}
 	}
 	else if (option == 'i')
@@ -49,10 +49,9 @@ void	in_output_red(t_cmd *cmd, char *file, char option)
 		if (cmd->in_file_op < 0)
 		{
 			perror(file);
-			cmd->in_file_op = 0;
+			cmd->in_file_op = -100;
 		}
 	}
-
 }
 
 void	push_string(char *to_push, t_cmd *cmd)

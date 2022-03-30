@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:46:07 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 17:47:12 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/30 20:02:06 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -65,13 +65,12 @@ void	alloc_words2(char **ret, char **split, int nb)
 	{
 		if (split[i] != NULL)
 		{
-			ret[j] = malloc(sizeof(char) * ft_strlen(split[i]) + 1);
 			ret[j] = ft_strdup(split[i]);
 			j++;
 		}
 		i++;
 	}
-	ret[j + 1] = NULL;
+	ret[j] = NULL;
 }
 
 t_cmd	*parse_everything(char **split_input, int nb)
@@ -91,7 +90,8 @@ t_cmd	*parse_everything(char **split_input, int nb)
 			tmp = tmp->next;
 		else if (ft_strcmp(split_input2[i], ">") == 0
 			|| ft_strcmp(split_input2[i], "<") == 0
-			|| ft_strcmp(split_input2[i], ">>") == 0)
+			|| ft_strcmp(split_input2[i], ">>") == 0
+			|| ft_strcmp(split_input2[i], "<>") == 0)
 			open_files(split_input2, &i, tmp);
 		else if (ft_strcmp(split_input2[i], "<<") == 0)
 			here_doc_p(split_input2, &i, tmp);
