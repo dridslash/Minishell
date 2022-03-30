@@ -4,9 +4,9 @@ char	*search_in_env1(t_env *env, char *string)
 {
 	char	*ret_string;
 	char	**split_string;
-	int	i;
-	int	j;
-	int	is_in_end;
+	int		i;
+	int		j;
+	int		is_in_end;
 
 	is_in_end = check_dollar_end(&ret_string, &i, string);
 	split_string = ft_split(string, '$');
@@ -22,7 +22,7 @@ char	*search_in_env1(t_env *env, char *string)
 		}
 	}
 	if (is_in_end)
-		ret_string = char_join(ret_string, '$');;
+		ret_string = char_join(ret_string, '$');
 	printf("%s\n", ret_string);
 	return (ret_string);
 }
@@ -33,7 +33,7 @@ void	env_join(char **string, char *string1, t_env *en, int *i)
 
 	dollar_string = NULL;
 	while (string1[*i] != '\0' && (f_isdigit(string1[*i])
-		|| f_isalpha(string1[*i])))
+			|| f_isalpha(string1[*i])))
 	{
 		dollar_string = char_join(dollar_string, string1[*i]);
 		(*i)++;

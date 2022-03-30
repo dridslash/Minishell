@@ -2,17 +2,17 @@
 #include "exec_test.h"
 
 //EXECUTION
-t_env *ft_env(char **envi)
+t_env	*ft_env(char **envi)
 {
-    int i;
+    int	i;
 
-    i = 0;
-    t_env *main_env = malloc(sizeof(t_env));
-    main_env = NULL;
+	i = 0;
+	t_env *main_env = malloc(sizeof(t_env));
+	main_env = NULL;
     while(envi[i])
     {
-   	 create_env(&main_env,envi[i]);
-    	i++;
+		create_env(&main_env,envi[i]);
+		i++;
     }
     return (main_env);
 }
@@ -96,7 +96,7 @@ char *get_after_equal(char *your_path)
     return (NULL);
 }
 
-char	*ft_strdup(char *src)
+/*char	*ft_strdup(char *src)
 {
 	size_t	i;
 	size_t	len;
@@ -117,7 +117,7 @@ char	*ft_strdup(char *src)
 	}
 	t[i] = '\0';
 	return (t);
-}
+}*/
 
 int	ft_strlen(char *s)
 {

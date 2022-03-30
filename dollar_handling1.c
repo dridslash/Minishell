@@ -60,7 +60,6 @@ void	check_dollar(char *input, int *i1, char **split_input, t_env *env)
 	*split_input = string;
 }
 
-
 void	get_dollar1(char *input, int *i1, char **string, t_env *env)
 {
 	char	*s;

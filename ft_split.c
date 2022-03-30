@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 10:40:30 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/25 15:13:22 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:24:42 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -122,19 +122,4 @@ char	**ft_split(char const *s, char d)
 	return_string = copy_strings(return_string, s, d, m);
 	free(sizes_in_arr);
 	return (return_string);
-}
-
-#include <stdio.h>
-int main(void)
-{
-	int c = 0;
-	char *s = "      split       this for   me  !       ";
-	int *arr_of_sizes;
-	char **st;
-	st = ft_split(s, ' ');
-	while (st[c] != NULL)
-	{
-		printf("%s\n", st[c]);
-		c++;
-	}
 }

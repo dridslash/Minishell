@@ -4,8 +4,13 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <string.h>
-
+#include <stdlib.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 int main(int argc, char **argv, char **env)
 {
-	printf("%s\n", search_in_env());
+	char *string;
+
+	string = readline("$> ");
+	system("leaks a.out");
 }

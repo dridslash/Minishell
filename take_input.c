@@ -81,10 +81,10 @@ char	*t_strjoin(char *s1, char *s2)
 	return (ret_string);
 }
 
-char *char_join(char *string, char c)
+char	*char_join(char *string, char c)
 {
 	char	*return_string;
-	int 	i;
+	int		i;
 
 	if (string == NULL)
 		return (ft_strdup(&c));
