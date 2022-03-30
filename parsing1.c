@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:46:07 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 16:56:57 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:59:59 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -22,7 +22,7 @@ void	create_list(t_cmd	**structure)
 	new->out_file_op = 1;
 	new->here_doc_char = NULL;
 	new->how_many_here_doc = 0;
-	new->cmd_w_args = NULL;
+	new->cmd_w_arg = NULL;
 	new->limiters = NULL;
 	if (*structure == NULL)
 	{

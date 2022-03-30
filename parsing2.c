@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:23:35 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 16:52:58 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:59:21 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -69,12 +69,12 @@ void	push_string(char *to_push, t_cmd *cmd)
 		return ;
 	}
 	s = malloc(sizeof(char *) * (len_dp(cmd->cmd_w_arg) + 2));
-	while (cmd->cmd_w_args[++i] != NULL)
-		s[i] = ft_strdup(cmd->cmd_w_args[i]);
+	while (cmd->cmd_w_arg[++i] != NULL)
+		s[i] = ft_strdup(cmd->cmd_w_arg[i]);
 	s[i] = ft_strdup(to_push);
 	s[i + 1] = NULL;
-	free(cmd->cmd_w_args);
-	cmd->cmd_w_args = s;
+	free(cmd->cmd_w_arg);
+	cmd->cmd_w_arg = s;
 }
 
 int	len_dp(char **p)
