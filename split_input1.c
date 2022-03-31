@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 16:11:25 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 15:04:52 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/31 13:04:24 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -44,6 +44,7 @@ char	**split_input(char *input)
 	size_of_words = len_words(count_words(input), input);
 	ret = alloc_words(size_of_words, count_words(input), ret);
 	ret = fill_me(ret, input);
+	free(size_of_words);
 	return (ret);
 }
 

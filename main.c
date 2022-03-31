@@ -9,7 +9,7 @@ int	main(int argc, char *argv[], char **env)
 	char	**input_split;
 	t_env	*env_var;
 	t_cmd	*commands;
-	
+
 	commands = NULL;
 	env_var = ft_env(env);
 	while (1)
@@ -20,15 +20,22 @@ int	main(int argc, char *argv[], char **env)
 		{
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
-			commands = parse_everything(input_split, count_words(input));
-			//execute
+			//commands = parse_everything(input_split, count_words(input));
+			free_all(input_split, input);
+			system("leaks a.out");
+			//system("leaks a.out");
+			//Here Execution part
 		}
-		t_cmd	*tmp;
+	}
+}
+
+
+/*t_cmd	*tmp;
 		int	i = -1;
 		tmp = commands;
 		while (tmp != NULL)
 		{
-			printf("Pipe part infos\n");
+			printf("--------------------\n");
 			printf("Nb here_doc : %d\n", tmp->how_many_here_doc);
 			while (tmp->limiters != NULL && tmp->limiters[++i])
 				printf("Limiter %d is : %s\n", i, tmp->limiters[i]);
@@ -37,8 +44,6 @@ int	main(int argc, char *argv[], char **env)
 			i = -1;
 			while (tmp->cmd_w_arg != NULL && tmp->cmd_w_arg[++i])
 				printf("Arg %d is %s\n", i, tmp->cmd_w_arg[i]);
-			printf("Pipe part infos\n\n");
+			printf("--------------------\n");
 			tmp = tmp->next;
-		}
-	}
-}
+		}*/

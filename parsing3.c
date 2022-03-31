@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:21:01 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 11:48:59 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:16:50 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -15,6 +15,7 @@ void	here_doc_p(char **split_input, int *i, t_cmd *cmd)
 {
 	cmd->how_many_here_doc += 1;
 	push_limiter(split_input[*i + 1], cmd);
+	cmd->in_file_op = -1;
 	(*i)++;
 }
 

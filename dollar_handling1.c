@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:46 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 12:51:09 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/31 19:56:41 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -67,6 +67,7 @@ void	check_dollar(char *input, int *i1, char **split_input, t_env *env)
 		*i1 += 1;
 	}
 	(*i1)--;
+	printf("split input is %s\n", *split_input);
 	free(*split_input);
 	*split_input = string;
 }
@@ -91,6 +92,7 @@ void	get_dollar1(char *input, int *i1, char **string, t_env *env)
 	if (s == NULL)
 		return ;
 	*string = t_strjoin(*string, s);
+	free(s);
 }
 
 void	get_dol_double_q(char *input, int *i1, char **string, t_env *env)

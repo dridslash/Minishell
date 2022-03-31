@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:23:35 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 12:02:29 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:16:54 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -20,7 +20,7 @@ void	open_files(char **split_input2, int *i, t_cmd *cmd)
 	else if (ft_strcmp(split_input2[*i], ">>") == 0)
 		append_red(cmd, split_input2[*i + 1]);
 	else if (ft_strcmp(split_input2[*i], "<>") == 0)
-		in_output_red();
+		in_output_red(cmd, split_input2[*i + 1], 'i');
 	(*i)++;
 }
 
@@ -47,7 +47,7 @@ void	in_output_red(t_cmd *cmd, char *file, char option)
 	}
 	else if (option == 'i')
 	{
-		cmd->in_file_op = open(file, O_CREAT | O_RDONLY , 0644);
+		cmd->in_file_op = open(file, O_CREAT | O_RDONLY, 0644);
 		if (cmd->in_file_op < 0)
 		{
 			perror(file);

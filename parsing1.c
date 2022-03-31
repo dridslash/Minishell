@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:46:07 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 12:00:12 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/03/31 19:16:04 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -50,7 +50,6 @@ char	**remove_null(char **split, int nb)
 	}
 	ret = malloc(sizeof(char *) * (len + 1));
 	alloc_words2(ret, split, nb);
-	free(split);
 	return (ret);
 }
 
@@ -66,6 +65,7 @@ void	alloc_words2(char **ret, char **split, int nb)
 		if (split[i] != NULL)
 		{
 			ret[j] = ft_strdup(split[i]);
+			//free(split[i]);
 			j++;
 		}
 		i++;
