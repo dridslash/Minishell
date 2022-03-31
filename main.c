@@ -28,6 +28,7 @@ int	main(int argc, char *argv[], char **env)
 		tmp = commands;
 		while (tmp != NULL)
 		{
+			printf("Pipe part infos\n");
 			printf("Nb here_doc : %d\n", tmp->how_many_here_doc);
 			while (tmp->limiters != NULL && tmp->limiters[++i])
 				printf("Limiter %d is : %s\n", i, tmp->limiters[i]);
@@ -36,6 +37,7 @@ int	main(int argc, char *argv[], char **env)
 			i = -1;
 			while (tmp->cmd_w_arg != NULL && tmp->cmd_w_arg[++i])
 				printf("Arg %d is %s\n", i, tmp->cmd_w_arg[i]);
+			printf("Pipe part infos\n\n");
 			tmp = tmp->next;
 		}
 	}
