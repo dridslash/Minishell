@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:46 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 13:43:43 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/01 18:07:30 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -28,7 +28,7 @@ void	check_env(char *input, char **split_input, t_env *env)
 		else if (input[i1] == '|')
 			i2++;
 		else if (input[i1] == '<' || input[i1] == '>')
-			skip_red2(input, &i1, &i2);
+			skip_red2(input, &i1, &i2, split_input[i2 + 1]);
 		else
 		{
 			check_dollar(input, &i1, &split_input[i2], env);
@@ -36,15 +36,27 @@ void	check_env(char *input, char **split_input, t_env *env)
 		}
 		i1++;
 	}
+	system("leaks a.out");
 }
 
-void	skip_red2(char *input, int *i1, int *i2)
+void	skip_red2(char *input, int *i1, int *i2, char *s)
 {
-	(*i1)++;
-	if (input[*i1] == '<' || input[*i1] == '>')
+	if (input[*i1] == '<' && input[*i1 + 1] == '<')
+	{
+		*i1 += 2;
+		skip_spaces(input, i1);
 		(*i1)++;
-	(*i2)++;
-	(*i1)--;
+		(*i1) += le(s) - 1;
+		*i2 += 2;
+	}
+	else
+	{
+		(*i1)++;
+		if (input[*i1] == '<' || input[*i1] == '>')
+			(*i1)++;
+		(*i2)++;
+		(*i1)--;
+	}
 }
 
 void	check_dollar(char *input, int *i1, char **split_input, t_env *env)

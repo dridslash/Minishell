@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/01 16:19:24 by oessayeg          #+#    #+#             */
+/*   Updated: 2022/04/01 18:06:56 by oessayeg         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "minishell.h"
 //EXEC
 #include "exec_test.h"
@@ -47,15 +58,16 @@ int	main(int argc, char *argv[], char **env)
 	while (1)
 	{
 		take_input(&input);
+		//Signals here
 		if (check_errors(input))
 		{
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
 			commands = parse_everything(input_split, count_words(input));
 			print_struct(commands);
-			//free_all
+			//Execution here
+			free_all(input_split, input, count_words(input), commands);
 			system("leaks a.out");
 		}
 	}
 }
-	
