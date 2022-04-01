@@ -1,12 +1,15 @@
 #include "minishell.h"
 
-void	free_all(char **p, char *p2)
+void	free_all(char **p, char *p2, int n)
 {
 	int	i;
 
 	i = -1;
-	while (p[++i])
-		free(p[i]);
+	while (++i < n)
+	{
+		if (p[i])
+			free(p[i]);
+	}
 	free(p);
 	free(p2);
 }

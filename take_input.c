@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:27:58 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 15:09:25 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/01 11:37:30 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -26,7 +26,7 @@ void	take_input(char **input)
 		return ;
 	while (pipe_in_end(*input))
 	{
-		tmp = readline("> ");
+		tmp = readline("$> ");
 		*input = t_strjoin(*input, tmp);
 		if (*input == NULL)
 			exit(EXIT_FAILURE);
