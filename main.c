@@ -3,6 +3,38 @@
 #include "exec_test.h"
 //EXEC
 
+void	print_struct(t_cmd *com)
+{
+	int	i;
+
+	while (com != NULL)
+	{
+		i = 0;
+		printf("How many here_docs : %d\n", com->how_many_here_doc);
+		if (com->limiters != NULL)
+		{
+			while (com->limiters[i] != NULL)
+			{
+				printf("Limiter %d is %s\n", i, com->limiters[i]);
+				i++;
+			}
+		}
+		printf("Infile is %d\n", com->in_file_op);
+		printf("Outfile is %d\n", com->out_file_op);
+		i = 0;
+		if (com->cmd_w_arg != NULL)
+		{
+			while (com->cmd_w_arg[i])
+			{
+				printf("Arg %d is %s\n", i, com->cmd_w_arg[i]);
+				i++;
+			}
+		}
+		com = com->next;
+		printf("-------------------\n");
+	}
+}
+
 int	main(int argc, char *argv[], char **env)
 {
 	char	*input;
@@ -15,33 +47,15 @@ int	main(int argc, char *argv[], char **env)
 	while (1)
 	{
 		take_input(&input);
-		//Signal
 		if (check_errors(input))
 		{
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
 			commands = parse_everything(input_split, count_words(input));
-			free_all(input_split, input, count_words(input), commands);
+			print_struct(commands);
+			//free_all
 			system("leaks a.out");
-			//Here Execution part
 		}
 	}
 }
-
-/*t_cmd	*tmp;
-		int	i = -1;
-		tmp = commands;
-		while (tmp != NULL)
-		{
-			printf("--------------------\n");
-			printf("Nb here_doc : %d\n", tmp->how_many_here_doc);
-			while (tmp->limiters != NULL && tmp->limiters[++i])
-				printf("Limiter %d is : %s\n", i, tmp->limiters[i]);
-			printf("Infile is : %d\n", tmp->in_file_op);
-			printf("Outfile is : %d\n", tmp->out_file_op);
-			i = -1;
-			while (tmp->cmd_w_arg != NULL && tmp->cmd_w_arg[++i])
-				printf("Arg %d is %s\n", i, tmp->cmd_w_arg[i]);
-			printf("--------------------\n");
-			tmp = tmp->next;
-		}*/
+	
