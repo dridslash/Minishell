@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:46:07 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 11:53:28 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/01 13:06:26 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -65,7 +65,6 @@ void	alloc_words2(char **ret, char **split, int nb)
 		if (split[i] != NULL)
 		{
 			ret[j] = ft_strdup(split[i]);
-			//free(split[i]);
 			j++;
 		}
 		i++;
@@ -98,6 +97,7 @@ t_cmd	*parse_everything(char **split_input, int nb)
 		else
 			push_string(split_input2[i], tmp);
 	}
+	free_double_p(split_input2);
 	return (ret_struct);
 }
 

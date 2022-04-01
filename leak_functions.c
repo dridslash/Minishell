@@ -26,3 +26,13 @@ void	free_split_in(char **s)
 	}
 	free(s);
 }
+
+void	free_double_p(char **s)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i])
+		free(s[i]);
+	free(s);
+}

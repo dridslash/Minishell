@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:21:01 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 11:03:10 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/01 13:00:08 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -37,6 +37,9 @@ void	push_limiter(char *to_push, t_cmd *cmd)
 		s[i] = ft_strdup(cmd->limiters[i]);
 	s[i] = ft_strdup(to_push);
 	s[i + 1] = NULL;
+	i = -1;
+	while (cmd->limiters[++i])
+		free(cmd->limiters[i]);
 	free(cmd->limiters);
 	cmd->limiters = s;
 }

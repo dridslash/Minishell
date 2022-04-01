@@ -21,7 +21,7 @@ int	main(int argc, char *argv[], char **env)
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
 			commands = parse_everything(input_split, count_words(input));
-			free_all(input_split, input, count_words(input));
+			free_all(input_split, input, count_words(input), commands);
 			system("leaks a.out");
 			//Here Execution part
 		}

@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:23:35 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 11:03:03 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/01 12:56:17 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -74,6 +74,9 @@ void	push_string(char *to_push, t_cmd *cmd)
 		s[i] = ft_strdup(cmd->cmd_w_arg[i]);
 	s[i] = ft_strdup(to_push);
 	s[i + 1] = NULL;
+	i = -1;
+	while (cmd->cmd_w_arg[++i])
+		free(cmd->cmd_w_arg[i]);
 	free(cmd->cmd_w_arg);
 	cmd->cmd_w_arg = s;
 }

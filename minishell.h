@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:09:05 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 11:50:09 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/01 13:03:40 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINISHELL_H
@@ -131,4 +131,5 @@ int		len_dp(char **p);
 //Leaks
 void	free_all(char **p, char *p2, int n);
 void	free_split_in(char **s);
+void	free_double_p(char **s);
 #endif
