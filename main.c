@@ -28,7 +28,6 @@ int	main(int argc, char *argv[], char **env)
 	}
 }
 
-
 /*t_cmd	*tmp;
 		int	i = -1;
 		tmp = commands;

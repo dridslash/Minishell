@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-void	free_all(char **p, char *p2, int n)
+void	free_all(char **p, char *p2, int n, t_cmd *com)
 {
 	int	i;
 
@@ -12,6 +12,7 @@ void	free_all(char **p, char *p2, int n)
 	}
 	free(p);
 	free(p2);
+	free_com_list(com);
 }
 
 void	free_split_in(char **s)
@@ -35,4 +36,22 @@ void	free_double_p(char **s)
 	while (s[++i])
 		free(s[i]);
 	free(s);
+}
+
+void	free_com_list(t_cmd *com)
+{
+	t_cmd	*tmp;
+
+	while (com != NULL)
+	{
+		if (com->here_doc_char)
+			free(com->here_doc_char);
+		if (com->limiters)
+			free_split_in(com->limiters);
+		if (com->cmd_w_arg)
+			free_split_in(com->cmd_w_arg);
+		tmp = com;
+		com = com->next;
+		free(tmp);
+	}
 }
