@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 11:04:51 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/02 13:07:51 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 15:28:57 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -55,6 +55,7 @@ int	main(int argc, char *argv[], char **env)
 
 	commands = NULL;
 	env_var = ft_env(env);
+	history_check();
 	while (1)
 	{
 		take_input(&input);

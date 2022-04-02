@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:27:58 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 13:31:12 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 15:30:33 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -33,6 +33,7 @@ void	take_input(char **input)
 		if (tmp)
 			free(tmp);
 	}
+	add_h(*input);
 }
 
 int	pipe_in_end(char *input)

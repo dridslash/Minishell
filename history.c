@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_utils1.c                                       :+:      :+:    :+:   */
+/*   history.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 11:35:31 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/02 13:08:13 by oessayeg         ###   ########.fr       */
+/*   Created: 2022/04/02 15:30:18 by oessayeg          #+#    #+#             */
+/*   Updated: 2022/04/02 15:30:19 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
 
-char	*without_nl(char *s)
+void	history_check(void)
 {
-	char	*ret_string;
-	int		i;
+	int		fd;
+	char	*line;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	ret_string = malloc(sizeof(char) * i);
-	i = -1;
-	while (s[++i] != '\n' && s[i] != '\0')
-		ret_string[i] = s[i];
-	ret_string[i] = '\0';
-	return (ret_string);
+	fd = open(".his", O_CREAT | O_RDONLY, 0644);
+	line = NULL;
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		add_history(line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+}
+
+void	add_h(char *input)
+{
+	int	fd;
+
+	fd = open(".his", O_CREAT | O_WRONLY | O_APPEND, 0644);
+	add_history(input);
+	write(fd, input, le(input));
+	write(fd, "\n", 1);
+	close(fd);
 }

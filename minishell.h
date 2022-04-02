@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:09:05 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 15:58:16 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 15:18:51 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINISHELL_H
@@ -98,7 +98,7 @@ void	env_join(char **string, char *string1, t_env *en, int *i);
 void	join_mark(char **ret_string, char *split_string, int *i);
 
 //get_next_line
-char	*without_nl(char *s);
+//char	*without_nl(char *s);
 char	*get_next_line(int fd);
 char	*ft_strdup(char *string);
 char	*ft_strjoin(char *s1, char *s2);
@@ -134,4 +134,8 @@ void	free_all(char **p, char *p2, int n, t_cmd *com);
 void	free_split_in(char **s);
 void	free_double_p(char **s);
 void	free_com_list(t_cmd *com);
+
+//History
+void	history_check(void);
+void	add_h(char *input);
 #endif

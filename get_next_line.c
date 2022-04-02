@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:47:04 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 11:10:37 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 15:12:19 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -96,9 +96,8 @@ char	*get_next_line(int fd)
 	s = NULL;
 	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE < 0 || read(fd, s, 0) < 0)
 		return (NULL);
-	write(1, "$> ", 3);
 	s = read_file(fd);
 	if (s == NULL)
 		return (NULL);
-	return (without_nl(s));
+	return (s);
 }
