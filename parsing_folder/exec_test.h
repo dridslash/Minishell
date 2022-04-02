@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/01 12:02:10 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/02 09:39:52 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct t_command
     int					in_file_op;
     int					out_file_op;
     char				**cmd_w_arg;
+    int                 fd_her_doc[2];
     struct t_command	*next;
 }t_cmd;
 
