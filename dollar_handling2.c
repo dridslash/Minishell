@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:51 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 18:31:37 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 11:04:48 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -25,7 +25,7 @@ void	get_after_q2(char *input, int *i1, char **string, t_env *env)
 {
 	char	*s;
 	char	*t;
-	system("leaks a.out");
+
 	s = NULL;
 	while (input[*i1] != '\"')
 	{
@@ -39,4 +39,5 @@ void	get_after_q2(char *input, int *i1, char **string, t_env *env)
 	if (s == NULL)
 		return ;
 	*string = t_strjoin(*string, s);
+	free(s);
 }

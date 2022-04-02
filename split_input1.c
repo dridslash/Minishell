@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 16:11:25 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 15:56:44 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 12:57:42 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -40,7 +40,7 @@ char	**split_input(char *input)
 	char	**ret;
 	int		*size_of_words;
 
-	ret = malloc(sizeof(char *) * count_words(input) + 1);
+	ret = malloc(sizeof(char *) * (count_words(input) + 1));
 	size_of_words = len_words(count_words(input), input);
 	ret = alloc_words(size_of_words, count_words(input), ret);
 	ret = fill_me(ret, input);

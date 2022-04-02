@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:46 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 18:07:30 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 11:44:26 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -36,7 +36,6 @@ void	check_env(char *input, char **split_input, t_env *env)
 		}
 		i1++;
 	}
-	system("leaks a.out");
 }
 
 void	skip_red2(char *input, int *i1, int *i2, char *s)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 16:19:24 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 18:06:56 by oessayeg         ###   ########.fr       */
+/*   Created: 2022/04/02 11:04:51 by oessayeg          #+#    #+#             */
+/*   Updated: 2022/04/02 13:07:51 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -65,9 +65,10 @@ int	main(int argc, char *argv[], char **env)
 			check_env(input, input_split, env_var);
 			commands = parse_everything(input_split, count_words(input));
 			print_struct(commands);
-			//Execution here
 			free_all(input_split, input, count_words(input), commands);
-			system("leaks a.out");
+			//Execution here
+			//printf("\n\n\nLEAKS HERE\n\n\n");
+			//system("leaks a.out");
 		}
 	}
 }

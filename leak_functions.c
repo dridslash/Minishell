@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:18:24 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 16:18:46 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 13:07:43 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -16,7 +16,7 @@ void	free_all(char **p, char *p2, int n, t_cmd *com)
 	int	i;
 
 	i = -1;
-	while (++i < n)
+	while (++i < n + 1)
 	{
 		if (p[i])
 			free(p[i]);
