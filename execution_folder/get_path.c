@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 16:42:31 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/31 16:08:42 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/02 15:15:05 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,9 @@ char	*get_path(char *cmd, t_env *envp)
 	char	*checkp;
 
 	i = 0;
-	if(access(cmd,X_OK) == 0)
+	if (access(cmd, X_OK) == 0)
 		return (cmd);
-	
-	if(get_env_from_list(envp) == NULL)
+	if (get_env_from_list(envp) == NULL)
 	{
 		return (NULL);
 	}
