@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/02 18:22:00 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/03 10:34:32 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,16 @@ char	*get_after_dollar(char *your_path);
 
 char	*search_test(t_env **envv, char *your_var);
 char	**ft_split_execution(char const *s, char c);
+void	execution_help_of_hlp(t_cmd *holder_nodes,
+			int iterate_for_fds, int iterate, int *pipes);
+void	execution_help_of_hlp_two(t_cmd *holder_nodes,
+			int iterate_for_fds, int iterate, int *pipes);
+void	execution_hlp_main_one(t_cmd *holder_nodes,
+			int iterate_for_fds, int iterate, int *pipes);
+void	execution_hlp_main_two(t_cmd *holder_nodes,
+			int iterate_for_fds, int iterate, int *pipes);
+void	exectuion_hlp_main_three(t_cmd *holder_nodes,
+			int iterate_for_fds, int iterate, int *pipes);
 void	sort_alpha(t_env **envv);
 char	*ft_substr(char	*s, unsigned int start, int len);
 int		ft_strchr(char *s, int c);
@@ -77,7 +87,8 @@ int		execute_commands(t_cmd *cmd,
 void	execute_cmds_close_files(int in_file,
 			int out_file, int fds, int *pipes);
 int		execute_command(t_cmd *cmd, t_env *env_var, int original_cmds);
-void	her_doc_helper_main(t_cmd *holder_nodes, t_env *env_var, int original_cmds);
+void	her_doc_helper_main(t_cmd *holder_nodes,
+			t_env *env_var, int original_cmds);
 int		execute_her_docs(t_cmd *cmd, t_env *env_var,
 			int original_cmds, int *pipes);
 // char    *ft_strjoin(char const *s1, char const *s2);

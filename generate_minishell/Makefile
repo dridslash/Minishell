@@ -11,6 +11,7 @@ SRCS = ../execution_folder/ft_split_execution.c \
 	../execution_folder/ft_strtrim.c \
 	../execution_folder/gl_line_execution_ul.c\
 	../execution_folder/exectuion_her_doc_utils00.c\
+	../execution_folder/execution_utils02.c\
 	../execution_folder/execution_utils00.c\
 	../execution_folder/execution_utils01.c\
 	../execution_folder/get_path.c \
