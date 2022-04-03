@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 11:04:51 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/03 13:50:19 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/03 14:44:22 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -68,8 +68,8 @@ int	main(int argc, char *argv[], char **env)
 			print_struct(commands);
 			free_all(input_split, input, count_words(input), commands);
 			//Execution here
-			//printf("\n\n\nLEAKS HERE\n\n\n");
-			//system("leaks a.out");
+			printf("\n\n\nLEAKS HERE\n\n\n");
+			system("leaks a.out");
 		}
 	}
 }
