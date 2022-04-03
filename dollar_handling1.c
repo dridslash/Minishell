@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:46 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/03 12:02:39 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/03 13:49:28 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -21,6 +21,9 @@ void	check_env(char *input, char **split_input, t_env *env)
 
 	i2 = 0;
 	i1 = 0;
+	int	i = -1;
+	while (split_input[++i])
+		printf("|%s|\n", split_input[i]);
 	while (input[i1] != '\0')
 	{
 		if (input[i1] == ' ')
@@ -36,6 +39,9 @@ void	check_env(char *input, char **split_input, t_env *env)
 		}
 		i1++;
 	}
+	i = -1;
+	while (split_input[++i])
+		printf("|%s|\n", split_input[i]);
 }
 
 void	skip_red2(char *input, int *i1, int *i2, char *s)
@@ -116,6 +122,8 @@ void	get_dol_double_q(char *input, int *i1, char **string, t_env *env)
 	i = 0;
 	str = NULL;
 	(*i1)++;
+	if (input[*i1] == '\"')
+		*string = char_join(*string, '\0');
 	while (input[*i1] != '\"' && input[*i1] != '\0')
 	{
 		if (input[*i1] == '$')

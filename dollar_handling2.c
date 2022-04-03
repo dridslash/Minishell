@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:51 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/02 11:04:48 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/03 13:49:26 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -14,6 +14,8 @@
 void	get_single_q_dollar(char *input, int *i1, char **string)
 {
 	(*i1)++;
+	if (input[*i1] == '\'')
+		*string = char_join(*string, '\0');
 	while (input[*i1] != '\'')
 	{
 		*string = char_join(*string, input[*i1]);
