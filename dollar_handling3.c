@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:57 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 15:46:50 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/03 17:48:06 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -51,7 +51,8 @@ void	env_join(char **string, char *string1, t_env *en, int *i)
 		(*i)++;
 	}
 	tmp = dollar_string;
-	dollar_string = search_in_env(&en, dollar_string);
+	if (dollar_string)
+		dollar_string = search_in_env(&en, dollar_string);
 	if (tmp)
 		free(tmp);
 	if (dollar_string != NULL)

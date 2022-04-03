@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:46 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/03 14:44:21 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/03 17:47:42 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -29,6 +29,9 @@ void	check_env(char *input, char **split_input, t_env *env)
 			i2++;
 		else if (input[i1] == '<' || input[i1] == '>')
 			skip_red2(input, &i1, &i2, split_input[i2 + 1]);
+		else if (ft_strcmp(split_input[i2], "export") == 0
+			&& split_input[i2][6] == '\0')
+			skip_for_exp(input, &i1, &i2, split_input);
 		else
 		{
 			check_dollar(input, &i1, &split_input[i2], env);
