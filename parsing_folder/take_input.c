@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:27:58 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 15:07:26 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 20:11:47 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	take_input(char **input)
 		if (tmp)
 			free(tmp);
 	}
+	add_h(*input);
 }
 
 int	pipe_in_end(char *input)

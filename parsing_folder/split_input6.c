@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:27:44 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/30 11:27:45 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/02 12:58:00 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -74,6 +74,11 @@ int	another_q(char *string, int *i1, char *input_string, int *i)
 		input_string[*i] = string[*i1];
 		(*i)++;
 		(*i1)++;
+	}
+	if (string[*i1] == '\0')
+	{
+		input_string[*i] = '\0';
+		return (1);
 	}
 	return (0);
 }

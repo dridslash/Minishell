@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 10:18:33 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/03 15:12:31 by mnaqqad          ###   ########.fr       */
+/*   Created: 2022/04/01 16:29:06 by oessayeg          #+#    #+#             */
+/*   Updated: 2022/04/04 20:12:26 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,64 +16,72 @@
 //EXECUTION
 t_env	*ft_env(char **envi)
 {
-    int	i;
+	int		i;
+	t_env	*main_env;
 
 	i = 0;
-	t_env *main_env = malloc(sizeof(t_env));
 	main_env = NULL;
-    while(envi[i])
-    {
-		create_env(&main_env,envi[i]);
+	while (envi[i])
+	{
+		create_env(&main_env, envi[i]);
 		i++;
-    }
-    return (main_env);
+	}
+	return (main_env);
 }
 
-t_env *bring_last(t_env *father_of_env)
+t_env	*bring_last(t_env *father_of_env)
 {
-    while(father_of_env->next_env != NULL)
-    {
-        father_of_env = father_of_env->next_env;
-    }
-    return (father_of_env);
+	while (father_of_env->next_env != NULL)
+		father_of_env = father_of_env->next_env;
+	return (father_of_env);
 }
 
-void    create_env(t_env **envv, char *path_env)
+void	create_env(t_env **envv, char *path_env)
 {
-    t_env    *tmp;
-    t_env    *element_path;
+	t_env	*tmp;
+	t_env	*element_path;
 
-    element_path = malloc(sizeof(t_env));
-    element_path->path_env = path_env;
-    tmp = (*envv);
-    if (!(*envv))
-    {
-        (*envv) = element_path;
-        element_path->next_env = NULL;
-        free(tmp);
-        return ;
-    }
-    bring_last((*envv))->next_env = element_path;
-    element_path->next_env = NULL;
+	element_path = malloc(sizeof(t_env));
+	element_path->path_env = path_env;
+	tmp = (*envv);
+	if (!(*envv))
+	{
+		(*envv) = element_path;
+		element_path->next_env = NULL;
+		free(tmp);
+		return ;
+	}
+	bring_last((*envv))->next_env = element_path;
+	element_path->next_env = NULL;
 }
 
-// char *search_in_env(t_env **envv,char * your_var)
+// char	*search_in_env(t_env **envv, char *your_var)
 // {
-//     t_env *aff = (*envv);
-//     while(aff)
-//              {
-//                  if(ft_strcmp(get_name_of_env_var(aff->path_env),get_name_of_env_var(your_var)) == 0)
-//                  {
-//                      return(get_after_equal(aff->path_env));
-//                  }
-//                  aff = aff->next_env;
-//              }
-//     return (NULL);
+// 	char	*tmp1;
+// 	char	*tmp2;
+// 	t_env	*aff;
+
+// 	aff = (*envv);
+// 	while (aff)
+// 	{
+// 		tmp1 = get_name_of_env_var(aff->path_env);
+// 		tmp2 = get_name_of_env_var(your_var);
+// 		if (ft_strcmp(tmp1, tmp2) == 0)
+// 		{
+// 			free(tmp1);
+// 			free(tmp2);
+// 			return (get_after_equal(aff->path_env));
+// 		}
+// 		free(tmp1);
+// 		free(tmp2);
+// 		aff = aff->next_env;
+// 	}
+// 	return (NULL);
 // }
 
-// int     ft_strcmp(char  *s1,char    *s2)
+// int	ft_strcmp(char *s1, char *s2)
 // {
-// 	while(*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+// 	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
 // 	{
 // 		s1++;
 // 		s2++;
@@ -81,48 +89,65 @@ void    create_env(t_env **envv, char *path_env)
 // 	return (*s1 - *s2);
 // }
 
-// char *get_name_of_env_var(char *tb)
+// char	*get_name_of_env_var(char *tb)
 // {
-//     int  i = 0;
-//    // int index_tmp = 2;
-//     char *chr = ft_strdup_parsing(tb);
-//     while(chr[i])
-//     {
-//         if(chr[i] == '=' || (chr[i] == '+' && chr[i + 1] == '='))
-//         {
-//         chr[i] = '\0';
-//         break;
-//         }
-//         i++;
-//     }
-//     return (chr);
-// }
-
-// char *get_after_equal(char *your_path)
-// {
-//     int  i =0;
-//     while(your_path[i])
-//     {
-//         if(your_path[i] == '=')
-//         {
-//             return (&your_path[i + 1]);
-//         }
-//         i++;
-//     }
-//     return (NULL);
-// }
-
-// char *get_after_dollar(char *your_path)
-// {
-//     int  i;
+// 	int		i;
+// 	int		index_tmp;
+// 	char	*chr;
 
 // 	i = 0;
-//     while (your_path[i])
-//     {
-//         if (your_path[i] == '$')
-//             return (&your_path[i + 1]);
-//         i++;
-//     }
-//     return (NULL);
+// 	index_tmp = 2;
+// 	chr = ft_strdup(tb);
+// 	while (chr[i])
+// 	{
+// 		if (chr[i] == '=' || (chr[i] == '+' && chr[i + 1] == '='))
+// 		{
+// 			chr[i] = '\0';
+// 			break ;
+// 		}
+// 		i++;
+// 	}
+// 	return (chr);
+// }
+
+// char	*get_after_equal(char *your_path)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (your_path[i])
+// 	{
+// 		if (your_path[i] == '=')
+// 			return (&your_path[i + 1]);
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
+
+// int	ft_strlen(char *s)
+// {
+// 	int	len;
+
+// 	len = 0;
+// 	while (*s != '\0')
+// 	{
+// 		len++;
+// 		s++;
+// 	}
+// 	return (len);
+// }
+
+// char	*get_after_dollar(char *your_path)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (your_path[i])
+// 	{
+// 		if (your_path[i] == '$')
+// 			return (&your_path[i + 1]);
+// 		i++;
+// 	}
+// 	return (NULL);
 // }
 //EXECUTION

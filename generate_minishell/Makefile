@@ -61,8 +61,9 @@ SRCS = ../execution_folder/ft_split_execution.c \
 	../parsing_folder/parsing3.c \
 	../parsing_folder/get_next_line.c \
 	../parsing_folder/get_next_line_utils.c \
-	../parsing_folder/get_utils1.c \
-	../parsing_folder/main.c
+	../parsing_folder/main.c\
+	../parsing_folder/history.c\
+	../parsing_folder/leak_functions.c
 	
 OBJS = ${SRCS:.c=.o}
 

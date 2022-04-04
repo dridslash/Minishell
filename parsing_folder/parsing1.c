@@ -6,12 +6,11 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:46:07 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 15:02:04 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 20:14:27 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
 
 void	create_list(t_cmd	**structure)
 {
@@ -52,7 +51,6 @@ char	**remove_null(char **split, int nb)
 	}
 	ret = malloc(sizeof(char *) * (len + 1));
 	alloc_words2(ret, split, nb);
-	free(split);
 	return (ret);
 }
 
@@ -67,7 +65,6 @@ void	alloc_words2(char **ret, char **split, int nb)
 	{
 		if (split[i] != NULL)
 		{
-			ret[j] = malloc(sizeof(char) * ft_strlen(split[i]) + 1);
 			ret[j] = ft_strdup_parsing(split[i]);
 			j++;
 		}
@@ -93,13 +90,15 @@ t_cmd	*parse_everything(char **split_input, int nb)
 			tmp = tmp->next;
 		else if (ft_strcmp(split_input2[i], ">") == 0
 			|| ft_strcmp(split_input2[i], "<") == 0
-			|| ft_strcmp(split_input2[i], ">>") == 0)
+			|| ft_strcmp(split_input2[i], ">>") == 0
+			|| ft_strcmp(split_input2[i], "<>") == 0)
 			open_files(split_input2, &i, tmp);
 		else if (ft_strcmp(split_input2[i], "<<") == 0)
 			here_doc_p(split_input2, &i, tmp);
 		else
 			push_string(split_input2[i], tmp);
 	}
+	free_double_p(split_input2);
 	return (ret_struct);
 }
 

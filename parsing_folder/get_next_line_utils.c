@@ -6,13 +6,13 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:46:42 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 15:07:45 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 20:16:09 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
- int	ft_strlen(char *string)
+int	ft_strlen(char *string)
 {
 	int	compteur;
 
@@ -63,7 +63,7 @@ char	*ft_strdup_parsing(char *string)
 	return (return_string);
 }
 
- char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*return_string;
 	int		compteur1;
@@ -89,7 +89,7 @@ char	*ft_strdup_parsing(char *string)
 	return (return_string);
 }
 
- char	*get_before_nl(char *buffer, int option)
+char	*get_before_nl(char *buffer, int option)
 {
 	int		compteur;
 	char	*return_string;

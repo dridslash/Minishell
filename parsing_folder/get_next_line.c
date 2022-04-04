@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:47:04 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 14:52:43 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 18:49:25 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,8 @@ char	*get_next_line(int fd)
 	s = NULL;
 	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE < 0 || read(fd, s, 0) < 0)
 		return (NULL);
-	write(1, "$> ", 3);
 	s = read_file(fd);
 	if (s == NULL)
 		return (NULL);
-	return (without_nl(s));
+	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:09:05 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 14:56:49 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 20:09:03 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,14 @@ int		check_do(char *input, int *i);
 //Dollar handling
 void	check_dollar(char *input, int *i1, char **split_input, t_env *env);
 void	check_env(char *input, char **split_input, t_env *env);
-void	skip_red2(char *input, int *i1, int *i2);
+void	skip_red2(char *input, int *i1, int *i2, char *s);
 void	get_dollar1(char *input, int *i1, char **string, t_env *env);
 void	get_dol_double_q(char *input, int *i1, char **string, t_env *env);
 void	get_single_q_dollar(char *input, int *i1, char **string);
 void	get_after_q2(char *input, int *i1, char **string, t_env *env);
+void	skip_for_exp(char *input, int *i1, int *i2, char **split_input);
 char	*char_join(char *string, char c);
+int		le(char *string);
 //Dollar handling
 
 void	skip_words(char *string, int *i, int *word_count);
@@ -92,7 +94,7 @@ int		coun(char *st, char deli);
 int		*len_of_w(char *my_string, char dtr);
 int		give_index(char *sttt, char ddd);
 char	**copy_strings(char **re_string, char *strii, char dm, int n);
-char	**ft_split_parsing(char  *s, char d);
+char	**ft_split_parsing(char *s, char d);
 
 //Search in env test
 char	*search_in_env1(t_env *env, char *var);
@@ -103,7 +105,7 @@ void	env_join(char **string, char *string1, t_env *en, int *i);
 void	join_mark(char **ret_string, char *split_string, int *i);
 
 //get_next_line
-char	*without_nl(char *s);
+//char	*without_nl(char *s);
 char	*get_next_line(int fd);
 char	*ft_strdup_parsing(char *string);
 char	*ft_strdup_execution(char *src);
@@ -134,5 +136,15 @@ void	here_doc_p(char **split_input, int *i, t_cmd *cmd);
 void	here_doc_p(char **split_input, int *i, t_cmd *cmd);
 void	push_limiter(char *to_push, t_cmd *cmd);
 int		len_dp(char **p);
+
+//Leaks
+void	free_all(char **p, char *p2, int n, t_cmd *com);
+void	free_split_in(char **s);
+void	free_double_p(char **s);
+void	free_com_list(t_cmd *com);
+
+//History
+void	history_check(void);
+void	add_h(char *input);
 
 #endif

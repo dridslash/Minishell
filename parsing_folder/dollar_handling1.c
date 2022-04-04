@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   dollar_handling1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:46 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 10:24:30 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 13:24:42 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "minishell.h"
 //EXEC
 #include "exec_test.h"
@@ -29,7 +28,10 @@ void	check_env(char *input, char **split_input, t_env *env)
 		else if (input[i1] == '|')
 			i2++;
 		else if (input[i1] == '<' || input[i1] == '>')
-			skip_red2(input, &i1, &i2);
+			skip_red2(input, &i1, &i2, split_input[i2 + 1]);
+		else if (ft_strcmp(split_input[i2], "export") == 0
+			&& split_input[i2][6] == '\0')
+			skip_for_exp(input, &i1, &i2, split_input);
 		else
 		{
 			check_dollar(input, &i1, &split_input[i2], env);
@@ -39,19 +41,33 @@ void	check_env(char *input, char **split_input, t_env *env)
 	}
 }
 
-void	skip_red2(char *input, int *i1, int *i2)
+void	skip_red2(char *input, int *i1, int *i2, char *s)
 {
-	(*i1)++;
-	if (input[*i1] == '<' || input[*i1] == '>')
+	int	tmp;
+
+	tmp = 0;
+	if (input[*i1] == '<' && input[*i1 + 1] == '<')
+	{
+		*i1 += 2;
+		skip_spaces(input, i1);
 		(*i1)++;
-	(*i2)++;
-	(*i1)--;
+		skip_words(input, i1, &tmp);
+		*i2 += 2;
+	}
+	else
+	{
+		(*i1)++;
+		if (input[*i1] == '<' || input[*i1] == '>')
+			(*i1)++;
+		(*i2)++;
+		(*i1)--;
+	}
 }
 
 void	check_dollar(char *input, int *i1, char **split_input, t_env *env)
 {
 	char	*string;
-	//char	*tmp;
+	char	*tmp;
 
 	string = NULL;
 	while (input[*i1] != '\0' && input[*i1] != ' '
@@ -92,6 +108,7 @@ void	get_dollar1(char *input, int *i1, char **string, t_env *env)
 	if (s == NULL)
 		return ;
 	*string = t_strjoin(*string, s);
+	free(s);
 }
 
 void	get_dol_double_q(char *input, int *i1, char **string, t_env *env)
@@ -102,6 +119,8 @@ void	get_dol_double_q(char *input, int *i1, char **string, t_env *env)
 	i = 0;
 	str = NULL;
 	(*i1)++;
+	if (input[*i1] == '\"')
+		*string = char_join(*string, '\0');
 	while (input[*i1] != '\"' && input[*i1] != '\0')
 	{
 		if (input[*i1] == '$')
