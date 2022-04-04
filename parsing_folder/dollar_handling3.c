@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:57 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/03/31 11:59:45 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/03 16:59:35 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	env_join(char **string, char *string1, t_env *en, int *i)
 		dollar_string = char_join(dollar_string, string1[*i]);
 		(*i)++;
 	}
-	dollar_string = search_in_env(&en, dollar_string);
+	if (dollar_string)
+		dollar_string = search_in_env(&en, dollar_string);
 	if (dollar_string != NULL)
 		*string = t_strjoin(*string, dollar_string);
 	while (string1[*i] != '\0')

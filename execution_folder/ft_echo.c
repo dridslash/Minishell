@@ -6,130 +6,50 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/31 15:07:05 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 16:14:43 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-int charachter_eater(int argc , char ** argv,int is_there_stopper_newline, int start)
+void	ft_echo_helper_main(t_cmd *cmd,
+	int args, int option_of_echo, int index_tmp)
 {
-    (void)argc;
-    int i = 0;
-    i = start;
-    if(is_there_stopper_newline == 1)
-    i++;
-    int count_if_there_an_arg = 0;
-    while(argv[i])
-    {
-        if(argv[i] != NULL)
-        {
-            count_if_there_an_arg++;
-        }
-        i++;
-    }
-    return (count_if_there_an_arg);
+	if (ft_strcmp(cmd->cmd_w_arg[option_of_echo], "-n") != 0)
+	{
+		sub_echo_helper(cmd, args, option_of_echo, index_tmp);
+	}
+	else
+	{
+		sub_echo_helper_two(cmd, args, option_of_echo, index_tmp);
+	}
 }
 
-int minus_ns(int argc,char **argv,int start)
+void	ft_echo(t_cmd *cmd)
 {
-    (void)argc;
-    int i = start;
-    int count_ns = 0;
-    while(argv[i])
-    {
-        if(ft_strcmp(argv[i],"-n") == 0)
-        {
-            count_ns++;
-        }
-        i++;
-    }
-    return(count_ns);
-}
+	int	index_tmp;
+	int	option_of_echo;
+	int	args;
 
-int how_many_args(int argc , char **argv , int start)
-{
-    (void)argc;
-   int i = start;
-   while(argv[i])
-   {
-       i++;
-   }
-   return(i - 2);
+	index_tmp = 0;
+	args = 0;
+	option_of_echo = index_tmp + 1;
+	if (cmd->cmd_w_arg[index_tmp] != NULL
+		&& (ft_strcmp(cmd->cmd_w_arg[index_tmp], "echo") == 0))
+	{
+		if (minus_ns(cmd, index_tmp + 1) == how_many_args(cmd, index_tmp + 1))
+		{
+			write(1, "", 1);
+			return ;
+		}
+		if (cmd->cmd_w_arg[option_of_echo] != NULL)
+		{
+			ft_echo_helper_main(cmd, args, option_of_echo, index_tmp);
+		}
+		else
+		{
+			write(1, "\n", 1);
+		}
+	}
 }
-void ft_echo(int argc, char **argv)
-{
-    int index_tmp = 1;
-    int option_of_echo = index_tmp + 1;
-    int args = 0;
-    //int printed = 0;
-    //char *test = "$?";
-    if(argv[index_tmp] != NULL && (ft_strcmp(argv[index_tmp], "echo") == 0))
-    {
-        if(minus_ns(argc,argv,index_tmp + 1) == how_many_args(argc,argv,index_tmp + 1))
-        {
-            write(1,"",1);
-            return;
-        }
-        if(argv[option_of_echo] != NULL)
-        {
-        if(ft_strcmp(argv[option_of_echo],"-n") != 0)
-        {
-           if(charachter_eater(argc,argv,0,option_of_echo) > 0)
-           {
-               args = option_of_echo;
-               while(argv[args])
-               {
-                   if(ft_strcmp(argv[args],"") == 0)
-                   {
-                       write(1," ",1);
-                   }
-                    write(1,argv[args],ft_strlen(argv[args]));
-                     write(1," ",1);
-                   args++;
-               }
-               write(1,"\n",1);
-           }
-        }
-        else
-        {
-           if(charachter_eater(argc,argv,1,option_of_echo) > 0)
-           {
-               if(minus_ns(argc,argv,index_tmp + 1) == how_many_args(argc,argv,index_tmp + 1))
-                {
-                 write(1,"",1);
-                    return;
-                }
-               args = option_of_echo + 1;
-               while(argv[args])
-               {
-                   if(ft_strcmp(argv[args],"") == 0)
-                   {
-                       write(1," ",1);
-                   }
-                    write(1,argv[args],ft_strlen(argv[args]));
-                     //write(1," ",1);
-                   args++;
-               }
-           }
-           else
-           write(1,"",1);
-        }
-        }
-        else
-        {
-            write(1,"\n",1);
-        }
-    }
-    else
-    printf("there is no echo - echo - echo \n");
-}
-// int main(int argc, char **argv)
-// {
-    
-//     ft_echo(argc,argv);
-//    // printf("%d\n",minus_ns(argc,argv,2));
-//      //printf("%d\n",how_many_args(argc,argv,2));
-//     // charachter_eater(argc, argv);
-// }

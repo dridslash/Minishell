@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/03 10:34:32 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 16:08:09 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,46 @@ char	*get_name_of_env_var(char *tb);
 char	*get_after_equal(char *your_path);
 int		ft_strlen(char *string);
 char	*get_after_dollar(char *your_path);
+void	sort_alpha(t_env **envv);
+int		get_equal_index(char *table);
+char	*get_name_of_env_var(char *tb);
+char	*get_after_equal(char *your_path);
+char	*get_after_dollar(char *your_path);
+int		get_index_of_env_var(t_env **envv, char *your_path);
+void	append_env_vr(t_env **envv, char *var);
+int		check_for_minus(char *your_path);
+int		check_for_plus(char *your_path);
+int		check_for_plus_to_export(char *your_path);
+int		check_for_digits(char *your_path);
+int		check_for_space(char *your_path);
+int		check_simple_quote(char *your_path);
+int		check_empty_path_name(char *your_path);
+int		check_if_there_is_a_dollar(char *your_path);
+int		check_is_exportable(char *your_path);
+int		check_errors_export(char *your_path);
+int		part_one_of_export(t_cmd *cmd, t_env **env_var);
+int		part_two_of_export(t_cmd *cmd, t_env **env_var);
+int		handle_dollar_export(t_cmd *cmd, t_env **env_var);
+int		charachter_eater(t_cmd *cmd, int is_there_stopper_newline, int start);
+int		minus_ns(t_cmd *cmd, int start);
+int		how_many_args(t_cmd *cmd, int start);
+void	sub_echo_helper(t_cmd *cmd, int args,
+			int option_of_echo, int index_tmp);
+void	sub_echo_helper_two(t_cmd *cmd,
+			int args, int option_of_echo, int index_tmp);
+
+//BUILT_INS
+
+void	ft_pwd(t_cmd *cmd, t_env *env_var);
+void	ft_cd(t_cmd *cmd, t_env *env_var);
+void	ft_export_var(t_cmd *cmd, t_env **env_var);
+void	env_show(t_cmd *cmd, t_env *env_var);
+void	ft_echo(t_cmd *cmd);
+void	ft_unset(t_env **env_var, t_cmd *cmd);
+void	ft_exit(t_cmd *cmd);
+
+//END_OF_BUILT_INS
+
 //EXECUTION
 //FUNTIONS_NEEDED_FOR_EXECUTION
 

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 15:30:35 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/31 11:13:56 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/03 15:09:46 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,17 @@ char    *ft_strstr(char *str,char   *to_find)
 }
 
 
-int get_equal_index(char *table)
-{
-    int i = 0;
-    while(table[i])
-    {
-        if(table[i] == '=')
-            return (i);
-        i++;
-    }
-    return (-1);
-}
+// int get_equal_index(char *table)
+// {
+//     int i = 0;
+//     while(table[i])
+//     {
+//         if(table[i] == '=')
+//             return (i);
+//         i++;
+//     }
+//     return (-1);
+// }
 
 // int main(void)
 // {

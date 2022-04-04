@@ -14,6 +14,20 @@ SRCS = ../execution_folder/ft_split_execution.c \
 	../execution_folder/execution_utils02.c\
 	../execution_folder/execution_utils00.c\
 	../execution_folder/execution_utils01.c\
+	../execution_folder/ff_check_errors_export_01.c\
+	../execution_folder/ff_check_errors_export.c\
+	../execution_folder/ff_export_utils.c\
+	../execution_folder/ft_pwd.c\
+	../execution_folder/echo_utilis.c\
+	../execution_folder/ff_handle_dollar_export.c\
+	../execution_folder/ff_part_two_of_export.c\
+	../execution_folder/ff_part_one_of_export.c\
+	../execution_folder/ft_exit.c\
+	../execution_folder/ft_unset.c\
+	../execution_folder/ft_env_show.c\
+	../execution_folder/ft_export.c\
+	../execution_folder/sort_alphabets.c\
+	../execution_folder/ft_cd.c\
 	../execution_folder/get_path.c \
 	../execution_folder/count_argc.c \
 	../execution_folder/get_params.c \
