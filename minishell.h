@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:09:05 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/03 17:43:25 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:16:25 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINISHELL_H
@@ -40,7 +40,7 @@ int		another_q(char *string, int *i1, char *split_input, int *i);
 void	skip_spaces(char *string, int *i);
 void	skip_redirections(char *string, int *i, int *word_count);
 void	take_input(char **input);
-int		ft_strncmp(char *s1, char *s2, int n);
+
 //Error functions
 int		pipe_in_end(char *input);
 int		check_errors(char *input);
@@ -51,7 +51,6 @@ int		check_in_red(char *input, int *i);
 int		check_d_quotes(char *input, int *i);
 int		check_s_quotes(char *input, int *i);
 int		check_do(char *input, int *i);
-//Error functions end
 
 //Dollar handling
 void	check_dollar(char *input, int *i1, char **split_input, t_env *env);

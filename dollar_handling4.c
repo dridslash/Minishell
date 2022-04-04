@@ -6,7 +6,7 @@
 /*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:27:06 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/03 18:01:54 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/04 13:27:42 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -41,22 +41,6 @@ void	skip_for_exp(char *input, int *i1, int *i2, char **split_input)
 	tmp = 0;
 	(*i2) += 1;
 	(*i1) += 6;
-	/*if (input[*i1] == ' ')
-	{
-		skip_spaces(input, i1);
-		(*i1)++;
-	}
-	if (input[*i1] == '<' || input[*i1] == '>' || input[*i1] == '|'
-		|| input[*i1] == '\0')
-	{
-		(*i1)--;
-		return ;
-	}
-	else
-	{
-		skip_words(input, i1, &tmp);
-		(*i2) += 1;
-	}*/
 	while (input[*i1] != '<' && input[*i1] != '>' && input[*i1] != '|'
 		&& input[*i1] != '\0')
 	{
