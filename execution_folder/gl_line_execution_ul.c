@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 11:57:18 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/01 12:01:27 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 17:40:38 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char	*s, unsigned int start, int len)
 {
 	char			*sub;
 	unsigned int	index;
-	int			l;	
+	int				l;	
 
 	l = len;
 	if (s == NULL)

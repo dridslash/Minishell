@@ -32,7 +32,6 @@ SRCS = ../execution_folder/ft_split_execution.c \
 	../execution_folder/count_argc.c \
 	../execution_folder/get_params.c \
 	../execution_folder/ft_strnstr.c \
-	../execution_folder/add_command.c \
 	../execution_folder/execution.c \
 	../execution_folder/ft_atoi.c \
 	../execution_folder/ft_echo.c \

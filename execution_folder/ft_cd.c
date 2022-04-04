@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 12:31:07 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/03 17:44:02 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 17:27:02 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ void	ft_cd_helper(t_cmd *cmd, int index, char *get_home)
 		}
 		else
 			chdir(get_home);
-	}
-	else
-	{
-		if (chdir(cmd->cmd_w_arg[0]) != 0)
-			perror(">>shell : cd ");
 	}
 }
 

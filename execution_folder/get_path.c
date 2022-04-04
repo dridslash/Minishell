@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 16:42:31 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/02 15:15:05 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 17:39:20 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@
 // 	return (-1);
 // }
 
-char *get_env_from_list(t_env *env_var)
+char	*get_env_from_list(t_env *env_var)
 {
-	t_env *tmp = env_var;
-	while(tmp)
+	t_env	*tmp;
+
+	tmp = env_var;
+	while (tmp)
 	{
-		if(ft_strcmp(get_name_of_env_var(tmp->path_env),"PATH") == 0)
+		if (ft_strcmp(get_name_of_env_var(tmp->path_env), "PATH") == 0)
 		{
 			return (tmp->path_env);
 		}
@@ -47,20 +49,15 @@ char	*get_path(char *cmd, t_env *envp)
 	char	**env_path;
 	char	*checkp;
 
-	i = 0;
+	i = -1;
 	if (access(cmd, X_OK) == 0)
 		return (cmd);
 	if (get_env_from_list(envp) == NULL)
-	{
 		return (NULL);
-	}
 	env_path = ft_split_execution(get_env_from_list(envp), ':');
 	env_path[0] = ft_strtrim(env_path[0], "PATH=");
-	while (env_path[i])
-	{
+	while (env_path[++i])
 		env_path[i] = ft_strjoin(env_path[i], "/");
-		i++;
-	}
 	i = 0;
 	while (env_path[i])
 	{

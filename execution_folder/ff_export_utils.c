@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 11:43:10 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 11:45:45 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 17:41:29 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	append_env_vr(t_env **envv, char *var)
 	while (tmp)
 	{
 		holder_first = ft_split_execution(tmp->path_env, '=');
-		if (ft_strcmp(holder_first[0],var) == 0)
+		if (ft_strcmp(holder_first[0], var) == 0)
 		{
 			ft_strjoin_non_free(tmp->path_env, var);
 			break ;

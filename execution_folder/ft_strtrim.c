@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:53:39 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/31 15:06:40 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 17:35:58 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ static int	ft_pos(char const *s1, char const *set)
 	return (pos);
 }
 
-char	*ft_strtrim(char  *s1, char  *set)
+char	*ft_strtrim(char	*s1, char	*set)
 {
 	char	*tr;
-	int	pos;
-	int	i;
-	int	k;
+	int		pos;
+	int		i;
+	int		k;
 
 	if (!s1)
 		return (NULL);

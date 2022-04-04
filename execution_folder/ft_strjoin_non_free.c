@@ -6,14 +6,14 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:35:34 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/31 14:57:39 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/04 17:33:38 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-char	*ft_strjoin_non_free(char  *s1, char  *s2)
+char	*ft_strjoin_non_free(char	*s1, char	*s2)
 {
 	int		i;
 	int		res;
