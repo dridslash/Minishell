@@ -19,6 +19,8 @@ SRCS = ../execution_folder/ft_split_execution.c \
 	../execution_folder/ff_export_utils.c\
 	../execution_folder/ft_pwd.c\
 	../execution_folder/echo_utilis.c\
+	../execution_folder/ft_itoa.c\
+	../execution_folder/ft_error_manage.c\
 	../execution_folder/ff_handle_dollar_export.c\
 	../execution_folder/ff_part_two_of_export.c\
 	../execution_folder/ff_part_one_of_export.c\

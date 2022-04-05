@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 16:08:09 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 19:50:46 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,8 @@ char	*get_name_of_env_var(char *tb);
 char	*get_after_equal(char *your_path);
 int		ft_strlen(char *string);
 char	*get_after_dollar(char *your_path);
-void	sort_alpha(t_env **envv);
+void	sort_alpha(t_env **envv, int out_file);
 int		get_equal_index(char *table);
-char	*get_name_of_env_var(char *tb);
 char	*get_after_equal(char *your_path);
 char	*get_after_dollar(char *your_path);
 int		get_index_of_env_var(t_env **envv, char *your_path);
@@ -83,18 +82,20 @@ int		handle_dollar_export(t_cmd *cmd, t_env **env_var);
 int		charachter_eater(t_cmd *cmd, int is_there_stopper_newline, int start);
 int		minus_ns(t_cmd *cmd, int start);
 int		how_many_args(t_cmd *cmd, int start);
-void	sub_echo_helper(t_cmd *cmd, int args,
-			int option_of_echo, int index_tmp);
+void	sub_echo_helper(t_cmd *cmd, int args, int option_of_echo, int out_file);
 void	sub_echo_helper_two(t_cmd *cmd,
-			int args, int option_of_echo, int index_tmp);
+	int args, int option_of_echo, int out_file);
+int search_for_status(char *cmd_of_arg);
+void echo_status(char **cmd_of_arg, int args);
+void ft_error(t_cmd *cmd,t_env *env_var);
 
 //BUILT_INS
 
-void	ft_pwd(t_cmd *cmd, t_env *env_var);
+void	ft_pwd(t_cmd *cmd, t_env *env_var, int out_file);
 void	ft_cd(t_cmd *cmd, t_env *env_var);
-void	ft_export_var(t_cmd *cmd, t_env **env_var);
-void	env_show(t_cmd *cmd, t_env *env_var);
-void	ft_echo(t_cmd *cmd);
+void	ft_export_var(t_cmd *cmd, t_env **env_var, int out_file);
+void	env_show(t_cmd *cmd, t_env *env_var, int out_file);
+void	ft_echo(t_cmd *cmd, int out_file);
 void	ft_unset(t_env **env_var, t_cmd *cmd);
 void	ft_exit(t_cmd *cmd);
 
@@ -115,7 +116,6 @@ void	execution_hlp_main_two(t_cmd *holder_nodes,
 			int iterate_for_fds, int iterate, int *pipes);
 void	exectuion_hlp_main_three(t_cmd *holder_nodes,
 			int iterate_for_fds, int iterate, int *pipes);
-void	sort_alpha(t_env **envv);
 char	*ft_substr(char	*s, unsigned int start, int len);
 int		ft_strchr(char *s, int c);
 char	*get_next_line_execution(int fd);
@@ -123,10 +123,10 @@ char	*ft_strtrim(char	*s1, char	*set);
 int		count_size_of_list(t_cmd *cmd);
 int		is_there_a_her_doc(t_cmd	*cmd);
 int		execute_commands(t_cmd *cmd,
-			t_env *env_var, int *pipes, int original_cmds);
+			t_env **env_var, int *pipes, int original_cmds);
 void	execute_cmds_close_files(int in_file,
 			int out_file, int fds, int *pipes);
-int		execute_command(t_cmd *cmd, t_env *env_var, int original_cmds);
+int		execute_command(t_cmd *cmd, t_env **env_var, int original_cmds);
 void	her_doc_helper_main(t_cmd *holder_nodes,
 			t_env *env_var, int original_cmds);
 int		execute_her_docs(t_cmd *cmd, t_env *env_var,
@@ -144,6 +144,7 @@ int		ft_isdigit(int arg);
 int		ft_isalpha(int chr);
 int		ft_isascii(int arg);
 int		ft_atoi(const char *nptr);
+char	*ft_itoa(int n);
 
 //END_OF_FUNCTIONS_NEEDED_FOR_EXECUTION
 

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:03:28 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/02 15:07:39 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 17:50:50 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,6 @@ int out_file, int fds, int *pipes)
 		i++;
 	}
 }
-
-// static void	just_close(int *pipes, int original_cmds)
-// {
-//     int j;
-
-//     j = 0;
-//     while (j < (original_cmds - 1) * 2)
-//     {
-//         close(pipes[j]);
-//         j++;
-//     }
-// }
 
 void	create_pipes(int **pipes, int how_many_cmds)
 {
@@ -88,13 +76,18 @@ int	main_execution_func(t_cmd *cmd, t_env *env_var)
 	int		original_cmds;
 
 	original_cmds = count_size_of_list(cmd);
-	create_pipes(&pipes, original_cmds);
 	if (original_cmds > 1 && is_there_a_her_doc(cmd) == 0)
-		execute_commands(cmd, env_var, pipes, original_cmds);
-	if (original_cmds == 1 && is_there_a_her_doc(cmd) == 0)
-		execute_command(cmd, env_var, original_cmds);
-	if (is_there_a_her_doc(cmd))
+	{
+		create_pipes(&pipes, original_cmds);
+		execute_commands(cmd, &env_var, pipes, original_cmds);
+	}
+	else if (original_cmds == 1 && is_there_a_her_doc(cmd) == 0)
+		return (execute_command(cmd, &env_var, original_cmds));
+	else if (is_there_a_her_doc(cmd))
+	{
+		create_pipes(&pipes, original_cmds);
 		execute_her_docs(cmd, env_var, original_cmds, pipes);
+	}
 	close_pipe_wait(pipes, original_cmds);
 	return (0);
 }

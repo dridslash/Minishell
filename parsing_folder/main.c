@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 19:53:39 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 17:12:23 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,20 @@ int	main(int argc, char *argv[], char **env)
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
 			commands = parse_everything(input_split, count_words(input));
-			// print_struct(commands);
+			//execve(get_path(commands->cmd_w_arg[0], env_var), commands->cmd_w_arg, NULL);
+			 //print_struct(commands);
 			//built_ins
-			ft_echo(commands);
+			// ft_echo(commands);
 			// ft_unset(&env_var,commands);
 			// ft_export_var(commands,&env_var);
-			// if(ft_strcmp(commands->cmd_w_arg[0],"env") == 0)
-			// env_show(commands,env_var);
-			ft_cd(commands, env_var);
+			// ft_cd(commands, env_var);
 			// ft_exit(commands);
-			ft_pwd(commands, env_var);
+			// ft_pwd(commands, env_var);
 			//execute
-			//main_execution_func(commands, env_var);
+			main_execution_func(commands, env_var);
 			//free_after_exectuion
-			free_all(input_split, input, count_words(input), commands);
-			system("leaks minishell");
+			//free_all(input_split, input, count_words(input), commands);
+			//system("leaks minishell");
 		}
 	}
 }

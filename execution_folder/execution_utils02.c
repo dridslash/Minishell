@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 10:30:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/03 10:32:01 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 18:08:04 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,19 @@ int iterate_for_fds, int iterate, int *pipes)
 {
 	if (holder_nodes->how_many_here_doc > 0)
 	{
+		// if (holder_nodes->out_file_op > 1)
+		// {
+		// 	execute_cmds_close_files(holder_nodes->in_file_op,
+		// 	holder_nodes->out_file_op,
+		// 	(holder_nodes->size_of_list - 1) * 2, pipes);
+		// }
+		// if (holder_nodes->in_file_op > -1)
+		// {
+		// 	execute_cmds_close_files(holder_nodes->in_file_op,
+		// 	holder_nodes->out_file_op,
+		// 	(holder_nodes->size_of_list - 1) * 2, pipes);
+		// }
+		// else
 		execute_cmds_close_files(holder_nodes->fd_her_doc[0],
 			holder_nodes->out_file_op,
 			(holder_nodes->size_of_list - 1) * 2, pipes);

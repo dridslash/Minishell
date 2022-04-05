@@ -6,19 +6,19 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:44:27 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 17:41:38 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 11:54:43 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-void	display_sorted_env_vars(t_env **envv)
+void	display_sorted_env_vars(t_env **envv, int out_file)
 {
 	t_env	*aff;
 
 	aff = (*envv);
-	sort_alpha(envv);
+	sort_alpha(envv, out_file);
 }
 
 int	sub_main(t_cmd *cmd, t_env **env_var, char *holder, char *trimed)
@@ -58,7 +58,7 @@ int	export_helper_main(t_cmd *cmd, t_env **env_var, int index)
 	return (0);
 }
 
-void	ft_export_var(t_cmd *cmd, t_env **env_var)
+void	ft_export_var(t_cmd *cmd, t_env **env_var, int out_file)
 {
 	int		i;
 	int		index;
@@ -74,7 +74,7 @@ void	ft_export_var(t_cmd *cmd, t_env **env_var)
 		}
 		else
 		{
-			display_sorted_env_vars(env_var);
+			display_sorted_env_vars(env_var, out_file);
 		}
 	}
 }

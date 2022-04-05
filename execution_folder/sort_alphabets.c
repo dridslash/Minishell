@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:56:41 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 11:17:37 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 12:15:16 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	sort_alpha_helper(t_env **envv, char **holder)
 	}
 }
 
-void	sort_alpha(t_env **envv)
+void	sort_alpha(t_env **envv, int out_file)
 {
 	char	*tmp;
 	char	**holder;
@@ -82,7 +82,9 @@ void	sort_alpha(t_env **envv)
 	i = 0;
 	while (holder[i])
 	{
-		printf("declare -x %s\n", holder[i]);
+		write(out_file, "declare -x ", 12);
+		write (out_file, holder[i], ft_strlen(holder[i]));
+		write(out_file, "\n", 1);
 		i++;
 	}
 }

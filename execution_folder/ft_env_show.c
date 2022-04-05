@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:23:55 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 10:18:08 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 14:40:56 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 //     return (main_env);
 // }
 
-void	env_show(t_cmd *cmd, t_env *env_var)
+void	env_show(t_cmd *cmd, t_env *env_var, int out_file)
 {
 	int	index;
 
@@ -61,7 +61,9 @@ void	env_show(t_cmd *cmd, t_env *env_var)
 	{
 		while (env_var != NULL)
 		{
-			printf("%s\n", env_var->path_env);
+			write(out_file, env_var->path_env, ft_strlen(env_var->path_env));
+			write(out_file, "\n", 1);
+			//printf("%s\n", env_var->path_env);
 			env_var = env_var->next_env;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:05:49 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 16:06:12 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 16:32:22 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	how_many_args(t_cmd *cmd, int start)
 	return (i);
 }
 
-void	sub_echo_helper(t_cmd *cmd, int args, int option_of_echo, int index_tmp)
+void	sub_echo_helper(t_cmd *cmd, int args, int option_of_echo, int out_file)
 {
 	if (charachter_eater(cmd, 0, option_of_echo) > 0)
 	{
@@ -72,24 +72,31 @@ void	sub_echo_helper(t_cmd *cmd, int args, int option_of_echo, int index_tmp)
 		{
 			if (ft_strcmp(cmd->cmd_w_arg[args], "") == 0)
 			{
-				write(1, " ", 1);
+				write(out_file, " ", 2);
 			}
-			write(1, cmd->cmd_w_arg[args], strlen(cmd->cmd_w_arg[args]));
-			write(1, " ", 1);
+			echo_status(&cmd->cmd_w_arg[args], args);
+			write(out_file, cmd->cmd_w_arg[args], strlen(cmd->cmd_w_arg[args]));
 			args++;
 		}
-		write(1, "\n", 1);
+		write(out_file, "\n", 1);
+	}
+	else
+	{
+	write(out_file, " \n", 2);
 	}
 }
 
 void	sub_echo_helper_two(t_cmd *cmd,
-	int args, int option_of_echo, int index_tmp)
+	int args, int option_of_echo, int out_file)
 {
+	int	index_tmp;
+
+	index_tmp = 0;
 	if (charachter_eater(cmd, 1, option_of_echo) > 0)
 	{
 		if (minus_ns(cmd, index_tmp + 1) == how_many_args(cmd, index_tmp + 1))
 		{
-			write(1, "", 1);
+			write(out_file, "", 1);
 			return ;
 		}
 		args = option_of_echo + 1;
@@ -97,12 +104,10 @@ void	sub_echo_helper_two(t_cmd *cmd,
 		{
 			if (ft_strcmp(cmd->cmd_w_arg[args], "") == 0)
 			{
-				write(1, " ", 1);
+				write(out_file, " ", 1);
 			}
-			write(1, cmd->cmd_w_arg[args], strlen(cmd->cmd_w_arg[args]));
+			write(out_file, cmd->cmd_w_arg[args], strlen(cmd->cmd_w_arg[args]));
 			args++;
 		}
 	}
-	else
-		write(1, "", 1);
 }

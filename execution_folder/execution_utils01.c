@@ -6,43 +6,225 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 17:41:01 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/05 19:53:11 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-int	execut_helper_one(t_cmd *holder_nodes,
-			int iterate, int *pipes, int iterate_for_fds)
+int	is_there_a_built_in(t_cmd *holder_nodes)
 {
+	if (ft_strcmp(holder_nodes->cmd_w_arg[0], "cd") == 0
+		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "export") == 0
+		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "pwd") == 0
+		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "unset") == 0
+		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "echo") == 0
+		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "exit") == 0
+		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "env") == 0)
+	{
+		return (1);
+	}
+	return (0);
+}
+
+// void	just_close(int *pipes, int original_cmds)
+// {
+//     int j;
+
+//     j = 0;
+//     while (j < (original_cmds - 1) * 2)
+//     {
+//         close(pipes[j]);
+//         j++;
+//     }
+// }
+
+char	*which_built_in(t_cmd *holder_nodes)
+{
+	if (ft_strcmp(holder_nodes->cmd_w_arg[0], "cd") == 0)
+		return ("cd");
+	else if (ft_strcmp(holder_nodes->cmd_w_arg[0], "export") == 0)
+		return ("export");
+	else if (ft_strcmp(holder_nodes->cmd_w_arg[0], "unset") == 0)
+		return ("unset");
+	else if (ft_strcmp(holder_nodes->cmd_w_arg[0], "exit") == 0)
+		return ("exit");
+	else if (ft_strcmp(holder_nodes->cmd_w_arg[0], "echo") == 0)
+		return ("echo");
+	else if (ft_strcmp(holder_nodes->cmd_w_arg[0], "pwd") == 0)
+		return ("pwd");
+	else if (ft_strcmp(holder_nodes->cmd_w_arg[0], "env") == 0)
+		return ("env");
+	return (NULL);
+}
+
+int	execut_helper_one(t_cmd *holder_nodes,
+			int iterate, int *pipes, int iterate_for_fds, t_env **env_var)
+{
+	int index = 0;
 	if (iterate == 0)
 	{
+		ft_error(holder_nodes, (*env_var));
+		if (is_there_a_built_in(holder_nodes))
+		{
+				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
+					exit (0);
+					else if (ft_strcmp(which_built_in(holder_nodes),"export") == 0)
+				{
+						ft_export_var(holder_nodes, env_var, pipes[iterate_for_fds + 1]);
+						exit (0);
+				}
+					else if (ft_strcmp(which_built_in(holder_nodes),"pwd") == 0 && (get_index_of_env_var(env_var, "PATH") == -1))
+				{
+					ft_pwd(holder_nodes, (*env_var), pipes[iterate_for_fds + 1]);
+						exit (0);
+				}
+					else if (ft_strcmp(which_built_in(holder_nodes),"unset") == 0)
+				{
+						exit (0);
+				}
+				else if (ft_strcmp(which_built_in(holder_nodes),"exit") == 0)
+				{
+					exit (0);
+				}
+				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
+				{
+					env_show(holder_nodes,(*env_var) , 1);
+					exit (0);
+				}
+				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
+				{
+					ft_echo(holder_nodes , pipes[iterate_for_fds + 1]);
+					exit (0);
+				}
+		}
+		if (holder_nodes->out_file_op > 1)
+		{
+			execute_cmds_close_files(holder_nodes->in_file_op,
+			holder_nodes->out_file_op,
+			(holder_nodes->size_of_list - 1) * 2, pipes);
+		}
 		execute_cmds_close_files(holder_nodes->in_file_op,
 			pipes[iterate_for_fds + 1],
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 	}
 	else if (iterate + 1 == holder_nodes->size_of_list)
 	{
-		execute_cmds_close_files(pipes[iterate_for_fds - 2],
+		ft_error(holder_nodes, (*env_var));
+		if (is_there_a_built_in(holder_nodes))
+		{
+				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
+					exit (0);
+					else if (ft_strcmp(which_built_in(holder_nodes),"export") == 0)
+				{
+						ft_export_var(holder_nodes, env_var, pipes[iterate_for_fds + 1]);
+						exit (0);
+				}
+					else if (ft_strcmp(which_built_in(holder_nodes),"pwd") == 0 && (get_index_of_env_var(env_var, "PATH") == -1))
+				{
+					ft_pwd(holder_nodes, (*env_var), pipes[iterate_for_fds + 1]);
+						exit (0);
+				}
+					else if (ft_strcmp(which_built_in(holder_nodes),"unset") == 0)
+				{
+						exit (0);
+				}
+				else if (ft_strcmp(which_built_in(holder_nodes),"exit") == 0)
+				{
+					exit (0);
+				}
+				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
+				{
+					env_show(holder_nodes,(*env_var) , 1);
+					exit (0);
+				}
+				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
+				{
+					ft_echo(holder_nodes , 1);
+					exit (0);
+				}
+		}
+		if (holder_nodes->out_file_op > 1)
+		{
+			execute_cmds_close_files(pipes[iterate_for_fds - 2],
 			holder_nodes->out_file_op,
 			(holder_nodes->size_of_list - 1) * 2, pipes);
-	}
-	else
-	{
+		}
+		if(holder_nodes->in_file_op > 0)
+		{
+			execute_cmds_close_files(holder_nodes->in_file_op,
+			pipes[iterate_for_fds + 1],
+			(holder_nodes->size_of_list - 1) * 2, pipes);
+		}
+		else
 		execute_cmds_close_files(pipes[iterate_for_fds - 2],
 			pipes[iterate_for_fds + 1],
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 	}
-	return (0);
+	else
+	{
+		ft_error(holder_nodes, (*env_var));
+		if (is_there_a_built_in(holder_nodes))
+		{
+				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
+					exit (0);
+					else if (ft_strcmp(which_built_in(holder_nodes),"export") == 0)
+				{
+						ft_export_var(holder_nodes, env_var, pipes[iterate_for_fds + 1]);
+						exit (0);
+				}
+					else if (ft_strcmp(which_built_in(holder_nodes),"pwd") == 0 && (get_index_of_env_var(env_var, "PATH") == -1))
+				{
+					ft_pwd(holder_nodes, (*env_var), pipes[iterate_for_fds + 1]);
+						exit (0);
+				}
+					else if (ft_strcmp(which_built_in(holder_nodes),"unset") == 0)
+				{
+						exit (0);
+				}
+				else if (ft_strcmp(which_built_in(holder_nodes),"exit") == 0)
+				{
+					exit (0);
+				}
+				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
+				{
+					env_show(holder_nodes,(*env_var) , 1);
+					exit (0);
+				}
+				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
+				{
+					ft_echo(holder_nodes , pipes[iterate_for_fds + 1]);
+					exit (0);
+				}
+		}
+		if (holder_nodes->out_file_op > 1)
+		{
+			execute_cmds_close_files(pipes[iterate_for_fds - 2],
+			holder_nodes->out_file_op,
+			(holder_nodes->size_of_list - 1) * 2, pipes);
+		}
+		if(holder_nodes->in_file_op > 0)
+		{
+			execute_cmds_close_files(holder_nodes->in_file_op,
+			pipes[iterate_for_fds + 1],
+			(holder_nodes->size_of_list - 1) * 2, pipes);
+		}
+		else
+		execute_cmds_close_files(pipes[iterate_for_fds - 2],
+			pipes[iterate_for_fds + 1],
+			(holder_nodes->size_of_list - 1) * 2, pipes);
+	}
+	return (1);
 }
 
-int	execute_commands(t_cmd *cmd, t_env *env_var, int *pipes, int original_cmds)
+int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 {
 	t_cmd	*holder_nodes;
 	int		iterate;
 	int		iterate_for_fds;
 	int		*pids;
+	int		check;
 
 	holder_nodes = cmd;
 	pids = malloc(sizeof(int) * original_cmds);
@@ -54,9 +236,12 @@ int	execute_commands(t_cmd *cmd, t_env *env_var, int *pipes, int original_cmds)
 		pids[iterate] = fork();
 		if (pids[iterate] == 0)
 		{
-			execut_helper_one(holder_nodes, iterate, pipes, iterate_for_fds);
-			execve(get_path(holder_nodes->cmd_w_arg[0], env_var),
+			if (execut_helper_one(holder_nodes, iterate, pipes, iterate_for_fds, env_var) != 0)
+			{
+			execve(get_path(holder_nodes->cmd_w_arg[0], (*env_var)),
 				holder_nodes->cmd_w_arg, NULL);
+			}
+			return (0);
 		}
 		iterate++;
 		iterate_for_fds += 2;
@@ -65,7 +250,7 @@ int	execute_commands(t_cmd *cmd, t_env *env_var, int *pipes, int original_cmds)
 	return (0);
 }
 
-int	execute_command(t_cmd *cmd, t_env *env_var, int original_cmds)
+int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 {
 	int	pid;
 
@@ -75,9 +260,46 @@ int	execute_command(t_cmd *cmd, t_env *env_var, int original_cmds)
 	{
 		dup2(cmd->in_file_op, 0);
 		dup2(cmd->out_file_op, 1);
-		execve(get_path(cmd->cmd_w_arg[0], env_var), cmd->cmd_w_arg, NULL);
+		ft_error(cmd, (*env_var));
+		if (is_there_a_built_in(cmd))
+		{
+				if (ft_strcmp(which_built_in(cmd),"cd") == 0)
+				{
+					ft_cd(cmd, (*env_var));
+					return (0);
+				}
+					else if (ft_strcmp(which_built_in(cmd),"export") == 0)
+				{
+						ft_export_var(cmd, env_var, cmd->out_file_op);
+						return (0);
+				}
+					else if (ft_strcmp(which_built_in(cmd),"pwd") == 0 && (get_index_of_env_var(env_var, "PATH") == -1))
+				{
+					ft_pwd(cmd, (*env_var), cmd->out_file_op);
+					write(cmd->out_file_op,"\n",1);
+						return (0);
+				}
+					else if (ft_strcmp(which_built_in(cmd),"unset") == 0)
+				{
+						ft_unset(env_var, cmd);
+						return (0);
+				}
+				else if (ft_strcmp(which_built_in(cmd),"env") == 0)
+				{
+					env_show(cmd,(*env_var) , 1);
+					return (0);
+				}
+				else if(ft_strcmp(which_built_in(cmd),"echo") == 0)
+				{
+					ft_echo(cmd , cmd->out_file_op);
+					return (0);
+				}
+		}
+		execve(get_path(cmd->cmd_w_arg[0], (*env_var)), cmd->cmd_w_arg, NULL);
 		return (0);
 	}
+	// close(cmd->in_file_op);
+	// close(cmd->out_file_op);
 	waitpid(pid, NULL, 0);
 	return (0);
 }
