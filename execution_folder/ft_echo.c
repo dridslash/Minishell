@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 16:32:49 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/06 13:47:19 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int search_for_status(char *cmd_of_arg)
 
 void echo_status(char **cmd_of_arg, int args)
 {
-	int is_special = 0;
-	char *c = ft_itoa(70);
 	char **splited;
 	char *holder;
 	if (search_for_status((*cmd_of_arg)) == 1)
@@ -44,7 +42,7 @@ void echo_status(char **cmd_of_arg, int args)
 	{
 		if (splited[i][0] == '	')
 		{
-		holder = ft_strjoin_non_free(holder, ft_itoa(70));
+		holder = ft_strjoin_non_free(holder, ft_itoa(exit_status));
 		holder = ft_strjoin_non_free(holder, &splited[i][1]);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 19:50:46 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/06 13:47:45 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 //MAX_CHARACTERS_FOR_PATH_NAME
 # define FILE_N_MAX 256
 
+// GLOBAL VARIABLE FOR STATUS
+extern int exit_status;
+
 //EXECUTION
 
 //HEADERS_NEEDED_FOR_EXECUTION
@@ -24,6 +27,9 @@
 # include <fcntl.h>
 # include <string.h>
 # include <stdio.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 # include <stdlib.h>
 # include <signal.h>
 # include <readline/readline.h>
@@ -88,6 +94,8 @@ void	sub_echo_helper_two(t_cmd *cmd,
 int search_for_status(char *cmd_of_arg);
 void echo_status(char **cmd_of_arg, int args);
 void ft_error(t_cmd *cmd,t_env *env_var);
+int	is_there_a_built_in(t_cmd *holder_nodes);
+char	*which_built_in(t_cmd *holder_nodes);
 
 //BUILT_INS
 
@@ -106,16 +114,16 @@ void	ft_exit(t_cmd *cmd);
 
 char	*search_test(t_env **envv, char *your_var);
 char	**ft_split_execution(char const *s, char c);
-void	execution_help_of_hlp(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes);
+int	execution_help_of_hlp(t_cmd *holder_nodes,
+			int iterate_for_fds, int iterate, int *pipes, t_env **env_var);
 void	execution_help_of_hlp_two(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes);
+			int iterate_for_fds, int iterate, int *pipes,  t_env **env_var);
 void	execution_hlp_main_one(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes);
+			int iterate_for_fds, int iterate, int *pipes,  t_env **env_var);
 void	execution_hlp_main_two(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes);
+			int iterate_for_fds, int iterate, int *pipes,  t_env **env_var);
 void	exectuion_hlp_main_three(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes);
+			int iterate_for_fds, int iterate, int *pipes,  t_env **env_var);
 char	*ft_substr(char	*s, unsigned int start, int len);
 int		ft_strchr(char *s, int c);
 char	*get_next_line_execution(int fd);

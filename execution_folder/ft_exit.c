@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 10:01:48 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 10:20:15 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/06 13:39:25 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,4 @@ void	ft_exit(t_cmd *cmd)
 			exit(0);
 		}
 	}
-	else
-		printf("you wanna exit without exit go go go !!!\n");
 }

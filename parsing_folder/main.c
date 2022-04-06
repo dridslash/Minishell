@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 17:12:23 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/06 14:12:01 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 //EXEC
 #include "exec_test.h"
 //EXEC
+ int exit_status = 50;
 void	print_struct(t_cmd *com)
 {
 	int	i;
@@ -33,13 +34,14 @@ void	print_struct(t_cmd *com)
 		printf("Infile is %d\n", com->in_file_op);
 		printf("Outfile is %d\n", com->out_file_op);
 		i = 0;
-		if (com->cmd_w_arg != NULL)
+		if (com->cmd_w_arg == NULL)
 		{
-			while (com->cmd_w_arg[i])
-			{
-				printf("Arg %d is %s\n", i, com->cmd_w_arg[i]);
-				i++;
-			}
+			printf("it is NULL");
+			// while (com->cmd_w_arg[i])
+			// {
+			// 	printf("Arg %d is %s\n", i, com->cmd_w_arg[i]);
+			// 	i++;
+			// }
 		}
 		com = com->next;
 		printf("-------------------\n");
@@ -63,20 +65,15 @@ int	main(int argc, char *argv[], char **env)
 		//Signal
 		if (check_errors(input))
 		{
+			//parse_commands
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
 			commands = parse_everything(input_split, count_words(input));
-			//execve(get_path(commands->cmd_w_arg[0], env_var), commands->cmd_w_arg, NULL);
-			 //print_struct(commands);
-			//built_ins
-			// ft_echo(commands);
-			// ft_unset(&env_var,commands);
-			// ft_export_var(commands,&env_var);
-			// ft_cd(commands, env_var);
-			// ft_exit(commands);
-			// ft_pwd(commands, env_var);
-			//execute
+			//print_struct(commands);
+			//execute_commands
 			main_execution_func(commands, env_var);
+			if ((commands->cmd_w_arg != NULL && ft_strcmp(commands->cmd_w_arg[0],"exit") == 0) && count_size_of_list(commands) == 1)
+				ft_exit(commands);
 			//free_after_exectuion
 			//free_all(input_split, input, count_words(input), commands);
 			//system("leaks minishell");

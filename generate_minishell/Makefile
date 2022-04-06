@@ -1,6 +1,6 @@
 CC = cc
 
-#CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 READLINE = -lreadline -L ~/goinfre/.brew/opt/readline/lib -I \
          ~/goinfre/.brew/opt/readline/include

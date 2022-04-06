@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 19:53:11 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/06 13:08:09 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,12 +118,12 @@ int	execut_helper_one(t_cmd *holder_nodes,
 					exit (0);
 					else if (ft_strcmp(which_built_in(holder_nodes),"export") == 0)
 				{
-						ft_export_var(holder_nodes, env_var, pipes[iterate_for_fds + 1]);
+						ft_export_var(holder_nodes, env_var, holder_nodes->out_file_op);
 						exit (0);
 				}
 					else if (ft_strcmp(which_built_in(holder_nodes),"pwd") == 0 && (get_index_of_env_var(env_var, "PATH") == -1))
 				{
-					ft_pwd(holder_nodes, (*env_var), pipes[iterate_for_fds + 1]);
+					ft_pwd(holder_nodes, (*env_var), holder_nodes->out_file_op);
 						exit (0);
 				}
 					else if (ft_strcmp(which_built_in(holder_nodes),"unset") == 0)
@@ -154,12 +154,12 @@ int	execut_helper_one(t_cmd *holder_nodes,
 		if(holder_nodes->in_file_op > 0)
 		{
 			execute_cmds_close_files(holder_nodes->in_file_op,
-			pipes[iterate_for_fds + 1],
+			holder_nodes->out_file_op,
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 		}
 		else
 		execute_cmds_close_files(pipes[iterate_for_fds - 2],
-			pipes[iterate_for_fds + 1],
+			holder_nodes->out_file_op,
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 	}
 	else
@@ -298,8 +298,6 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 		execve(get_path(cmd->cmd_w_arg[0], (*env_var)), cmd->cmd_w_arg, NULL);
 		return (0);
 	}
-	// close(cmd->in_file_op);
-	// close(cmd->out_file_op);
 	waitpid(pid, NULL, 0);
 	return (0);
 }

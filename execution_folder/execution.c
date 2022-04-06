@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:03:28 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 17:50:50 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/06 14:05:17 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,21 @@ int	count_size_of_list(t_cmd *cmd)
 void	close_pipe_wait(int *pipes, int original_cmds)
 {
 	int	j;
+	int status;
 
 	j = 0;
+	status = 0;
 	while (j < (original_cmds - 1) * 2)
 	{
 		close(pipes[j]);
 		j++;
 	}
-	while (wait(NULL) != -1)
+	while (wait(&status) != -1)
 		;
+	if (WIFEXITED (status))
+	{
+		exit_status = WEXITSTATUS(status);
+	}
 }
 
 int	main_execution_func(t_cmd *cmd, t_env *env_var)
