@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:09:52 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/07 11:08:50 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 17:29:19 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	try_help(t_cmd *holder_nodes, t_env *env_var, int original_cmds)
 void	execution_helper_main(t_cmd *holder_nodes,
 	int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 {
+	handle_q_mark(holder_nodes);
 	if (iterate == 0)
 	{
 		execution_hlp_main_one(holder_nodes, iterate_for_fds, iterate, pipes, env_var);

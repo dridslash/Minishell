@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 14:28:02 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 15:21:15 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ int	main(int argc, char *argv[], char **env)
 			// 	env_show(commands, &env_var, 1);
 			// 	else
 			main_execution_func(commands, env_var);
+			printf("exit_status : %d\n",exit_status);
 			// free_after_exectuion
 			free_all(input_split, input, count_words(input), commands);
 		}

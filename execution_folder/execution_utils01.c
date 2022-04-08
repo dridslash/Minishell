@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 15:11:30 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 17:27:58 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 			int iterate, int *pipes, int iterate_for_fds, t_env **env_var)
 {
 	int index = 0;
+	handle_q_mark(holder_nodes);
 	if (iterate == 0)
 	{
 		if (ft_error(holder_nodes, (*env_var)))
@@ -283,8 +284,11 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 {
 	int	pid;
+	int status;
 
 	pid = 0;
+	status = 0;
+	handle_q_mark(cmd);
 	if(ft_error(cmd, (*env_var)))
 		return (0);
 		if (is_there_a_built_in(cmd))
@@ -337,5 +341,9 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 	}
 	}
 	waitpid(pid, NULL, 0);
+	if (WIFEXITED (status))
+	{
+		exit_status = WEXITSTATUS(status);
+	}
 	return (0);
 }

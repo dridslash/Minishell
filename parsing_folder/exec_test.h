@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 14:57:40 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 17:25:50 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct t_command
 }t_cmd;
 
 t_env	*ft_env(char **envi);
+void	handle_q_mark(t_cmd *cmd);
+int		find_tab(char *cmd_of_arg);
 t_env	*bring_last(t_env *father_of_env);
 void	create_env(t_env **envv, char *path_env);
 char	*search_in_env(t_env **envv, char *your_var);
@@ -90,10 +92,10 @@ int		minus_ns(t_cmd *cmd, int start);
 int		how_many_args(t_cmd *cmd, int start);
 void	sub_echo_helper(t_cmd *cmd, int args, int option_of_echo, int out_file);
 void	sub_echo_helper_two(t_cmd *cmd,
-	int args, int option_of_echo, int out_file);
+			int args, int option_of_echo, int out_file);
 int		search_for_status(char *cmd_of_arg);
 void	echo_status(char **cmd_of_arg, int args);
-int ft_error(t_cmd *cmd,t_env *env_var);
+int		ft_error(t_cmd *cmd,t_env *env_var);
 int		is_there_a_built_in(t_cmd *holder_nodes);
 char	*which_built_in(t_cmd *holder_nodes);
 char	**fill_envp(t_env *env_var);

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 11:43:46 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 17:25:31 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,40 +56,40 @@ int find_tab(char *cmd_of_arg)
 	//  	i++;
 	//  }
 	
-void echo_status(char **cmd_of_arg, int args)
-{
-	char **splited;
-	int sp_index = 0;
-	char *holder = (*cmd_of_arg);
-	int i = 0;
-	int index = 0;
-	int j = 0;
-	if (search_for_status((*cmd_of_arg)) == 1)
-	{
-	splited = ft_split_execution(holder,'$');
-	while (splited[i])
-	{
-		if (find_tab(splited[i]) == 0)
-		{
-			splited[i] = ft_strdup_execution(&splited[i][index + 1]);
-			splited[i] = ft_strjoin(ft_itoa(10),splited[i]);
-		}
-		else if (find_tab(splited[i]) == ft_strlen(splited[i]))
-		{
-			splited[i] = ft_itoa(10);
-		}
-		i++;
-	}
-	i = 1;
-	while(splited[i])
-	{
-		if (j != i)
-		splited[j] = ft_strjoin(splited[j],splited[i]);
-		i++;
-	}
-	 (*cmd_of_arg) = splited[j];
-	}
-}
+// void echo_status(char **cmd_of_arg, int args)
+// {
+// 	char **splited;
+// 	int sp_index = 0;
+// 	char *holder = (*cmd_of_arg);
+// 	int i = 0;
+// 	int index = 0;
+// 	int j = 0;
+// 	if (search_for_status((*cmd_of_arg)) == 1)
+// 	{
+// 	splited = ft_split_execution(holder,'$');
+// 	while (splited[i])
+// 	{
+// 		if (find_tab(splited[i]) == 0)
+// 		{
+// 			splited[i] = ft_strdup_execution(&splited[i][index + 1]);
+// 			splited[i] = ft_strjoin(ft_itoa(10),splited[i]);
+// 		}
+// 		else if (find_tab(splited[i]) == ft_strlen(splited[i]))
+// 		{
+// 			splited[i] = ft_itoa(10);
+// 		}
+// 		i++;
+// 	}
+// 	i = 1;
+// 	while(splited[i])
+// 	{
+// 		if (j != i)
+// 		splited[j] = ft_strjoin(splited[j],splited[i]);
+// 		i++;
+// 	}
+// 	 (*cmd_of_arg) = splited[j];
+// 	}
+// }
 
 void	ft_echo_helper_main(t_cmd *cmd,
 	int args, int option_of_echo, int out_file)

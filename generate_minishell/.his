@@ -1563,3 +1563,33 @@ env
 pwd
 pwd
 cd ..
+ls
+pwd
+pwd
+ls
+ls | pwd
+qwdw
+export dwqd=$PATH
+export d=$PATH
+cat
+cat $?
+<< $?
+<< $?
+exort
+exort dqwd
+exort p=$PATH
+export  p=$PATH
+ls
+export l=$PATH
+env
+echo $?
+echo $?kkfkfkf
+echo hshshshs$?kkfkfkf
+echo $?$?hshshshs$?kkfkfkf
+echo hshshshs$?kkfkfkf  $?$?
+cat $?
+ls | cat $?
+ls | echo $?dqwd
+<< $?
+ls
+pwd
