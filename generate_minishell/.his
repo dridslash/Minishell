@@ -1537,3 +1537,29 @@ ls | dqwd
 pwd | ls
 ls | pwd
 make fclean
+pwd
+ls
+echo $?
+echo $?dwqdqw
+echo $?dwqdqws
+echo $?dwqdqws
+echo $?dwqdqwsq
+echo $?dwqdqwsq
+echo $?dwqdqwsqa
+echo hello$?sss
+echo hello$?sss$?
+pwd
+export efwew=fewf
+env
+unset efwew
+env
+cd ..
+pwd
+ls 
+ls | pwd
+pwd
+unset PATH
+env
+pwd
+pwd
+cd ..
