@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 11:46:17 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 14:50:49 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 13:57:16 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	check_if_there_is_a_dollar(char *your_path)
 	int	i;
 
 	i = 0;
-	while (your_path[i] != '=')
+	while (your_path[i])
 	{
-		if (your_path[i] == '$')
+		if (your_path[i] == '$' /*&& i > get_equal_index(your_path)*/)
 			return (1);
 		i++;
 	}
@@ -63,7 +63,7 @@ int	check_is_exportable(char *your_path)
 			return (11);
 		if (((your_path[i] == '$') && (your_path[i + 1] == '=')))
 			return (11);
-		if (ft_isascii(your_path[i]))
+		if (ft_isascii(your_path[i]) && your_path[i] != '$')
 		{
 			if ((ft_isdigit(your_path[i]) == 0)
 				&& (ft_isalpha(your_path[i]) == 0) && (your_path[i] != '='))

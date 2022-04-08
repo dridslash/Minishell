@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:16:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 15:50:06 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 14:01:47 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,6 @@ int	handle_dollar_export(t_cmd *cmd, t_env **env_var)
 		&& get_equal_index(cmd->cmd_w_arg[index + 1]) != -1)
 	{
 		handle_dollar_helper(cmd, env_var, index, big_boy);
-	}
-	else
-	{
-		printf("insert an equal or go away man !!");
 	}
 	return (1);
 }

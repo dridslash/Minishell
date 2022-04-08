@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 10:30:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/07 20:03:42 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 14:05:50 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,13 +166,13 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 		if (holder_nodes->in_file_op > -1)
 		{
 			execute_cmds_close_files(holder_nodes->in_file_op,
-			holder_nodes->out_file_op,
+			pipes[iterate_for_fds + 1],
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 		}
 		else
 		{
 		execute_cmds_close_files(holder_nodes->fd_her_doc[0],
-			holder_nodes->out_file_op,
+			pipes[iterate_for_fds + 1],
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 		close(holder_nodes->fd_her_doc[0]);
 		close(holder_nodes->fd_her_doc[1]);
@@ -403,13 +403,13 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 		if (holder_nodes->in_file_op > -1)
 		{
 			execute_cmds_close_files(holder_nodes->in_file_op,
-			holder_nodes->out_file_op,
+			pipes[iterate_for_fds + 1],
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 		}
 		else
 		{
 		execute_cmds_close_files(holder_nodes->fd_her_doc[0],
-			holder_nodes->out_file_op,
+			pipes[iterate_for_fds + 1],
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 		close(holder_nodes->fd_her_doc[0]);
 		close(holder_nodes->fd_her_doc[1]);

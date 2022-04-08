@@ -1470,3 +1470,53 @@ env
 export lll$PATH=sasd
 export lll=$PATH
 env
+export p=$PATH
+env
+export
+export p=$PATH
+env
+export pp=$PATH
+env
+export hello =dq
+export hello=dq
+env
+export hello=dq+=$PATH
+env
+export ss+=$PATH
+env
+export k=$PATH
+env
+export k=$PATH
+env
+export l=$PATH
+env
+export f$PATHewd=sas
+export f$PATH=dwqd
+export ll$PATh=sa
+env
+export ll$PSTHs=a
+env
+export ll=$PATH
+env
+<< limiter cat -e| << $USER | ls -l
+<< lim cat -e | ls -l
+<< lim cat -e | ls -l
+<< lim cat -e | << stop cat | pwd
+echo bonjour > p
+chmod 000 p
+echo bonjour > p
+echo "bonjour" > p
+cat 
+cat
+cat p
+touch new1
+chmod 000 new1
+echo "bonjour" > new1
+touch p
+ls
+chmod 000 p
+echo "sss" > p
+echo kkss
+echo pp > p
+ls
+ls p
