@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:47:04 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/04 18:49:25 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 14:29:28 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,5 @@ char	*get_next_line(int fd)
 	s = read_file(fd);
 	if (s == NULL)
 		return (NULL);
-	return (s);
+	return (get_without_nl(s));
 }

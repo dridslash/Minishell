@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 12:58:49 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 14:28:02 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int	main(int argc, char *argv[], char **env)
 	(void)argc;
 	commands = NULL;
 	env_var = ft_env(env);
+	history_check();
 	while (1)
 	{
 		//Signal
