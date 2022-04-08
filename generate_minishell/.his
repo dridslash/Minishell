@@ -1521,3 +1521,19 @@ echo pp > p
 ls
 ls p
 pwd
+echo $?
+echo $?dqwd
+echo adasd$?dqwd
+echo $?adasd$?dqwd
+echo $?
+dwqd
+dqwd
+dwqdqd
+dqwd
+qdwqdwq
+ls
+ls |wqdq
+ls | dqwd
+pwd | ls
+ls | pwd
+make fclean

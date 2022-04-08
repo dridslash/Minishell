@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 14:11:36 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 15:01:07 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int	execut_helper_one(t_cmd *holder_nodes,
 	int index = 0;
 	if (iterate == 0)
 	{
-		ft_error(holder_nodes, (*env_var));
+		if (ft_error(holder_nodes, (*env_var)))
+			exit(1);
 		if (is_there_a_built_in(holder_nodes))
 		{
 				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
@@ -135,7 +136,8 @@ int	execut_helper_one(t_cmd *holder_nodes,
 	}
 	else if (iterate + 1 == holder_nodes->size_of_list)
 	{
-		ft_error(holder_nodes, (*env_var));
+		if (ft_error(holder_nodes, (*env_var)))
+			exit(1);
 		if (is_there_a_built_in(holder_nodes))
 		{
 				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
@@ -188,7 +190,8 @@ int	execut_helper_one(t_cmd *holder_nodes,
 	}
 	else
 	{
-		ft_error(holder_nodes, (*env_var));
+		if (ft_error(holder_nodes, (*env_var)))
+			exit(1);
 		if (is_there_a_built_in(holder_nodes))
 		{
 				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
@@ -282,6 +285,8 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 	int	pid;
 
 	pid = 0;
+	if(ft_error(cmd, (*env_var)))
+		return (0);
 	pid = fork();
 		// if (is_there_a_built_in(cmd))
 		// {
@@ -320,11 +325,11 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 		// 			env_show(cmd, env_var , 1);
 		// 			return (0);
 		// 		}
-		// 		else if(ft_strcmp(which_built_in(cmd),"echo") == 0)
-		// 		{
-		// 			ft_echo(cmd , cmd->out_file_op);
-		// 			return (0);
-		// 		}
+				// if(ft_strcmp(which_built_in(cmd),"echo") == 0)
+				// {
+				// 	ft_echo(cmd , cmd->out_file_op);
+				// 	return (0);
+				// }
 		// }
 	// else if (is_there_a_built_in(cmd) != 1)
 	// {
@@ -342,7 +347,6 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 			// 	}
 		dup2(cmd->in_file_op, 0);
 		dup2(cmd->out_file_op, 1);
-		ft_error(cmd, (*env_var));
 		execve(get_path(cmd->cmd_w_arg[0], (*env_var)), cmd->cmd_w_arg, fill_envp((*env_var)));
 		return (0);
 	}

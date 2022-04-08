@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:10:22 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/07 11:09:27 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 14:57:13 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int is_slash(char *string)
      }
       return (0);
  }
-void ft_error(t_cmd *cmd,t_env *env_var)
+int ft_error(t_cmd *cmd,t_env *env_var)
 {
         if (ft_strcmp(cmd->cmd_w_arg[0],"") == 0)
         {
@@ -44,7 +44,7 @@ void ft_error(t_cmd *cmd,t_env *env_var)
         write(2, ":",1);
         exit_status = 1;
         write(2,"command not found\n",18);
-        exit (1);
+        return (1);
         }
 		if (is_slash(cmd->cmd_w_arg[0]) && access(get_path(cmd->cmd_w_arg[0],env_var),F_OK) == -1)
 		{
@@ -52,7 +52,7 @@ void ft_error(t_cmd *cmd,t_env *env_var)
              write(2, ":",1);
              write(2,"No such file or directory\n",26);
              exit_status = 1;
-				 exit (1);
+			return (1);
 		}
 		else if (access(get_path(cmd->cmd_w_arg[0],env_var), X_OK) == -1 && (ft_strcmp(cmd->cmd_w_arg[0], "cd") != 0
 		&& ft_strcmp(cmd->cmd_w_arg[0], "export") != 0
@@ -66,6 +66,7 @@ void ft_error(t_cmd *cmd,t_env *env_var)
             write(2, ":",1);
             write(2,"command not found\n",18);
             exit_status = 1;
-            exit (1);
+            return (1);
         }
+        return (0);
 }

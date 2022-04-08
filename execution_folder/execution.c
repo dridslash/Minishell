@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:03:28 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/07 20:30:38 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 15:01:58 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,15 @@ void	close_pipe_wait(int *pipes, int original_cmds)
 		close(pipes[j]);
 		j++;
 	}
-	while (wait(&status) != -1)
-		;
+	j = 0;
+	while (j < original_cmds)
+	{
+		waitpid(-1, &status,0);
 	if (WIFEXITED (status))
 	{
 		exit_status = WEXITSTATUS(status);
+	}
+	j++;
 	}
 }
 

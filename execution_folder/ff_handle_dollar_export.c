@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:16:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 14:28:15 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 14:40:58 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ char	*search_in_env(t_env **envv, char *your_var)
 	}
 	return (ft_strdup_execution(""));
 }
+
+// int check_is_dollar_after_equal(t_cmd *cmd)
+// {
+// 	int index_tmp;
+// 	int i;
+
+// 	index_tmp = 0;
+// 	i = 0;
+// 	if (check_if_there_is_a_dollar(cmd->cmd_w_arg[0]) == 1)
+// 	{
+		
+// 	}
+// }
 
 void	handle_dollar_helper(t_cmd *cmd, t_env **env_var,
 	int index, char **big_boy)
