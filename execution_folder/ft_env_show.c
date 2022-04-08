@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:23:55 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 14:40:56 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/07 20:00:08 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,26 @@
 //     return (main_env);
 // }
 
-void	env_show(t_cmd *cmd, t_env *env_var, int out_file)
+void	env_show(t_cmd *cmd, t_env **env_var, int out_file)
 {
 	int	index;
 
 	index = 0;
+	t_env *tmp = (*env_var);
 	if ((ft_strcmp(cmd->cmd_w_arg[0], "env") == 0
 			|| ft_strcmp(cmd->cmd_w_arg[0], "ENV") == 0)
 		&& (cmd->cmd_w_arg[index + 1] == NULL))
 	{
-		while (env_var != NULL)
+		while (tmp != NULL)
 		{
-			write(out_file, env_var->path_env, ft_strlen(env_var->path_env));
+			write(out_file, tmp->path_env, ft_strlen(tmp->path_env));
 			write(out_file, "\n", 1);
 			//printf("%s\n", env_var->path_env);
-			env_var = env_var->next_env;
+			tmp = tmp->next_env;
 		}
 	}
 	else
-		printf(">>shell : %s : No such file or directory\n",
+		printf("%s : No such file or directory\n",
 			cmd->cmd_w_arg[index + 1]);
 	return ;
 }

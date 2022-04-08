@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:29:06 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/04 20:12:26 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 13:27:20 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ void	create_env(t_env **envv, char *path_env)
 	t_env	*element_path;
 
 	element_path = malloc(sizeof(t_env));
-	element_path->path_env = path_env;
-	tmp = (*envv);
+	element_path->path_env = ft_strdup_execution(path_env);
+	element_path->next_env = NULL;
 	if (!(*envv))
 	{
+	tmp = (*envv);
 		(*envv) = element_path;
 		element_path->next_env = NULL;
 		free(tmp);
 		return ;
 	}
 	bring_last((*envv))->next_env = element_path;
-	element_path->next_env = NULL;
 }
 
 // char	*search_in_env(t_env **envv, char *your_var)

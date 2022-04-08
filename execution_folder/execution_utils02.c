@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 10:30:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/06 14:10:43 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/07 20:03:42 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -101,7 +101,7 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					return (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -143,11 +143,12 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"exit") == 0)
 				{
+					exit_status = -1000;
 					exit (0);
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -204,7 +205,7 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -269,7 +270,7 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -326,7 +327,7 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -384,7 +385,7 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -441,7 +442,7 @@ int iterate_for_fds, int iterate, int *pipes, t_env **env_var)
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)

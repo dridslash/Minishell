@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 16:42:31 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 11:57:08 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/07 15:31:13 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*get_path(char *cmd, t_env *envp)
 	int		i;
 	char	**env_path;
 	char	*checkp;
-
+	char	*tmp;
 	i = -1;
 	if (access(cmd, X_OK) == 0)
 		return (cmd);
@@ -63,10 +63,15 @@ char	*get_path(char *cmd, t_env *envp)
 	{
 		checkp = ft_strjoin(env_path[i], cmd);
 		if (access(checkp, X_OK) == 0)
+		{
+			//free_split_in(env_path);
 			return (checkp);
+		}
 		free(checkp);
 		i++;
 	}
+	//free(checkp);
+	//free_split_in(env_path);
 	return (NULL);
 }
 

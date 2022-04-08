@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/06 13:47:19 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 11:43:46 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,66 @@ int search_for_status(char *cmd_of_arg)
 	return (0);
 }
 
-void echo_status(char **cmd_of_arg, int args)
+int find_tab(char *cmd_of_arg)
 {
-	char **splited;
-	char *holder;
-	if (search_for_status((*cmd_of_arg)) == 1)
+	int i = 0;
+	while(cmd_of_arg[i])
 	{
-		splited = ft_split_execution((*cmd_of_arg), '$');
-	
-	int i =0;
-	holder = splited[0];
-	while(splited[i])
-	{
-		if (splited[i][0] == '	')
+		if (cmd_of_arg[i] == '	')
 		{
-		holder = ft_strjoin_non_free(holder, ft_itoa(exit_status));
-		holder = ft_strjoin_non_free(holder, &splited[i][1]);
+			return (i);
 		}
 		i++;
 	}
-	(*cmd_of_arg) = holder;
+	return (-1);
+}
+
+// 	splited = ft_split_execution((*cmd_of_arg), '$');
+	
+	// int i =0;
+	// holder = splited[0];
+	//  while(splited[i])
+	// {
+	// 	if (splited[i][0] == '	')
+	//  	{
+	// 	holder = ft_strjoin_non_free(ft_itoa(exit_status), holder);
+	// 	holder = ft_strjoin_non_free(holder, &splited[i][1]);
+	//  	}
+	//  	i++;
+	//  }
+	
+void echo_status(char **cmd_of_arg, int args)
+{
+	char **splited;
+	int sp_index = 0;
+	char *holder = (*cmd_of_arg);
+	int i = 0;
+	int index = 0;
+	int j = 0;
+	if (search_for_status((*cmd_of_arg)) == 1)
+	{
+	splited = ft_split_execution(holder,'$');
+	while (splited[i])
+	{
+		if (find_tab(splited[i]) == 0)
+		{
+			splited[i] = ft_strdup_execution(&splited[i][index + 1]);
+			splited[i] = ft_strjoin(ft_itoa(10),splited[i]);
+		}
+		else if (find_tab(splited[i]) == ft_strlen(splited[i]))
+		{
+			splited[i] = ft_itoa(10);
+		}
+		i++;
+	}
+	i = 1;
+	while(splited[i])
+	{
+		if (j != i)
+		splited[j] = ft_strjoin(splited[j],splited[i]);
+		i++;
+	}
+	 (*cmd_of_arg) = splited[j];
 	}
 }
 
@@ -69,7 +109,6 @@ void	ft_echo(t_cmd *cmd, int out_file)
 	int	index_tmp;
 	int	option_of_echo;
 	int	args;
-
 	index_tmp = 0;
 	args = 0;
 	option_of_echo = index_tmp + 1;

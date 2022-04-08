@@ -6,12 +6,12 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 18:56:17 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 17:37:23 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 12:08:19 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../parsing_folder/exec_test.h"
-#include "../parsing_folder/minishell.h"
+// #include "../parsing_folder/exec_test.h"
+// #include "../parsing_folder/minishell.h"
 
 // void handler(int sig)
 // {

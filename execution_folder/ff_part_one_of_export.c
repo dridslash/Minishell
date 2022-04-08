@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 11:57:04 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 15:30:06 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 13:27:03 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	export_pt_one_helper(t_cmd *cmd, t_env **env_var, char *holder)
 		if (ft_strcmp(get_name_of_env_var(aff->path_env),
 				get_name_of_env_var(holder)) == 0)
 		{
-				aff->path_env = holder;
+				aff->path_env = ft_strdup_execution(holder);
 				locker++;
 			break ;
 		}
@@ -35,7 +35,6 @@ void	export_pt_one_helper(t_cmd *cmd, t_env **env_var, char *holder)
 	{
 		create_env(env_var, holder);
 	}
-		aff = (*env_var);
 }
 
 int	part_one_of_export(t_cmd *cmd, t_env **env_var)
@@ -44,17 +43,13 @@ int	part_one_of_export(t_cmd *cmd, t_env **env_var)
 	int		index;
 	char	*holder;
 
-	holder = cmd->cmd_w_arg[index + 1];
 	index = 0;
+	holder = cmd->cmd_w_arg[index + 1];
 	i = 0;
 	if (cmd->cmd_w_arg[index + 1] != NULL
 		&& get_equal_index(cmd->cmd_w_arg[index + 1]) != -1)
 	{
 		export_pt_one_helper(cmd, env_var, holder);
-	}
-	else
-	{
-		printf("insert an equal or go away man !!");
 	}
 	return (1);
 }

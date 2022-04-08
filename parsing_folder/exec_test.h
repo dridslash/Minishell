@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/06 13:47:45 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 12:27:51 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define FILE_N_MAX 256
 
 // GLOBAL VARIABLE FOR STATUS
-extern int exit_status;
+int exit_status;
 
 //EXECUTION
 
@@ -91,18 +91,19 @@ int		how_many_args(t_cmd *cmd, int start);
 void	sub_echo_helper(t_cmd *cmd, int args, int option_of_echo, int out_file);
 void	sub_echo_helper_two(t_cmd *cmd,
 	int args, int option_of_echo, int out_file);
-int search_for_status(char *cmd_of_arg);
-void echo_status(char **cmd_of_arg, int args);
-void ft_error(t_cmd *cmd,t_env *env_var);
-int	is_there_a_built_in(t_cmd *holder_nodes);
+int		search_for_status(char *cmd_of_arg);
+void	echo_status(char **cmd_of_arg, int args);
+void	ft_error(t_cmd *cmd,t_env *env_var);
+int		is_there_a_built_in(t_cmd *holder_nodes);
 char	*which_built_in(t_cmd *holder_nodes);
+char	**fill_envp(t_env *env_var);
 
 //BUILT_INS
 
 void	ft_pwd(t_cmd *cmd, t_env *env_var, int out_file);
 void	ft_cd(t_cmd *cmd, t_env *env_var);
 void	ft_export_var(t_cmd *cmd, t_env **env_var, int out_file);
-void	env_show(t_cmd *cmd, t_env *env_var, int out_file);
+void	env_show(t_cmd *cmd, t_env **env_var, int out_file);
 void	ft_echo(t_cmd *cmd, int out_file);
 void	ft_unset(t_env **env_var, t_cmd *cmd);
 void	ft_exit(t_cmd *cmd);

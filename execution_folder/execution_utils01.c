@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/06 13:08:09 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 13:27:43 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,29 @@ int	is_there_a_built_in(t_cmd *holder_nodes)
 		return (1);
 	}
 	return (0);
+}
+
+char **fill_envp(t_env *env_var)
+{
+	int size = 0;
+	int i = 0;
+	t_env *tmp = env_var;
+	char **envp_c;
+	while(tmp)
+	{
+		size++;
+		tmp = tmp->next_env;
+	}
+	tmp = env_var;
+	envp_c = (char **) malloc(sizeof(char *) * (size + 1));
+	while(tmp)
+	{
+		envp_c[i] = ft_strdup_execution(tmp->path_env);
+		i++;
+		tmp = tmp->next_env;
+	}
+	envp_c[i] = NULL;
+	return (envp_c);
 }
 
 // void	just_close(int *pipes, int original_cmds)
@@ -90,7 +113,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -105,6 +128,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 			holder_nodes->out_file_op,
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 		}
+		else
 		execute_cmds_close_files(holder_nodes->in_file_op,
 			pipes[iterate_for_fds + 1],
 			(holder_nodes->size_of_list - 1) * 2, pipes);
@@ -136,7 +160,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -151,7 +175,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 			holder_nodes->out_file_op,
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 		}
-		if(holder_nodes->in_file_op > 0)
+		else if(holder_nodes->in_file_op > 0)
 		{
 			execute_cmds_close_files(holder_nodes->in_file_op,
 			holder_nodes->out_file_op,
@@ -189,7 +213,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes,(*env_var) , 1);
+					env_show(holder_nodes, env_var , 1);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -204,7 +228,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 			holder_nodes->out_file_op,
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 		}
-		if(holder_nodes->in_file_op > 0)
+		else if(holder_nodes->in_file_op > 0)
 		{
 			execute_cmds_close_files(holder_nodes->in_file_op,
 			pipes[iterate_for_fds + 1],
@@ -236,10 +260,12 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 		pids[iterate] = fork();
 		if (pids[iterate] == 0)
 		{
+			signal(SIGINT, SIG_DFL);
+			signal(SIGQUIT, SIG_DFL);
 			if (execut_helper_one(holder_nodes, iterate, pipes, iterate_for_fds, env_var) != 0)
 			{
 			execve(get_path(holder_nodes->cmd_w_arg[0], (*env_var)),
-				holder_nodes->cmd_w_arg, NULL);
+				holder_nodes->cmd_w_arg, fill_envp((*env_var)));
 			}
 			return (0);
 		}
@@ -247,6 +273,7 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 		iterate_for_fds += 2;
 		holder_nodes = holder_nodes->next;
 	}
+	free(pipes);
 	return (0);
 }
 
@@ -255,12 +282,7 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 	int	pid;
 
 	pid = 0;
-	pid = fork();
-	if (pid == 0)
-	{
-		dup2(cmd->in_file_op, 0);
-		dup2(cmd->out_file_op, 1);
-		ft_error(cmd, (*env_var));
+	//pid = fork();
 		if (is_there_a_built_in(cmd))
 		{
 				if (ft_strcmp(which_built_in(cmd),"cd") == 0)
@@ -273,12 +295,12 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 						ft_export_var(cmd, env_var, cmd->out_file_op);
 						return (0);
 				}
-					else if (ft_strcmp(which_built_in(cmd),"pwd") == 0 && (get_index_of_env_var(env_var, "PATH") == -1))
-				{
-					ft_pwd(cmd, (*env_var), cmd->out_file_op);
-					write(cmd->out_file_op,"\n",1);
-						return (0);
-				}
+				// 	else if (ft_strcmp(which_built_in(cmd),"pwd") == 0 && (get_index_of_env_var(env_var, "PATH") == -1))
+				// {
+				// 	ft_pwd(cmd, (*env_var), cmd->out_file_op);
+				// 	write(cmd->out_file_op,"\n",1);
+				// 		return (0);
+				// }
 					else if (ft_strcmp(which_built_in(cmd),"unset") == 0)
 				{
 						ft_unset(env_var, cmd);
@@ -286,7 +308,16 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 				}
 				else if (ft_strcmp(which_built_in(cmd),"env") == 0)
 				{
-					env_show(cmd,(*env_var) , 1);
+					//t_env *tmp;
+
+					//tmp = (*env_var);
+					// while (tmp != NULL)
+					// {
+					// 	printf("%s\n",tmp->path_env);
+					// 	tmp = tmp->next_env;
+					// }
+					printf("\n\n\n");
+					env_show(cmd, env_var , 1);
 					return (0);
 				}
 				else if(ft_strcmp(which_built_in(cmd),"echo") == 0)
@@ -295,9 +326,23 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 					return (0);
 				}
 		}
-		execve(get_path(cmd->cmd_w_arg[0], (*env_var)), cmd->cmd_w_arg, NULL);
-		return (0);
-	}
-	waitpid(pid, NULL, 0);
+	// else if (is_there_a_built_in(cmd) != 1)
+	// {
+	// if (pid == 0)
+	// {
+	// 		// if (ft_strcmp(which_built_in(cmd),"pwd") == 0 && (get_index_of_env_var(env_var, "PATH") == -1))
+	// 		// 	{
+	// 		// 		ft_pwd(cmd, (*env_var), cmd->out_file_op);
+	// 		// 		write(cmd->out_file_op,"\n",1);
+	// 		// 			return (0);
+	// 		// 	}
+	// 	dup2(cmd->in_file_op, 0);
+	// 	dup2(cmd->out_file_op, 1);
+	// 	ft_error(cmd, (*env_var));
+	// 	execve(get_path(cmd->cmd_w_arg[0], (*env_var)), cmd->cmd_w_arg, fill_envp((*env_var)));
+	// 	return (0);
+	// }
+	// // }
+	//waitpid(pid, NULL, 0);
 	return (0);
 }
