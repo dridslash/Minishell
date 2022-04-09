@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:09:52 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 13:04:43 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 14:01:45 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	execute_her_docs(t_cmd *cmd, t_env *env_var, int original_cmds, int *pipes)
 		pids[iterate] = fork();
 		if (pids[iterate] == 0)
 		{
-			if (cmd->out_file_op == -100 || cmd->in_file_op == -100)
+			if (holder_nodes->out_file_op == -100 || holder_nodes->in_file_op == -100 || holder_nodes->cmd_w_arg == NULL)
 			exit (0);
 			holder_nodes->size_of_list = original_cmds;
 			execution_helper_main(holder_nodes,

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 13:48:17 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 14:01:02 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,7 +270,7 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 		pids[iterate] = fork();
 		if (pids[iterate] == 0)
 		{
-			if (holder_nodes->out_file_op == -100 || holder_nodes->in_file_op == -100)
+			if (holder_nodes->out_file_op == -100 || holder_nodes->in_file_op == -100 || holder_nodes->cmd_w_arg == NULL)
 			exit (0);
 			signal(SIGINT, SIG_DFL);
 			signal(SIGQUIT, SIG_DFL);
@@ -338,7 +338,7 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (cmd->out_file_op == -100 || cmd->in_file_op == -100)
+		if (cmd->out_file_op == -100 || cmd->in_file_op == -100 || cmd->cmd_w_arg == NULL)
 		{
 			exit (0);
 		}

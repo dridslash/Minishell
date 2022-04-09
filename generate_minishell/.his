@@ -1707,3 +1707,12 @@ ls -la >> p | cat -e
 ls -la >> p | cat -e | ls -l
 ls -la >> p | cat -e | ls -l
 ls -la >> p | cat -e | ls -l
+ls
+ls
+ls
+export fewf=ewfew
+export wfwe=fewf
+env
+ls
+ls
+<p | ls
