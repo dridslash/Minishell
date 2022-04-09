@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 13:10:28 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 13:35:53 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int	is_there_a_built_in(t_cmd *holder_nodes)
 {
+	if (holder_nodes->cmd_w_arg != NULL)
+	{
 	if (ft_strcmp(holder_nodes->cmd_w_arg[0], "cd") == 0
 		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "export") == 0
 		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "pwd") == 0
@@ -24,6 +26,7 @@ int	is_there_a_built_in(t_cmd *holder_nodes)
 		|| ft_strcmp(holder_nodes->cmd_w_arg[0], "env") == 0)
 	{
 		return (1);
+	}
 	}
 	return (0);
 }
@@ -65,6 +68,8 @@ char **fill_envp(t_env *env_var)
 
 char	*which_built_in(t_cmd *holder_nodes)
 {
+	if (holder_nodes->cmd_w_arg != NULL)
+	{
 	if (ft_strcmp(holder_nodes->cmd_w_arg[0], "cd") == 0)
 		return ("cd");
 	else if (ft_strcmp(holder_nodes->cmd_w_arg[0], "export") == 0)
@@ -79,6 +84,7 @@ char	*which_built_in(t_cmd *holder_nodes)
 		return ("pwd");
 	else if (ft_strcmp(holder_nodes->cmd_w_arg[0], "env") == 0)
 		return ("env");
+	}
 	return (NULL);
 }
 
@@ -265,10 +271,10 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 		//printf("here\n");
 		if (pids[iterate] == 0)
 		{
-			signal(SIGINT, SIG_DFL);
-			signal(SIGQUIT, SIG_DFL);
 			if (cmd->out_file_op == -100 || cmd->in_file_op == -100)
 			exit (0);
+			signal(SIGINT, SIG_DFL);
+			signal(SIGQUIT, SIG_DFL);
 			if (execut_helper_one(holder_nodes, iterate, pipes, iterate_for_fds, env_var) != 0)
 			{
 			execve(get_path(holder_nodes->cmd_w_arg[0], (*env_var)),
