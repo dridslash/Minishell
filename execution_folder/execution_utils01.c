@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 15:37:16 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 18:07:22 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,7 +285,7 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 		iterate_for_fds += 2;
 		holder_nodes = holder_nodes->next;
 	}
-	free(pipes);
+	free(pids);
 	return (0);
 }
 
@@ -344,7 +344,6 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 		}
 		dup2(cmd->in_file_op, 0);
 		dup2(cmd->out_file_op, 1);
-
 		execve(get_path(cmd->cmd_w_arg[0], (*env_var)), cmd->cmd_w_arg, fill_envp((*env_var)));
 		exit (0);
 	}
