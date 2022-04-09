@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:10:22 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 14:57:13 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 13:09:03 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int ft_error(t_cmd *cmd,t_env *env_var)
 {
         if (ft_strcmp(cmd->cmd_w_arg[0],"") == 0)
         {
-        write(2, ">> shell :",10);
+        write(2, ":",10);
         write(2, cmd->cmd_w_arg[0], ft_strlen(cmd->cmd_w_arg[0]));
         write(2, ":",1);
         exit_status = 1;

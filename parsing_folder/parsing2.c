@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:23:35 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/04 20:14:53 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 13:05:48 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	in_output_red(t_cmd *cmd, char *file, char option)
 	}
 	else if (option == 'i')
 	{
-		cmd->in_file_op = open(file, O_CREAT | O_RDONLY, 0644);
+		cmd->in_file_op = open(file, O_RDONLY, 0644);
 		if (cmd->in_file_op < 0)
 		{
 			perror(file);
