@@ -1696,3 +1696,14 @@ ls
 <Makefile <p
 <Makefile <p | <Makefile <p
 <Makefile <p | <Makefile <p cat -e
+ls
+ls
+ls
+ls
+make clean
+ls
+ls -la >> p
+ls -la >> p | cat -e
+ls -la >> p | cat -e | ls -l
+ls -la >> p | cat -e | ls -l
+ls -la >> p | cat -e | ls -l

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 13:35:53 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 13:48:17 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,10 +268,9 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 	{
 		holder_nodes->size_of_list = original_cmds;
 		pids[iterate] = fork();
-		//printf("here\n");
 		if (pids[iterate] == 0)
 		{
-			if (cmd->out_file_op == -100 || cmd->in_file_op == -100)
+			if (holder_nodes->out_file_op == -100 || holder_nodes->in_file_op == -100)
 			exit (0);
 			signal(SIGINT, SIG_DFL);
 			signal(SIGQUIT, SIG_DFL);
