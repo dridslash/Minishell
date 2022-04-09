@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:06:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 17:22:18 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 19:53:59 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void	ft_pt_two_helper(t_cmd *cmd, t_env **env_var, int index, int *found)
 {
 	t_env	*iterta;
+	char	*expand_dollar;
 
 	iterta = (*env_var);
 	while (iterta)
@@ -34,22 +35,37 @@ void	ft_pt_two_helper(t_cmd *cmd, t_env **env_var, int index, int *found)
 
 int	part_two_of_export(t_cmd *cmd, t_env **env_var)
 {
-	int		i;
+	char	**helpp_plus;
 	int		index;
 	char	*joined;
 	int		found;
+	char	*value_dollar;
+	char	**big_boy;
 
-	i = 0;
 	index = 0;
 	found = 1;
 	ft_pt_two_helper(cmd, env_var, index, &found);
 	if (found == 1)
 	{
+		if (check_is_dollar_after_equal(cmd) == 1)
+		{
+			value_dollar = search_in_env(env_var,
+				get_after_dollar(cmd->cmd_w_arg[index + 1]));
+			big_boy = ft_split_execution(cmd->cmd_w_arg[index + 1], '$');
+			big_boy[0] = ft_strjoin(big_boy[0], value_dollar);
+			helpp_plus = ft_split_execution(big_boy[0], '+');
+			big_boy[0] = helpp_plus[0];
+			big_boy[0] = ft_strjoin_non_free(big_boy[0],helpp_plus[1]);
+		create_env(env_var, big_boy[0]);
+		}
+		else
+		{
 		joined = get_name_of_env_var(cmd->cmd_w_arg[index + 1]);
 		joined = ft_strjoin_non_free(joined, "=");
 		joined = ft_strjoin_non_free(joined,
 				get_after_equal(cmd->cmd_w_arg[index + 1]));
 		create_env(env_var, joined);
+		}
 		return (1);
 	}
 	return (1);

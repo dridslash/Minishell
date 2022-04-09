@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 17:25:50 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 17:51:12 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct t_command
 }t_cmd;
 
 t_env	*ft_env(char **envi);
+int		check_is_dollar_after_equal(t_cmd *cmd);
 void	handle_q_mark(t_cmd *cmd);
 int		find_tab(char *cmd_of_arg);
 t_env	*bring_last(t_env *father_of_env);

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 12:31:07 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 17:27:02 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 12:09:39 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,28 @@
 
 void	ft_cd_helper(t_cmd *cmd, int index, char *get_home)
 {
+	char **path;
 	if (ft_strcmp(cmd->cmd_w_arg[0], "cd") == 0)
 	{
 		if (cmd->cmd_w_arg[index + 1] != NULL)
 		{
 			if (ft_strcmp(cmd->cmd_w_arg[index + 1], "~") == 0)
 			{
-				if (chdir(get_home))
-					perror(">>shell : cd ");
+				if (chdir(get_home) != 0)
+					perror("cd ");
+			}
+			else if (cmd->cmd_w_arg[index + 1][0] == '~')
+			{
+				path = ft_split_execution(cmd->cmd_w_arg[index + 1],'~');
+				if (chdir(get_home) != 0)
+					perror("cd ");
+				if(chdir(&path[0][1]) != 0)
+					perror("cd ");
 			}
 			else
 			{
 				if (chdir(cmd->cmd_w_arg[index + 1]) != 0)
-					perror(">>shell : cd ");
+					perror("cd ");
 			}
 		}
 		else

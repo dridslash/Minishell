@@ -1593,3 +1593,73 @@ ls | echo $?dqwd
 << $?
 ls
 pwd
+export dasdas=$PATH
+env
+export $=dqwd
+export dqwd$=dqwd
+export dqwd+=$PATH
+env
+export dqwd=$PATHwefewf
+env
+export dqwd=ss$PATH
+env
+export dqwdq+=$PATH
+env
+export k+=$PATH
+export def+=dqwd
+env
+export def+=$dqwd
+env
+export de+=$dqwd
+env
+export j+=$PATH
+env
+export k+=ds$PATH
+env
+export dwqd+=$PATH
+env
+export r+=$PATH
+env
+export jjj+=$PATH
+env
+export j+=sss$PATH
+env
+export j+=sss$PATH$SHELL
+env
+export a+=sss$PATH$SHELL
+env
+cat | pwd
+cat | pwd
+cat | pwd
+cat | pwd
+cat | pwd
+cat
+ls
+ls
+ls
+ls
+sleep 2 | ls
+pwd
+cd
+cd ~
+cd ..
+cd ~/Desktop/
+pwd
+cd ...
+cd ..
+cd ~
+cd ..
+cd ..
+cd ~
+cd ~
+cd ~
+cd ~
+ls
+touch p
+ls
+cat <Makefile <dqwdw <p
+env
+cat <Makefile <dqwdw <p
+cat <dqwdwq
+env
+ls

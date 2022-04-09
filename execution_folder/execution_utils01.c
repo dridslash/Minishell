@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 17:27:58 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 12:30:03 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,12 +266,14 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 		{
 			signal(SIGINT, SIG_DFL);
 			signal(SIGQUIT, SIG_DFL);
+			if (cmd->out_file_op == -100 || cmd->in_file_op == -100)
+			exit (0);
 			if (execut_helper_one(holder_nodes, iterate, pipes, iterate_for_fds, env_var) != 0)
 			{
 			execve(get_path(holder_nodes->cmd_w_arg[0], (*env_var)),
 				holder_nodes->cmd_w_arg, fill_envp((*env_var)));
 			}
-			return (0);
+			exit (0);
 		}
 		iterate++;
 		iterate_for_fds += 2;
@@ -330,14 +332,14 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (cmd->out_file_op == -100)
+		if (cmd->out_file_op == -100 || cmd->in_file_op == -100)
 		{
-			return (0);
+			exit (0);
 		}
 		dup2(cmd->in_file_op, 0);
 		dup2(cmd->out_file_op, 1);
 		execve(get_path(cmd->cmd_w_arg[0], (*env_var)), cmd->cmd_w_arg, fill_envp((*env_var)));
-		return (0);
+		exit (0);
 	}
 	}
 	waitpid(pid, NULL, 0);

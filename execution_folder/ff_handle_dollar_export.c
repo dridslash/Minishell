@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:16:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 17:21:19 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/08 18:10:59 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	handle_dollar_helper(t_cmd *cmd, t_env **env_var,
 	int index, char **big_boy)
 {
 	char	*value_dollar;
+	char	*test;
 
 	if (search_in_env(env_var,
 			get_after_dollar(cmd->cmd_w_arg[index + 1])) == NULL)
