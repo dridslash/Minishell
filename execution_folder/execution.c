@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:03:28 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 11:04:39 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 15:40:51 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	create_pipes(int **pipes, int how_many_cmds)
 		iterate += 2;
 	}
 	*pipes = holder_pipe;
-	//free(holder_pipe);
+	free(holder_pipe);
 }
 
 int	count_size_of_list(t_cmd *cmd)

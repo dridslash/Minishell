@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 11:57:18 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/04 17:40:38 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 15:23:21 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char	*s, unsigned int start, int len)
 	l = len;
 	if (s == NULL)
 		return (NULL);
-	if (start >= ft_strlen(s))
+	if ((int)start >= ft_strlen(s))
 		return (ft_strdup_execution(""));
 	if (len > ft_strlen(s))
 		l = ft_strlen(s);
@@ -32,7 +32,7 @@ char	*ft_substr(char	*s, unsigned int start, int len)
 		return (NULL);
 	}
 	index = 0;
-	while (index < l)
+	while ((int)index < l)
 	{
 		sub[index] = s[start];
 		index++;

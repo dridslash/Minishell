@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 15:10:33 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 15:44:12 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void handler(int sig)
     char *str;
     if(sig == SIGINT)
     {
+		rl_replace_line("",0);
         rl_on_new_line();
         write(1,"\n",1);
         rl_redisplay();
