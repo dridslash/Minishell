@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 17:51:12 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 14:40:27 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	ft_exit(t_cmd *cmd);
 //FUNTIONS_NEEDED_FOR_EXECUTION
 
 char	*search_test(t_env **envv, char *your_var);
-char	**ft_split_execution(char const *s, char c);
+char	**ft_split_execution(char *s, char c);
 int	execution_help_of_hlp(t_cmd *holder_nodes,
 			int iterate_for_fds, int iterate, int *pipes, t_env **env_var);
 void	execution_help_of_hlp_two(t_cmd *holder_nodes,

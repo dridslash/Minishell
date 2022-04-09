@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_execution.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 11:21:14 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/03/31 11:13:14 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 14:52:37 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ft_wordcount(char const *s, char const c)
 	return (i);
 }
 
-static int	ft_fill(char **cpy, int spl, char c, const char *s)
+static int	ft_fill(char **cpy, int spl, char c, char *s)
 {
 	int	k;
 	int	j;
@@ -78,7 +78,7 @@ static int	ft_fill(char **cpy, int spl, char c, const char *s)
 	return (1);
 }
 
-char	**ft_split_execution(char const *s, char c)
+char	**ft_split_execution(char *s, char c)
 {
 	int		i;
 	int		spl;

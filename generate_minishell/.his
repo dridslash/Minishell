@@ -1716,3 +1716,41 @@ env
 ls
 ls
 <p | ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+export efwef=fewf
+echo hello
+echo hello
+export fwf=fwef
+echo sss
+echo hello
+ls
+sls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+echo hello
+pwd
+ls
+ls
+ls
+ls
+ls
+env | cat -e
+env | cat -e
+ls | env | cat -e
+ls | env | cat -e

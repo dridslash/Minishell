@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 14:01:02 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/09 15:14:01 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes, env_var , 1);
+					env_show(holder_nodes, env_var , pipes[iterate_for_fds + 1]);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
@@ -223,7 +223,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 				}
 				else if (ft_strcmp(which_built_in(holder_nodes),"env") == 0)
 				{
-					env_show(holder_nodes, env_var , 1);
+					env_show(holder_nodes, env_var , pipes[iterate_for_fds + 1]);
 					exit (0);
 				}
 				else if(ft_strcmp(which_built_in(holder_nodes),"echo") == 0)
