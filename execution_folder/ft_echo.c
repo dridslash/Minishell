@@ -6,17 +6,20 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 17:25:31 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 17:01:46 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-int search_for_status(char *cmd_of_arg)
+int	search_for_status(char *cmd_of_arg)
 {
-	int i = 0;
-	char *holder = cmd_of_arg;
+	int		i;
+	char	*holder;
+
+	holder = cmd_of_arg;
+	i = 0;
 	while (holder[i])
 	{
 		if (holder[i] == '$' && holder[i + 1] == '	')
@@ -28,10 +31,12 @@ int search_for_status(char *cmd_of_arg)
 	return (0);
 }
 
-int find_tab(char *cmd_of_arg)
+int	find_tab(char *cmd_of_arg)
 {
-	int i = 0;
-	while(cmd_of_arg[i])
+	int	i;
+
+	i = 0;
+	while (cmd_of_arg[i])
 	{
 		if (cmd_of_arg[i] == '	')
 		{
@@ -43,7 +48,6 @@ int find_tab(char *cmd_of_arg)
 }
 
 // 	splited = ft_split_execution((*cmd_of_arg), '$');
-	
 	// int i =0;
 	// holder = splited[0];
 	//  while(splited[i])
@@ -55,7 +59,6 @@ int find_tab(char *cmd_of_arg)
 	//  	}
 	//  	i++;
 	//  }
-	
 // void echo_status(char **cmd_of_arg, int args)
 // {
 // 	char **splited;
@@ -109,6 +112,7 @@ void	ft_echo(t_cmd *cmd, int out_file)
 	int	index_tmp;
 	int	option_of_echo;
 	int	args;
+
 	index_tmp = 0;
 	args = 0;
 	option_of_echo = index_tmp + 1;
@@ -129,4 +133,5 @@ void	ft_echo(t_cmd *cmd, int out_file)
 			write(out_file, "\n", 1);
 		}
 	}
+	exit_status = 0;
 }

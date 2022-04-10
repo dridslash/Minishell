@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:10:22 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 13:12:50 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 16:49:27 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int is_slash(char *string)
      }
       return (0);
  }
+
 int ft_error(t_cmd *cmd,t_env *env_var)
 {
     char *tmp;

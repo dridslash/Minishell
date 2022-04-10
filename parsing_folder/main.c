@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 13:15:20 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 18:36:06 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,27 +94,19 @@ int	main(int argc, char *argv[], char **env)
 	history_check();
 	while (1)
 	{
-		//Signal
 		signal_main(&input);
-		//END OF SIGNALS
 		if (check_errors(input))
 		{
-			//parse_commands
-			//printf("Id is %d\n", getpid());
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
 			commands = parse_everything(input_split, count_words(input));
 			if ((commands->cmd_w_arg != NULL && ft_strcmp(commands->cmd_w_arg[0],"exit") == 0) && count_size_of_list(commands) == 1)
 				ft_exit(commands);
 			//execute_commands
-			// if (count_size_of_list(commands) == 1)
-			// 	env_show(commands, &env_var, 1);
-			// 	else
 			main_execution_func(commands, env_var);
 			printf("exit_status : %d\n",exit_status);
-			// free_after_exectuion
 			free_all(input_split, input, count_words(input), commands);
-			// system(("leaks minishell"));
+			// system("leaks minishell");
 		}
 	}
 }

@@ -17,8 +17,16 @@ SRCS = ../execution_folder/ft_split_execution.c \
 	../execution_folder/ff_check_errors_export.c\
 	../execution_folder/ff_export_utils.c\
 	../execution_folder/ft_pwd.c\
+	../execution_folder/execute_her_doccc.c\
 	../execution_folder/echo_utilis.c\
+	../execution_folder/hlp_main_three_ut00.c\
+	../execution_folder/hlp_main_two_utils00.c\
 	../execution_folder/ft_itoa.c\
+	../execution_folder/execution_help_of_help_ut00.c\
+	../execution_folder/execution_help_of_help_two_ut00.c\
+	../execution_folder/execution_commands_global_utils00.c\
+	../execution_folder/execute_command_global_utl00.c\
+	../execution_folder/built_in_utils.c\
 	../execution_folder/handle_mark.c\
 	../execution_folder/ft_error_manage.c\
 	../execution_folder/ff_handle_dollar_export.c\

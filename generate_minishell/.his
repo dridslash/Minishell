@@ -2058,3 +2058,72 @@ wqdqw
 wqdqw | echo hello
 echo hello | dwqd
 ls | wqd
+ls > hello
+ls
+cat hello
+cat > lo | ls
+ls
+cat lo
+dqwd
+cat dqdq
+pwd
+pwd
+ls
+export
+env
+ls
+pwd
+dasd
+ss
+cat weqff
+ls | qwd
+ls | echo hello
+ls | cat -e
+ls | cat -e | echo hello
+ls | cat -e
+ls | echo dqwd
+ls | echo dqwd | cat -e
+dqddqw
+ls | dqwd
+ls | echo hello
+ls | wdqd
+ls | wdqd | echo hello
+pwd | ls
+exit
+ls
+ls -l
+ls -l
+ls -l
+ls
+ls -la
+ls -l
+ls
+ls -l
+ls 
+ls -la
+ls -l
+pwd
+ls
+cat Makefile 
+ls -la
+cat $?
+export << lim
+export << lim
+export << lim
+export << lim
+cat << lim
+cat << lim
+cat << lim << stop
+cat << lim
+cat << lim
+exit << lim
+exit << lim | cat -e
+echo $?
+echo $?
+echo $? | cat -e
+cat << lim << stop
+cat > p << lim | cat << stop
+ls
+cat p
+cat >> p << lim | cat << stop | cat -e
+cat p

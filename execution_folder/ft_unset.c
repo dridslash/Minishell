@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:58:06 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 14:32:06 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 16:03:58 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ void	ft_unset(t_env **env_var, t_cmd *cmd)
 		{
 		}
 	}
+	exit_status = 0;
 }

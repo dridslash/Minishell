@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:03:28 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 17:13:35 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 16:28:47 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	create_pipes(int **pipes, int how_many_cmds)
 {
 	int	iterate;
 	int	*holder_pipe;
-	int *p;
+	int	*p;
 
 	holder_pipe = malloc(sizeof(int) * (how_many_cmds - 1) * 2);
 	iterate = 0;
@@ -60,7 +60,7 @@ int	count_size_of_list(t_cmd *cmd)
 void	close_pipe_wait(int *pipes, int original_cmds)
 {
 	int	j;
-	int status;
+	int	status;
 
 	j = 0;
 	status = 0;
@@ -72,11 +72,9 @@ void	close_pipe_wait(int *pipes, int original_cmds)
 	j = 0;
 	while (j < original_cmds)
 	{
-		waitpid(-1, &status,0);
-	if (WIFEXITED (status))
-	{
+		waitpid(-1, &status, 0);
+		if (WIFEXITED (status))
 		exit_status = WEXITSTATUS(status);
-	}
 	j++;
 	}
 }

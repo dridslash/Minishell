@@ -6,20 +6,12 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 14:40:27 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 18:49:40 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXEC_TEST_H
 # define EXEC_TEST_H
-
-//MAX_CHARACTERS_FOR_PATH_NAME
-# define FILE_N_MAX 256
-
-// GLOBAL VARIABLE FOR STATUS
-int exit_status;
-
-//EXECUTION
 
 //HEADERS_NEEDED_FOR_EXECUTION
 
@@ -27,15 +19,22 @@ int exit_status;
 # include <fcntl.h>
 # include <string.h>
 # include <stdio.h>
-#include <errno.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+# include <errno.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 # include <stdlib.h>
 # include <signal.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 
 //END_OF_HEADERS
+//MAX_CHARACTERS_FOR_PATH_NAME
+# define FILE_N_MAX 256
+
+// GLOBAL VARIABLE FOR STATUS
+int	exit_status;
+
+//EXECUTION
 
 typedef struct t_envir
 {
@@ -96,10 +95,33 @@ void	sub_echo_helper_two(t_cmd *cmd,
 			int args, int option_of_echo, int out_file);
 int		search_for_status(char *cmd_of_arg);
 void	echo_status(char **cmd_of_arg, int args);
-int		ft_error(t_cmd *cmd,t_env *env_var);
+int		ft_error(t_cmd *cmd, t_env *env_var);
 int		is_there_a_built_in(t_cmd *holder_nodes);
+void	func_built_ins_send_redi(t_cmd *holder_nodes,
+			int *pipes, int iterate_for_fds, t_env **env_var);
+void	func_built_ins_send_redi_two(t_cmd *holder_nodes,
+			int *pipes, int iterate_for_fds, t_env **env_var);
+void	func_built_ins_send_redi_three(t_cmd *holder_nodes,
+			int *pipes, int iterate_for_fds, t_env **env_var);
+int		func_red_execut_command(t_cmd *cmd,
+			t_env **env_var, int original_cmds);
+void	wait_stat(int pid);
 char	*which_built_in(t_cmd *holder_nodes);
 char	**fill_envp(t_env *env_var);
+void	iterate_func(int *iterate, int *iterate_for_fds, t_cmd **holder_nodes);
+char	*which_built_in(t_cmd *holder_nodes);
+char	**fill_envp(t_env *env_var);
+int		is_there_a_built_in(t_cmd *holder_nodes);
+void	help_of_help_built_in_red_one(t_cmd *holder_nodes, t_env **env_var, int *pipes);
+int		help_of_help_built_in_red_two(t_cmd *holder_nodes, t_env **env_var, int *pipes);
+void	help_of_help_two_built_in_one(t_cmd *holder_nodes, int iterate_for_fds, int *pipes, t_env **env_var);
+void	help_of_help_two_built_in_two(t_cmd *holder_nodes, int iterate_for_fds, int *pipes, t_env **env_var);
+void	hlp_main_two_built_in(t_cmd *holder_nodes, t_env **env_var, int *pipes);
+void	hlp_main_two_built_in_two(t_cmd *holder_nodes, t_env **env_var, int *pipes, int iterate_for_fds);
+void	hlp_main_three_built_in(t_cmd *holder_nodes, int *pipes, int iterate_for_fds, t_env **env_var);
+void	hlp_main_three_built_in_two(t_cmd *holder_nodes, int *pipes, int iterate_for_fds, t_env **env_var);
+void	execute_her_docc(t_cmd *holder_nodes, t_env *env_var, int *it_it_fd, int *pipes);
+void	in_ss(int *iterate, int *iterate_for_fds);
 
 //BUILT_INS
 
@@ -119,15 +141,15 @@ void	ft_exit(t_cmd *cmd);
 char	*search_test(t_env **envv, char *your_var);
 char	**ft_split_execution(char *s, char c);
 int	execution_help_of_hlp(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes, t_env **env_var);
+	int *it_it_fds, int *pipes, t_env **env_var);
 void	execution_help_of_hlp_two(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes,  t_env **env_var);
+int *it_it_fds, int *pipes, t_env **env_var);
 void	execution_hlp_main_one(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes,  t_env **env_var);
+			int *it_it_fds, int *pipes,  t_env **env_var);
 void	execution_hlp_main_two(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes,  t_env **env_var);
+			int *it_it_fds, int *pipes,  t_env **env_var);
 void	exectuion_hlp_main_three(t_cmd *holder_nodes,
-			int iterate_for_fds, int iterate, int *pipes,  t_env **env_var);
+			int *it_it_fds, int *pipes,  t_env **env_var);
 char	*ft_substr(char	*s, unsigned int start, int len);
 int		ft_strchr(char *s, int c);
 char	*get_next_line_execution(int fd);
