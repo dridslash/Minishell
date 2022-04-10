@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:10:22 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 10:08:17 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 10:32:20 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int is_slash(char *string)
 int ft_error(t_cmd *cmd,t_env *env_var)
 {
     char *tmp;
+    char *tmp2;
 
     tmp = get_path(cmd->cmd_w_arg[0],env_var);
     if (cmd->cmd_w_arg != NULL)

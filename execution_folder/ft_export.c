@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:44:27 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 13:40:04 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 11:25:18 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	display_sorted_env_vars(t_env **envv, int out_file)
 
 int	sub_main(t_cmd *cmd, t_env **env_var, char *holder, char *trimed)
 {
+	// char *tmp = trimed;
+	// free(tmp);
 	trimed = get_name_of_env_var(holder);
 	trimed = ft_strjoin_non_free(trimed, "=");
 	create_env(env_var, trimed);
@@ -33,8 +35,9 @@ int	export_helper_main(t_cmd *cmd, t_env **env_var, int index)
 {
 	char	*holder;
 	char	*trimed;
+	char	*tmp;
 	holder = cmd->cmd_w_arg[index + 1];
-	trimed = ft_strdup_execution("");
+	// trimed = ft_strdup_execution("sss");
 	if (check_is_exportable(holder) == 11
 		|| check_errors_export(holder) == 2
 		|| check_errors_export(holder) == 1
@@ -61,6 +64,7 @@ void	ft_export_var(t_cmd *cmd, t_env **env_var, int out_file)
 {
 	int		i;
 	int		index;
+	char	*tmp;
 
 	i = 0;
 	index = 0;
@@ -82,18 +86,28 @@ int	get_index_of_env_var(t_env **envv, char *your_path)
 {
 	int		index;
 	t_env	*tmp;
+	char	*tp;
+	char	*tp2;
 
 	index = 0;
 	tmp = (*envv);
 	while (tmp)
 	{
-		if (ft_strcmp(get_name_of_env_var(tmp->path_env),
-				get_name_of_env_var(your_path)) == 0)
+		tp = get_name_of_env_var(tmp->path_env);
+		tp2 = get_name_of_env_var(your_path);
+		if (ft_strcmp(tp,
+				tp2) == 0)
 		{
+			free(tp);
+			free(tp2);
 			return (index);
 		}
 		index++;
 		tmp = tmp->next_env;
+		free(tp);
+		free(tp2);
 	}
+	free(tp);
+	free(tp2);
 	return (-1);
 }

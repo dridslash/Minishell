@@ -12,3 +12,6 @@ pwd
 cd ~
 pwd
 ls
+pwd
+echo ss
+echo ss | pwd

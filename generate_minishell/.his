@@ -1932,3 +1932,114 @@ unset PATH
 dasd
 ls
 dwqd
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+echo hello
+env
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello==ss
+export hello=ss
+export hello=ss
+export hello=sda
+export hello=ss
+export hello=ss
+export hello=sdas
+export hello=sadas
+export hello=sadsa
+export hello=ss
+export dsad=sdsa
+export hello=sda
+export hello=sada
+export hello=sa
+export hello=ss
+env
+export hello=ss
+export hello=ss
+env
+export hello=ss
+env
+export hello=ss
+env
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=ss
+export hello=s
+env
+export hello=ss
+export hello=sas
+export hello=ab
+export hello=ab
+export dqwd dqwd=
+export $+=dqwd
+export $=dwqd
+export f$PATH=dwqd
+env
+export d$PATH=ewf
+env
+export $=dqd
+export $+=dqwd
+export $+=dqwd
+export f$PATH+=dqwd
+env
+export dqdqw?dqwd=sad
+export dqdqwdqwd=sad
+export dqdqw-dqwd=sad
+export dqdqw+dqwd=sad
+export dqdqwdqwd-=sad
+export dqdqwdqwd?=sad
+export dqdqwdqwd$=sad
+export dqwd+dqwd=dq
+export dqwd-dqwd=dq
+export dqwddqwd$=dq
+export p$PATH=asd
+export dd$PATH=dsd
+export f$PATH=sadsa
+env
+export f$PATH=dasd
+export f$PATH=dfd
+env
+export f=$PATH
+env
+export jj+=sds
+export jj+=dsad
+export jj+=ddd
+export jj+=dqwd
+export jj+=dwqd
+export jj+=dqwd
+export dqwd+=deqd
+export jj+=dqd
+env
+export ded+=dqwd
+export dewqd=dwqd
+env
+export dewqd+=dwqd
+env
+pwd
+cd ..
+export dqwdq==wqdwq
+Export dewded=dwed
+export dewf==fwef
