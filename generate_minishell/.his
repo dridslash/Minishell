@@ -1921,3 +1921,14 @@ cat << lim
 cat << lim << stop
 cat << lim << stop | cat -e
 cat << lim << stop | cat -e
+unset PATH
+unset PATH
+env
+ls
+qdw
+ls
+ls
+unset PATH
+dasd
+ls
+dwqd

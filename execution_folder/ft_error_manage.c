@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:10:22 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 20:04:34 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 10:08:17 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int ft_error(t_cmd *cmd,t_env *env_var)
         write(2,"command not found\n",18);
         return (1);
         }
-		if (is_slash(cmd->cmd_w_arg[0]) && access(tmp,F_OK) == -1)
+		if ((is_slash(cmd->cmd_w_arg[0]) && access(tmp,F_OK) == -1) || (get_index_of_env_var(&env_var,"PATH")) == -1)
 		{
 			write(2, cmd->cmd_w_arg[0], ft_strlen(cmd->cmd_w_arg[0]));
              write(2, ":",1);
