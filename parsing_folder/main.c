@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 12:00:00 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 13:15:20 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,13 @@ void handler(int sig)
         write(1,"\n",1);
         rl_redisplay();
         rl_replace_line("",0);
+		exit_status = 1;
     }
         else if (sig == SIGQUIT)
         {
 			rl_on_new_line();
 			rl_redisplay();
+			exit_status = 0;
         }
 }
 
@@ -112,7 +114,7 @@ int	main(int argc, char *argv[], char **env)
 			printf("exit_status : %d\n",exit_status);
 			// free_after_exectuion
 			free_all(input_split, input, count_words(input), commands);
-			system(("leaks minishell"));
+			// system(("leaks minishell"));
 		}
 	}
 }

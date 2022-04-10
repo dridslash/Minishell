@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 18:07:22 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 13:16:59 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 	if (iterate == 0)
 	{
 		if (ft_error(holder_nodes, (*env_var)))
-			exit(1);
+			exit(exit_status);
 		if (is_there_a_built_in(holder_nodes))
 		{
 				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
@@ -144,7 +144,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 	else if (iterate + 1 == holder_nodes->size_of_list)
 	{
 		if (ft_error(holder_nodes, (*env_var)))
-			exit(1);
+			exit(exit_status);
 		if (is_there_a_built_in(holder_nodes))
 		{
 				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
@@ -198,7 +198,7 @@ int	execut_helper_one(t_cmd *holder_nodes,
 	else
 	{
 		if (ft_error(holder_nodes, (*env_var)))
-			exit(1);
+			exit(exit_status);
 		if (is_there_a_built_in(holder_nodes))
 		{
 				if (ft_strcmp(which_built_in(holder_nodes),"cd") == 0)
@@ -271,7 +271,7 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 		if (pids[iterate] == 0)
 		{
 			if (holder_nodes->out_file_op == -100 || holder_nodes->in_file_op == -100 || holder_nodes->cmd_w_arg == NULL)
-			exit (0);
+			exit (1);
 			signal(SIGINT, SIG_DFL);
 			signal(SIGQUIT, SIG_DFL);
 			if (execut_helper_one(holder_nodes, iterate, pipes, iterate_for_fds, env_var) != 0)
@@ -340,7 +340,7 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 	{
 		if (cmd->out_file_op == -100 || cmd->in_file_op == -100 || cmd->cmd_w_arg == NULL)
 		{
-			exit (0);
+			exit (1);
 		}
 		dup2(cmd->in_file_op, 0);
 		dup2(cmd->out_file_op, 1);
@@ -348,7 +348,7 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 		exit (0);
 	}
 	}
-	waitpid(pid, NULL, 0);
+	waitpid(pid, &status, 0);
 	if (WIFEXITED (status))
 	{
 		exit_status = WEXITSTATUS(status);
