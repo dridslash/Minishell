@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:16:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/08 18:10:59 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 09:35:35 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,26 @@ char	*search_in_env(t_env **envv, char *your_var)
 		aff = aff->next_env;
 	}
 	return (ft_strdup_execution(""));
+}
+
+int check_exit_status(t_cmd *cmd)
+{
+	int index_tmp;
+	int i;
+
+	index_tmp = 0;
+	i = 0;
+	char *holder = cmd->cmd_w_arg[index_tmp + 1];
+	if (check_if_there_is_a_dollar(cmd->cmd_w_arg[index_tmp + 1]) == 1)
+	{
+		while(holder[i])
+		{
+			if ((holder[i] == '$' && holder[i + 1] == '?') && i > get_equal_index(holder))
+				return(1);
+				i++;
+		}
+	}
+	return (0);
 }
 
 int check_is_dollar_after_equal(t_cmd *cmd)
@@ -61,12 +81,23 @@ void	handle_dollar_helper(t_cmd *cmd, t_env **env_var,
 	{
 		write(2, "export Error\n", 13);
 	}
-	else if (check_is_dollar_after_equal(cmd))
+	else if (check_is_dollar_after_equal(cmd) && check_exit_status(cmd) == 0)
 	{
 		value_dollar = search_in_env(env_var,
 				get_after_dollar(cmd->cmd_w_arg[index + 1]));
 			big_boy = ft_split_execution(cmd->cmd_w_arg[index + 1], '$');
 			big_boy[0] = ft_strjoin(big_boy[0], value_dollar);
+		create_env(env_var, big_boy[0]);
+	}
+	else if (check_exit_status(cmd))
+	{
+		value_dollar = search_in_env(env_var,
+				get_after_dollar(cmd->cmd_w_arg[index + 1]));
+			big_boy = ft_split_execution(cmd->cmd_w_arg[index + 1], '$');
+			big_boy[0] = ft_strjoin(big_boy[0], value_dollar);
+			//big_boy[0] = ft_strjoin(big_boy[0], "=");
+			big_boy[0] = ft_strjoin(big_boy[0],
+				ft_itoa(exit_status));
 		create_env(env_var, big_boy[0]);
 	}
 	else

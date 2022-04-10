@@ -1898,3 +1898,26 @@ dqwdqw
 ls
 ls
 wqdwq
+export df=$?
+export df=$?
+env
+export df=$?
+env
+export dqwd$=dqd
+export dqwd$?=dqd
+export df=$?
+env
+export df=$?
+export df=$PATH
+env
+export df=$?
+env
+export df=$?
+env
+cat << lim
+cat << lim
+cat << lim
+cat << lim
+cat << lim << stop
+cat << lim << stop | cat -e
+cat << lim << stop | cat -e

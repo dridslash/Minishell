@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:09:52 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/09 14:01:45 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/10 09:51:30 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	execute_her_docs(t_cmd *cmd, t_env *env_var, int original_cmds, int *pipes)
 		}
 		iterate_func(&iterate, &iterate_for_fds, &holder_nodes);
 	}
+	free(pids);
 	return (0);
 }
 
