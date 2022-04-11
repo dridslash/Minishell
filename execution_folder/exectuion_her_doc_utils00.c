@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 16:32:15 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 17:53:34 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/11 17:05:49 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,17 @@ void	do_her_doc_helper_one(t_cmd *holder_nodes,
 	char	*tmp;
 
 	holder_nodes->here_doc_char = readline(">");
-	while (holder_nodes->here_doc_char == NULL
-		|| ft_strcmp(holder_nodes->here_doc_char,
-			holder_nodes->limiters[0]))
+	while ((holder_nodes->here_doc_char != NULL
+			&& ft_strcmp(holder_nodes->here_doc_char,
+				holder_nodes->limiters[0]) != 0))
 	{
-		if (holder_nodes->here_doc_char != NULL)
-		{
-			tmp = holder_nodes->here_doc_char;
-			holder_nodes->here_doc_char \
+		tmp = holder_nodes->here_doc_char;
+		holder_nodes->here_doc_char \
 				= ft_strjoin_non_free(holder_nodes->here_doc_char, "\n");
-			free(tmp);
-			write(holder_nodes->fd_her_doc[1],
-				holder_nodes->here_doc_char,
-				ft_strlen(holder_nodes->here_doc_char));
-		}
+		free(tmp);
+		write(holder_nodes->fd_her_doc[1],
+			holder_nodes->here_doc_char,
+			ft_strlen(holder_nodes->here_doc_char));
 		free(holder_nodes->here_doc_char);
 		holder_nodes->here_doc_char = readline(">");
 	}
@@ -44,18 +41,15 @@ void	do_her_doc_helper_two(t_cmd *holder_nodes,
 	char	*tmp;
 
 	holder_nodes->here_doc_char = readline(">");
-	while (holder_nodes->here_doc_char == NULL
-		|| ft_strcmp(holder_nodes->here_doc_char,
-			holder_nodes->limiters[iterate_her_docs - 1]))
+	while ((holder_nodes->here_doc_char != NULL
+			&& ft_strcmp(holder_nodes->here_doc_char,
+				holder_nodes->limiters[iterate_her_docs - 1])))
 	{
-		if (holder_nodes->here_doc_char != NULL)
-		{
-			tmp = holder_nodes->here_doc_char;
-			holder_nodes->here_doc_char \
-				= ft_strjoin_non_free(holder_nodes->here_doc_char,
-				"\n");
-			free(tmp);
-		}
+		tmp = holder_nodes->here_doc_char;
+		holder_nodes->here_doc_char \
+					= ft_strjoin_non_free(holder_nodes->here_doc_char,
+			"\n");
+		free(tmp);
 		free(holder_nodes->here_doc_char);
 		holder_nodes->here_doc_char = readline(">");
 	}
@@ -68,21 +62,18 @@ void	do_her_doc_helper_three(t_cmd *holder_nodes,
 	char	*tmp;
 
 	holder_nodes->here_doc_char = readline(">");
-	while (holder_nodes->here_doc_char == NULL
-		|| ft_strcmp(holder_nodes->here_doc_char,
-			holder_nodes->limiters[iterate_her_docs - 1]))
+	while ((holder_nodes->here_doc_char != NULL
+			&& ft_strcmp(holder_nodes->here_doc_char,
+				holder_nodes->limiters[iterate_her_docs - 1])))
 	{
-		if (holder_nodes->here_doc_char != NULL)
-		{
-			tmp = holder_nodes->here_doc_char;
-			holder_nodes->here_doc_char \
-					= ft_strjoin_non_free(holder_nodes->here_doc_char,
-				"\n");
-			free(tmp);
-			write(holder_nodes->fd_her_doc[1],
-				holder_nodes->here_doc_char,
-				ft_strlen(holder_nodes->here_doc_char));
-		}
+		tmp = holder_nodes->here_doc_char;
+		holder_nodes->here_doc_char \
+				= ft_strjoin_non_free(holder_nodes->here_doc_char,
+			"\n");
+		free(tmp);
+		write(holder_nodes->fd_her_doc[1],
+			holder_nodes->here_doc_char,
+			ft_strlen(holder_nodes->here_doc_char));
 		free(holder_nodes->here_doc_char);
 		holder_nodes->here_doc_char = readline(">");
 	}

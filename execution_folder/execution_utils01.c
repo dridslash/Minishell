@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 16:45:18 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/11 14:47:07 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,9 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 		pid = fork();
 		if (pid == 0)
 		{
-			if (cmd->out_file_op == -100
-				|| cmd->in_file_op == -100 || cmd->cmd_w_arg == NULL)
-				exit (1);
-			dup2(cmd->in_file_op, 0);
-			dup2(cmd->out_file_op, 1);
-			execve(get_path(cmd->cmd_w_arg[0],
-					(*env_var)), cmd->cmd_w_arg, fill_envp((*env_var)));
+			signal(SIGINT, SIG_DFL);
+			signal(SIGQUIT, SIG_DFL);
+			execute_command_helper_main(cmd, env_var);
 			exit (0);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:44:27 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 16:50:16 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/11 12:10:07 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,19 +94,18 @@ int	get_index_of_env_var(t_env **envv, char *your_path)
 	{
 		tp = get_name_of_env_var(tmp->path_env);
 		tp2 = get_name_of_env_var(your_path);
-		if (ft_strcmp(tp,
-				tp2) == 0)
+		if (ft_strcmp(tp, tp2) == 0)
 		{
-			free(tp);
-			free(tp2);
+			//free(tp);
+			//free(tp2);
 			return (index);
 		}
 		index++;
 		tmp = tmp->next_env;
-		free(tp);
-		free(tp2);
+		//free(tp);
+		//free(tp2);
 	}
-	free(tp);
-	free(tp2);
+	//free(tp);
+	//free(tp2);
 	return (-1);
 }

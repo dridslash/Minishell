@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 18:49:40 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/11 17:05:39 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct t_command
 }t_cmd;
 
 t_env	*ft_env(char **envi);
+void	rl_replace_line(const char *st, int undo);
 int		check_is_dollar_after_equal(t_cmd *cmd);
 void	handle_q_mark(t_cmd *cmd);
 int		find_tab(char *cmd_of_arg);
@@ -122,6 +123,62 @@ void	hlp_main_three_built_in(t_cmd *holder_nodes, int *pipes, int iterate_for_fd
 void	hlp_main_three_built_in_two(t_cmd *holder_nodes, int *pipes, int iterate_for_fds, t_env **env_var);
 void	execute_her_docc(t_cmd *holder_nodes, t_env *env_var, int *it_it_fd, int *pipes);
 void	in_ss(int *iterate, int *iterate_for_fds);
+void	execution_helper_main(t_cmd *holder_nodes,
+	int *it_it_fds, int *pipes, t_env **env_var);
+int	pwd_separ_built_in_red_two(t_cmd *holder_nodes,
+	t_env **env_var, int *pipes);
+int	ft_cd_separ_built_in_red_two(t_cmd *holder_nodes,
+	t_env **env_var, int *pipes);
+int	ft_echo_separ_buint_in_red_two(t_cmd *holder_nodes,
+	t_env **env_var, int *pipes);
+int	separ_help_help_built_in_red_two(t_cmd *holder_nodes,
+	t_env **env_var, int *pipes);
+void	help_func_send_redi_two(t_cmd *holder_nodes,
+	int *pipes, int iterate_for_fds, t_env **env_var);
+void	separ_ft_pwd_help_help_two_one(t_cmd *holder_nodes,
+	int iterate_for_fds, int *pipes, t_env **env_var);
+void	separ_help_of_help_two_one(t_cmd *holder_nodes,
+	int iterate_for_fds, int *pipes, t_env **env_var);
+void	spera_ft_pwd_hlp_mn_two_one(t_cmd *holder_nodes,
+	t_env **env_var, int *pipes);
+void	help_main_two_built_in_separ_one(t_cmd *holder_nodes,
+	t_env **env_var, int *pipes);
+void	separ_hlp_main_three_one_ft_pwd(t_cmd *holder_nodes,
+	int *pipes, int iterate_for_fds, t_env **env_var);
+void	hlp_main_three_serpar_one(t_cmd *holder_nodes,
+	int *pipes, int iterate_for_fds, t_env **env_var);
+int ft_error_for_qt(t_cmd *cmd,t_env *env_var);
+int ft_error_for_dir(t_cmd *cmd,t_env *env_var,char **tmp);
+int ft_error_for_ex(t_cmd *cmd,t_env *env_var,char **tmp);
+int	check_exit_status(t_cmd *cmd);
+int	check_is_dollar_after_equal(t_cmd *cmd);
+void	ft_echo_separat_send_redi(t_cmd *holder_nodes,
+			int *pipes, int iterate_for_fds, t_env **env_var);
+void	ft_export_separat_send_redi(t_cmd *holder_nodes,
+			int *pipes, int iterate_for_fds, t_env **env_var);
+void	ft_pwd_separat_send_redi(t_cmd *holder_nodes,
+			int *pipes, int iterate_for_fds, t_env **env_var);
+void	ft_echo_send_redi_three_hlp(t_cmd *holder_nodes,
+		int *pipes, int iterate_for_fds, t_env **env_var);
+void	ft_export_send_redi_three_hlp(t_cmd *holder_nodes,
+		int *pipes, int iterate_for_fds, t_env **env_var);
+void	ft_pwd_send_redi_three_hlp(t_cmd *holder_nodes,
+		int *pipes, int iterate_for_fds, t_env **env_var);
+void	env_show_send_redi_three_hlp(t_cmd *holder_nodes,
+		int *pipes, int iterate_for_fds, t_env **env_var);
+void	execute_command_helper_main(t_cmd *cmd, t_env **env_var);
+void	separ_ft_pwd_help_of_help_two_built_in_two(t_cmd *holder_nodes,
+	int iterate_for_fds, int *pipes, t_env **env_var);
+void	separ_ft_export_help_of_help_two_built_in_two(t_cmd *holder_nodes,
+	int iterate_for_fds, int *pipes, t_env **env_var);
+void	separ_ft_echo_help_of_help_two_built_in_two(t_cmd *holder_nodes,
+	int iterate_for_fds, int *pipes, t_env **env_var);
+void	separ_ft_pwd_hlp_main_three_bt_two(t_cmd *holder_nodes,
+	int *pipes, int iterate_for_fds, t_env **env_var);
+void	separ_ft_export_hlp_main_three_bt_two(t_cmd *holder_nodes,
+	int *pipes, int iterate_for_fds, t_env **env_var);
+void	separ_ft_echo_hlp_main_three_bt_two(t_cmd *holder_nodes,
+	int *pipes, int iterate_for_fds, t_env **env_var);
 
 //BUILT_INS
 

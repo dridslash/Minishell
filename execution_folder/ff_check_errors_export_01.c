@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 11:46:17 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 12:49:07 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/11 12:18:16 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	check_simple_quote(char *your_path)
 	i = 0;
 	while (your_path[i] != '=')
 	{
+		if (your_path[i + 1] == '=' && your_path[i + 2] == '=')
+			return (10);
 		if (your_path[i] == '\'')
 		{
 			return (10);
@@ -59,9 +61,8 @@ int	check_is_exportable(char *your_path)
 	i = 0;
 	while (your_path[i] != '=')
 	{
-		if (your_path[i + 1] == '=' && your_path[i + 2] == '=')
-			return (11);
-		if (((your_path[i] == '$') && (your_path[i + 1] == '$')) || ((your_path[i] == '$') && i == 0))
+		if (((your_path[i] == '$') && (your_path[i + 1] == '$'))
+			|| ((your_path[i] == '$') && i == 0))
 			return (11);
 		if (((your_path[i] == '$') && (your_path[i + 1] == '=')))
 			return (11);

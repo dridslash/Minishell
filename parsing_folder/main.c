@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 18:36:06 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/11 17:05:03 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,68 +15,38 @@
 #include "exec_test.h"
 //EXEC
 int exit_status = 50;
-// void	print_struct(t_cmd *com)
-// {
-// 	int	i;
 
-// 	while (com != NULL)
-// 	{
-// 		i = 0;
-// 		printf("How many here_docs : %d\n", com->how_many_here_doc);
-// 		if (com->limiters != NULL)
-// 		{
-// 			while (com->limiters[i] != NULL)
-// 			{
-// 				printf("Limiter %d is %s\n", i, com->limiters[i]);
-// 				i++;
-// 			}
-// 		}
-// 		printf("Infile is %d\n", com->in_file_op);
-// 		printf("Outfile is %d\n", com->out_file_op);
-// 		i = 0;
-// 		if (com->cmd_w_arg == NULL)
-// 		{
-// 			printf("it is NULL");
-// 			// while (com->cmd_w_arg[i])
-// 			// {
-// 			// 	printf("Arg %d is %s\n", i, com->cmd_w_arg[i]);
-// 			// 	i++;
-// 			// }
-// 		}
-// 		com = com->next;
-// 		printf("-------------------\n");
-// 	}
-// }
-
-void handler(int sig)
+void	handler(int sig)
 {
-    char *str;
-    if(sig == SIGINT)
-    {
-		rl_replace_line("",0);
-        rl_on_new_line();
-        write(1,"\n",1);
-        rl_redisplay();
-        rl_replace_line("",0);
+	char	*str;
+
+	if (sig == SIGINT)
+	{
+		rl_replace_line("", 0);
+		rl_on_new_line();
+		write(1, "\n", 1);
+		rl_redisplay();
+		rl_replace_line("", 0);
 		exit_status = 1;
-    }
-        else if (sig == SIGQUIT)
-        {
-			rl_on_new_line();
-			rl_redisplay();
-			exit_status = 0;
-        }
+	}
+	else if (sig == SIGQUIT)
+	{
+		rl_on_new_line();
+		rl_redisplay();
+		exit_status = 0;
+	}
 }
 
-void signal_main(char **input)
+void	signal_main(char **input)
 {
-    struct sigaction sa;
-    struct sigaction act;
-    sa.sa_handler = handler;
-    sigemptyset(&sa.sa_mask);
-    sa.sa_flags = 0;
-    sigaction(SIGINT, &sa , NULL);
-    sigaction(SIGQUIT, &sa , NULL);
+	struct sigaction	sa;
+	struct sigaction	act;
+
+	sa.sa_handler = handler;
+	sigemptyset(&sa.sa_mask);
+	sa.sa_flags = 0;
+	sigaction(SIGINT, &sa, NULL);
+	sigaction(SIGQUIT, &sa, NULL);
 	take_input(input);
 }
 
@@ -104,7 +74,7 @@ int	main(int argc, char *argv[], char **env)
 				ft_exit(commands);
 			//execute_commands
 			main_execution_func(commands, env_var);
-			printf("exit_status : %d\n",exit_status);
+			//printf("exit_status : %d\n",exit_status);
 			free_all(input_split, input, count_words(input), commands);
 			// system("leaks minishell");
 		}

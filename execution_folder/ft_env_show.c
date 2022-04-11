@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:23:55 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 16:04:16 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/11 12:10:53 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,11 @@
 
 void	env_show(t_cmd *cmd, t_env **env_var, int out_file)
 {
-	int	index;
+	int		index;
+	t_env	*tmp;
 
 	index = 0;
-	t_env *tmp = (*env_var);
+	tmp = (*env_var);
 	if ((ft_strcmp(cmd->cmd_w_arg[0], "env") == 0
 			|| ft_strcmp(cmd->cmd_w_arg[0], "ENV") == 0)
 		&& (cmd->cmd_w_arg[index + 1] == NULL))

@@ -6,12 +6,20 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 11:57:04 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 11:13:42 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/11 12:31:02 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
+
+void	free_trio_iterate(char **tp, char **tp2, char **tp3, t_env **aff)
+{
+	//free(tp3);
+	//free(tp);
+	(*aff) = (*aff)->next_env;
+	//free(tp2);
+}
 
 void	export_pt_one_helper(t_cmd *cmd, t_env **env_var, char *holder)
 {
@@ -27,25 +35,19 @@ void	export_pt_one_helper(t_cmd *cmd, t_env **env_var, char *holder)
 	{
 		tp = get_name_of_env_var(aff->path_env);
 		tp2 = get_name_of_env_var(holder);
-		if (ft_strcmp(tp,
-				tp2) == 0)
+		if (ft_strcmp(tp, tp2) == 0)
 		{
 				tp3 = get_name_of_env_var(aff->path_env);
 				aff->path_env = ft_strdup_execution(holder);
-				free(tp3);
+				//free(tp3);
 				locker++;
-				free(tp2);
+				//free(tp2);
 			break ;
 		}
-			free(tp3);
-			free(tp);
-			aff = aff->next_env;
-			free(tp2);
+		free_trio_iterate(&tp, &tp2, &tp3, &aff);
 	}
 	if (locker == 0)
-	{
 		create_env(env_var, holder);
-	}
 }
 
 int	part_one_of_export(t_cmd *cmd, t_env **env_var)
