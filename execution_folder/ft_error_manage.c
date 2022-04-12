@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:10:22 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 15:37:15 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:05:52 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int	ft_error(t_cmd *cmd, t_env *env_var)
 				&& ft_strcmp(cmd->cmd_w_arg[0], "env") != 0))
 			return (ft_error_for_ex(cmd, env_var, &tmp));
 	}
-		free(tmp);
+	free(tmp);
 	return (0);
 }

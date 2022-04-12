@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 12:03:14 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 16:50:31 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:09:38 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_pwd(t_cmd *cmd, t_env *env_var, int out_file)
 	{
 		current_dir[FILE_N_MAX - 1] = '\0';
 		getcwd(current_dir, FILE_N_MAX);
-		exit_status = 0;
+		g_exit_status = 0;
 		write(out_file, current_dir, ft_strlen(current_dir));
 	}
 }

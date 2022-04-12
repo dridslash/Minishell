@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 17:01:46 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:14:56 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,5 +133,5 @@ void	ft_echo(t_cmd *cmd, int out_file)
 			write(out_file, "\n", 1);
 		}
 	}
-	exit_status = 0;
+	g_exit_status = 0;
 }

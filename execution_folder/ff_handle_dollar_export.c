@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:16:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 13:45:08 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:11:10 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	part_two_of_dollar_helper(t_cmd *cmd, t_env **env_var,
 	big_boy[0] = ft_strjoin(big_boy[0], value_dollar);
 	free(tmp);
 	tmp = big_boy[0];
-	tmp2 = ft_itoa(exit_status);
+	tmp2 = ft_itoa(g_exit_status);
 	big_boy[0] = ft_strjoin(big_boy[0], tmp2);
 	free(tmp);
 	free(tmp2);

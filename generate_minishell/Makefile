@@ -2,6 +2,8 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
+READLINE = -lreadline -L ~/goinfre/.brew/opt/readline/lib -I ~/goinfre/.brew/opt/readline/include
+
 SRCS = ../execution_folder/ft_split_execution.c \
 	../execution_folder/ft_strdup.c \
 	../execution_folder/get_next_line_execution.c \
@@ -96,7 +98,7 @@ REM = rm -f
 
 all : $(NAME_EX)
 $(NAME_EX) : $(OBJS)
-	@${CC} ${CFLAGS} -lreadline ${OBJS} -o $(NAME_EX)
+	@${CC} ${CFLAGS} ${READLINE} ${OBJS} -o $(NAME_EX)
 	@echo "minishel made"
 
 clean :

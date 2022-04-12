@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:44:27 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 12:10:07 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:12:12 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_export_var(t_cmd *cmd, t_env **env_var, int out_file)
 			display_sorted_env_vars(env_var, out_file);
 		}
 	}
-	exit_status = 0;
+	g_exit_status = 0;
 }
 
 int	get_index_of_env_var(t_env **envv, char *your_path)

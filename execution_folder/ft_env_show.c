@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:23:55 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 12:10:53 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:11:49 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ void	env_show(t_cmd *cmd, t_env **env_var, int out_file)
 	else
 		printf("%s : No such file or directory\n",
 			cmd->cmd_w_arg[index + 1]);
-	exit_status = 0;
+	g_exit_status = 0;
 	return ;
 }

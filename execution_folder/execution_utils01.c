@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 14:47:07 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:09:25 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@ int	execut_helper_one(t_cmd *holder_nodes,
 	if (it_it_fds[0] == 0)
 	{
 		if (ft_error(holder_nodes, (*env_var)))
-			exit(exit_status);
+			exit(g_exit_status);
 		func_built_ins_send_redi(holder_nodes, pipes, it_it_fds[1], env_var);
 	}
 	else if (it_it_fds[0] + 1 == holder_nodes->size_of_list)
 	{
 		if (ft_error(holder_nodes, (*env_var)))
-			exit(exit_status);
+			exit(g_exit_status);
 		func_built_ins_send_redi_two(holder_nodes,
 			pipes, it_it_fds[1], env_var);
 	}
 	else
 	{
 		if (ft_error(holder_nodes, (*env_var)))
-			exit(exit_status);
+			exit(g_exit_status);
 		func_built_ins_send_redi_three(holder_nodes,
 			pipes, it_it_fds[1], env_var);
 	}
@@ -97,7 +97,7 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 			signal(SIGINT, SIG_DFL);
 			signal(SIGQUIT, SIG_DFL);
 			if (ft_error(cmd, (*env_var)))
-				exit(exit_status);
+				exit(g_exit_status);
 			execute_command_helper_main(cmd, env_var);
 			exit (0);
 		}

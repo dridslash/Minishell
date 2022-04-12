@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:58:06 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 10:33:13 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:11:31 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ void	ft_unset_helper(t_env **env_var, t_cmd *cmd, int index, t_env *looper)
 	char	*tp;
 
 	tp = get_name_of_env_var(looper->path_env);
-	if ((cmd->cmd_w_arg[index] != NULL) && (ft_strcmp(tp, cmd->cmd_w_arg[index]) == 0))
+	prev = NULL;
+	if ((cmd->cmd_w_arg[index] != NULL)
+		&& (ft_strcmp(tp, cmd->cmd_w_arg[index]) == 0))
 	{
 		if (get_index_of_env_var(env_var, looper->path_env) == 0)
 		{
@@ -107,13 +109,13 @@ void	ft_unset_helper(t_env **env_var, t_cmd *cmd, int index, t_env *looper)
 	prev = looper;
 }
 
-void call_in_loop(t_env **env_var, t_cmd *cmd, int index, t_env *looper)
+void	call_in_loop(t_env **env_var, t_cmd *cmd, int index, t_env *looper)
 {
 	while (looper != NULL)
-			{
-				ft_unset_helper(env_var, cmd, index, looper);
+	{
+		ft_unset_helper(env_var, cmd, index, looper);
 				looper = looper->next_env;
-			}
+	}
 }
 
 void	ft_unset(t_env **env_var, t_cmd *cmd)
@@ -132,5 +134,5 @@ void	ft_unset(t_env **env_var, t_cmd *cmd)
 			index++;
 		}
 	}
-	exit_status = 0;
+	g_exit_status = 0;
 }

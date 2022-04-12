@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 17:05:39 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:08:53 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define FILE_N_MAX 256
 
 // GLOBAL VARIABLE FOR STATUS
-int	exit_status;
+int	g_exit_status;
 
 //EXECUTION
 

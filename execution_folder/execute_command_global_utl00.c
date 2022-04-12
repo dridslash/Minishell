@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:11:56 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 14:46:05 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:10:21 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	wait_stat(int pid)
 	status = 0;
 	waitpid(pid, &status, 0);
 	if (WIFEXITED (status))
-		exit_status = WEXITSTATUS(status);
+		g_exit_status = WEXITSTATUS(status);
 }
 
 void	execute_command_helper_main(t_cmd *cmd, t_env **env_var)

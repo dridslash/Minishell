@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 17:22:50 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 10:48:21 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:10:43 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	splited_join(char **ptr, char **splited, int i, int index)
 	char	*another_tmp;
 	int		h;
 
-	another_tmp = ft_itoa(exit_status);
+	another_tmp = ft_itoa(g_exit_status);
 	h = -1;
 	tmp = *ptr;
 	*ptr = ft_strdup_execution(&splited[i][index + 1]);
@@ -80,7 +80,7 @@ void	handle_q_mark(t_cmd *cmd)
 				if (find_tab(splited[i]) == 0)
 					splited_join(&splited[i], splited, i, index);
 				else if (find_tab(splited[i]) == ft_strlen(splited[i]))
-					splited[i] = ft_itoa(exit_status);
+					splited[i] = ft_itoa(g_exit_status);
 			}
 			i = 0;
 			f1(splited, cmd, ll);
