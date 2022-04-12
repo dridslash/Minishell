@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:09:05 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/09 15:43:22 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:30:13 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**split_input(char *input);
 char	**alloc_words(int *arr, int words, char **ret);
 char	**fill_me(char **split_input, char *string);
 char	*t_strjoin(char *s1, char *s2);
-char    *get_without_nl(char *string);
+char	*get_without_nl(char *string);
 int		another_quote(char *string, int *i1, char *split_string, int *i);
 int		count_words(char *string);
 int		find_quote(char *string, int i);

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:27:58 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/08 12:57:44 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:29:30 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	take_input(char **input)
 	*input = readline("$> ");
 	if (*input == NULL)
 	{
-		write(1,"exit\n",5);
+		write(1, "exit\n", 5);
 		exit(0);
 	}
 	i = 0;

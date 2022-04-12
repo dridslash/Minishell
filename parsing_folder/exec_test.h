@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:08:53 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:27:42 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,45 +111,53 @@ void	iterate_func(int *iterate, int *iterate_for_fds, t_cmd **holder_nodes);
 char	*which_built_in(t_cmd *holder_nodes);
 char	**fill_envp(t_env *env_var);
 int		is_there_a_built_in(t_cmd *holder_nodes);
-void	help_of_help_built_in_red_one(t_cmd *holder_nodes, t_env **env_var, int *pipes);
-int		help_of_help_built_in_red_two(t_cmd *holder_nodes, t_env **env_var, int *pipes);
-void	help_of_help_two_built_in_one(t_cmd *holder_nodes, int iterate_for_fds, int *pipes, t_env **env_var);
-void	help_of_help_two_built_in_two(t_cmd *holder_nodes, int iterate_for_fds, int *pipes, t_env **env_var);
+void	help_of_help_built_in_red_one(t_cmd *holder_nodes,
+			t_env **env_var, int *pipes);
+int		help_of_help_built_in_red_two(t_cmd *holder_nodes,
+			t_env **env_var, int *pipes);
+void	help_of_help_two_built_in_one(t_cmd *holder_nodes,
+			int iterate_for_fds, int *pipes, t_env **env_var);
+void	help_of_help_two_built_in_two(t_cmd *holder_nodes,
+			int iterate_for_fds, int *pipes, t_env **env_var);
 void	hlp_main_two_built_in(t_cmd *holder_nodes, t_env **env_var, int *pipes);
-void	hlp_main_two_built_in_two(t_cmd *holder_nodes, t_env **env_var, int *pipes, int iterate_for_fds);
-void	hlp_main_three_built_in(t_cmd *holder_nodes, int *pipes, int iterate_for_fds, t_env **env_var);
-void	hlp_main_three_built_in_two(t_cmd *holder_nodes, int *pipes, int iterate_for_fds, t_env **env_var);
-void	execute_her_docc(t_cmd *holder_nodes, t_env *env_var, int *it_it_fd, int *pipes);
+void	hlp_main_two_built_in_two(t_cmd *holder_nodes,
+			t_env **env_var, int *pipes, int iterate_for_fds);
+void	hlp_main_three_built_in(t_cmd *holder_nodes,
+			int *pipes, int iterate_for_fds, t_env **env_var);
+void	hlp_main_three_built_in_two(t_cmd *holder_nodes,
+			int *pipes, int iterate_for_fds, t_env **env_var);
+void	execute_her_docc(t_cmd *holder_nodes,
+			t_env *env_var, int *it_it_fd, int *pipes);
 void	in_ss(int *iterate, int *iterate_for_fds);
 void	execution_helper_main(t_cmd *holder_nodes,
-	int *it_it_fds, int *pipes, t_env **env_var);
-int	pwd_separ_built_in_red_two(t_cmd *holder_nodes,
-	t_env **env_var, int *pipes);
-int	ft_cd_separ_built_in_red_two(t_cmd *holder_nodes,
-	t_env **env_var, int *pipes);
-int	ft_echo_separ_buint_in_red_two(t_cmd *holder_nodes,
-	t_env **env_var, int *pipes);
-int	separ_help_help_built_in_red_two(t_cmd *holder_nodes,
-	t_env **env_var, int *pipes);
+			int *it_it_fds, int *pipes, t_env **env_var);
+int		pwd_separ_built_in_red_two(t_cmd *holder_nodes,
+			t_env **env_var, int *pipes);
+int		ft_cd_separ_built_in_red_two(t_cmd *holder_nodes,
+			t_env **env_var, int *pipes);
+int		ft_echo_separ_buint_in_red_two(t_cmd *holder_nodes,
+			t_env **env_var, int *pipes);
+int		separ_help_help_built_in_red_two(t_cmd *holder_nodes,
+			t_env **env_var, int *pipes);
 void	help_func_send_redi_two(t_cmd *holder_nodes,
-	int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 void	separ_ft_pwd_help_help_two_one(t_cmd *holder_nodes,
-	int iterate_for_fds, int *pipes, t_env **env_var);
+			int iterate_for_fds, int *pipes, t_env **env_var);
 void	separ_help_of_help_two_one(t_cmd *holder_nodes,
-	int iterate_for_fds, int *pipes, t_env **env_var);
+			int iterate_for_fds, int *pipes, t_env **env_var);
 void	spera_ft_pwd_hlp_mn_two_one(t_cmd *holder_nodes,
-	t_env **env_var, int *pipes);
+			t_env **env_var, int *pipes);
 void	help_main_two_built_in_separ_one(t_cmd *holder_nodes,
-	t_env **env_var, int *pipes);
+			t_env **env_var, int *pipes);
 void	separ_hlp_main_three_one_ft_pwd(t_cmd *holder_nodes,
-	int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 void	hlp_main_three_serpar_one(t_cmd *holder_nodes,
-	int *pipes, int iterate_for_fds, t_env **env_var);
-int ft_error_for_qt(t_cmd *cmd,t_env *env_var);
-int ft_error_for_dir(t_cmd *cmd,t_env *env_var,char **tmp);
-int ft_error_for_ex(t_cmd *cmd,t_env *env_var,char **tmp);
-int	check_exit_status(t_cmd *cmd);
-int	check_is_dollar_after_equal(t_cmd *cmd);
+			int *pipes, int iterate_for_fds, t_env **env_var);
+int		ft_error_for_qt(t_cmd *cmd, t_env *env_var);
+int		ft_error_for_dir(t_cmd *cmd, t_env *env_var, char **tmp);
+int		ft_error_for_ex(t_cmd *cmd, t_env *env_var, char **tmp);
+int		check_exit_status(t_cmd *cmd);
+int		check_is_dollar_after_equal(t_cmd *cmd);
 void	ft_echo_separat_send_redi(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
 void	ft_export_separat_send_redi(t_cmd *holder_nodes,
@@ -157,26 +165,26 @@ void	ft_export_separat_send_redi(t_cmd *holder_nodes,
 void	ft_pwd_separat_send_redi(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
 void	ft_echo_send_redi_three_hlp(t_cmd *holder_nodes,
-		int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 void	ft_export_send_redi_three_hlp(t_cmd *holder_nodes,
-		int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 void	ft_pwd_send_redi_three_hlp(t_cmd *holder_nodes,
-		int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 void	env_show_send_redi_three_hlp(t_cmd *holder_nodes,
-		int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 void	execute_command_helper_main(t_cmd *cmd, t_env **env_var);
 void	separ_ft_pwd_help_of_help_two_built_in_two(t_cmd *holder_nodes,
-	int iterate_for_fds, int *pipes, t_env **env_var);
+			int iterate_for_fds, int *pipes, t_env **env_var);
 void	separ_ft_export_help_of_help_two_built_in_two(t_cmd *holder_nodes,
-	int iterate_for_fds, int *pipes, t_env **env_var);
+			int iterate_for_fds, int *pipes, t_env **env_var);
 void	separ_ft_echo_help_of_help_two_built_in_two(t_cmd *holder_nodes,
-	int iterate_for_fds, int *pipes, t_env **env_var);
+			int iterate_for_fds, int *pipes, t_env **env_var);
 void	separ_ft_pwd_hlp_main_three_bt_two(t_cmd *holder_nodes,
-	int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 void	separ_ft_export_hlp_main_three_bt_two(t_cmd *holder_nodes,
-	int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 void	separ_ft_echo_hlp_main_three_bt_two(t_cmd *holder_nodes,
-	int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds, t_env **env_var);
 
 //BUILT_INS
 
@@ -195,16 +203,16 @@ void	ft_exit(t_cmd *cmd);
 
 char	*search_test(t_env **envv, char *your_var);
 char	**ft_split_execution(char *s, char c);
-int	execution_help_of_hlp(t_cmd *holder_nodes,
-	int *it_it_fds, int *pipes, t_env **env_var);
+int		execution_help_of_hlp(t_cmd *holder_nodes,
+			int *it_it_fds, int *pipes, t_env **env_var);
 void	execution_help_of_hlp_two(t_cmd *holder_nodes,
-int *it_it_fds, int *pipes, t_env **env_var);
+			int *it_it_fds, int *pipes, t_env **env_var);
 void	execution_hlp_main_one(t_cmd *holder_nodes,
-			int *it_it_fds, int *pipes,  t_env **env_var);
+			int *it_it_fds, int *pipes, t_env **env_var);
 void	execution_hlp_main_two(t_cmd *holder_nodes,
-			int *it_it_fds, int *pipes,  t_env **env_var);
+			int *it_it_fds, int *pipes, t_env **env_var);
 void	exectuion_hlp_main_three(t_cmd *holder_nodes,
-			int *it_it_fds, int *pipes,  t_env **env_var);
+			int *it_it_fds, int *pipes, t_env **env_var);
 char	*ft_substr(char	*s, unsigned int start, int len);
 int		ft_strchr(char *s, int c);
 char	*get_next_line_execution(int fd);

@@ -2763,3 +2763,9 @@ pwd
 env
 ls -l
 sort | ls
+echo $?
+dqwdwq
+echo $?
+lls
+ls
+pwd

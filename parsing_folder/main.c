@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:04:21 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:30:43 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 //EXEC
 #include "exec_test.h"
 //EXEC
-int exit_status = 0;
+int	g_exit_status = 0;
 
 void	handler(int sig)
 {
@@ -27,13 +27,13 @@ void	handler(int sig)
 		write(1, "\n", 1);
 		rl_redisplay();
 		rl_replace_line("", 0);
-		exit_status = 1;
+		g_exit_status = 1;
 	}
 	else if (sig == SIGQUIT)
 	{
 		rl_on_new_line();
 		rl_redisplay();
-		exit_status = 0;
+		g_exit_status = 0;
 	}
 }
 
