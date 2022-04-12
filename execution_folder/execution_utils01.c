@@ -87,8 +87,6 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 
 	pid = 0;
 	handle_q_mark(cmd);
-	if (ft_error(cmd, (*env_var)))
-		return (exit_status);
 	if (is_there_a_built_in(cmd))
 		return (func_red_execut_command(cmd, env_var, original_cmds));
 	else
@@ -98,6 +96,8 @@ int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
 		{
 			signal(SIGINT, SIG_DFL);
 			signal(SIGQUIT, SIG_DFL);
+			if (ft_error(cmd, (*env_var)))
+				exit(exit_status);
 			execute_command_helper_main(cmd, env_var);
 			exit (0);
 		}

@@ -15,10 +15,9 @@
 
 void	free_trio_iterate(char **tp, char **tp2, char **tp3, t_env **aff)
 {
-	//free(tp3);
-	//free(tp);
+	free(*tp);
 	(*aff) = (*aff)->next_env;
-	//free(tp2);
+	free(*tp2);
 }
 
 void	export_pt_one_helper(t_cmd *cmd, t_env **env_var, char *holder)
@@ -28,6 +27,7 @@ void	export_pt_one_helper(t_cmd *cmd, t_env **env_var, char *holder)
 	char	*tp2;
 	char	*tp;
 	char	*tp3;
+	char	*tmp4;
 
 	locker = 0;
 	aff = (*env_var);
@@ -38,10 +38,14 @@ void	export_pt_one_helper(t_cmd *cmd, t_env **env_var, char *holder)
 		if (ft_strcmp(tp, tp2) == 0)
 		{
 				tp3 = get_name_of_env_var(aff->path_env);
+				tmp4 = aff->path_env;
 				aff->path_env = ft_strdup_execution(holder);
-				//free(tp3);
+				if (tmp4)
+					free(tmp4);
+				free(tp3);
+				free(tp2);
+				free(tp);
 				locker++;
-				//free(tp2);
 			break ;
 		}
 		free_trio_iterate(&tp, &tp2, &tp3, &aff);

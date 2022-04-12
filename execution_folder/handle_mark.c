@@ -24,12 +24,12 @@ void	splited_join(char **ptr, char **splited, int i, int index)
 	tmp = *ptr;
 	*ptr = ft_strdup_execution(&splited[i][index + 1]);
 	if (tmp)
-		//free(tmp);
+		free(tmp);
 	tmp = *ptr;
 	*ptr = ft_strjoin(another_tmp, splited[i]);
-	//free (another_tmp);
-	//if (tmp)
-	//	free(tmp);
+	free (another_tmp);
+	if (tmp)
+		free(tmp);
 }
 
 void	f1(char **splited, t_cmd *cmd, int ll)
@@ -44,15 +44,15 @@ void	f1(char **splited, t_cmd *cmd, int ll)
 		{
 			tmp = splited[0];
 			splited[0] = ft_strjoin(splited[0], splited[i]);
-			//free(tmp);
+			free(tmp);
 		}
 	}
-	//free(cmd->cmd_w_arg[ll]);
+	free(cmd->cmd_w_arg[ll]);
 	cmd->cmd_w_arg[ll] = ft_strdup_execution(splited[0]);
 	i = -1;
-	//while (splited[++i] != NULL)
-		//free(splited[i]);
-	//free(splited);
+	while (splited[++i] != NULL)
+		free(splited[i]);
+	free(splited);
 }
 
 void	init_vars(int *index, int *i)

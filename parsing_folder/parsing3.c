@@ -18,6 +18,16 @@
 
 #include "exec_test.h"
 
+void	in2(t_cmd *cmd, char *file)
+{
+	cmd->in_file_op = open(file, O_CREAT, 0644);
+	if (cmd->in_file_op < 0)
+	{
+		perror(file);
+		cmd->in_file_op = -100;
+	}
+}
+
 void	here_doc_p(char **split_input, int *i, t_cmd *cmd)
 {
 	cmd->how_many_here_doc += 1;

@@ -45,7 +45,10 @@ int	ft_error(t_cmd *cmd, t_env *env_var)
 	if (cmd->cmd_w_arg != NULL)
 	{
 		if (ft_strcmp(cmd->cmd_w_arg[0], "") == 0)
+		{
+			free(tmp);
 			return (ft_error_for_qt(cmd, env_var));
+		}
 		if ((is_slash(cmd->cmd_w_arg[0]) && access(tmp, F_OK) == -1))
 			return (ft_error_for_dir(cmd, env_var, &tmp));
 		else if (access(tmp, X_OK) == -1
@@ -58,7 +61,6 @@ int	ft_error(t_cmd *cmd, t_env *env_var)
 				&& ft_strcmp(cmd->cmd_w_arg[0], "env") != 0))
 			return (ft_error_for_ex(cmd, env_var, &tmp));
 	}
-	//free(tmp);
+		free(tmp);
 	return (0);
 }
- /*|| (get_index_of_env_var(&env_var,"PATH")) == -1*/

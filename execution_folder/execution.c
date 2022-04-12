@@ -79,7 +79,7 @@ void	close_pipe_wait(int *pipes, int original_cmds)
 	}
 }
 
-int	main_execution_func(t_cmd *cmd, t_env *env_var)
+int	main_execution_func(t_cmd *cmd, t_env **env_var)
 {
 	int		*pipes;
 	int		original_cmds;
@@ -88,15 +88,15 @@ int	main_execution_func(t_cmd *cmd, t_env *env_var)
 	if (original_cmds > 1 && is_there_a_her_doc(cmd) == 0)
 	{
 		create_pipes(&pipes, original_cmds);
-		execute_commands(cmd, &env_var, pipes, original_cmds);
+		execute_commands(cmd, env_var, pipes, original_cmds);
 		close_pipe_wait(pipes, original_cmds);
 	}
 	else if (original_cmds == 1 && is_there_a_her_doc(cmd) == 0)
-		return (execute_command(cmd, &env_var, original_cmds));
+		return (execute_command(cmd, env_var, original_cmds));
 	else if (is_there_a_her_doc(cmd))
 	{
 		create_pipes(&pipes, original_cmds);
-		execute_her_docs(cmd, env_var, original_cmds, pipes);
+		execute_her_docs(cmd, (*env_var), original_cmds, pipes);
 		close_pipe_wait(pipes, original_cmds);
 	}
 	free(pipes);

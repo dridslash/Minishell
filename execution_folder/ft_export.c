@@ -23,9 +23,15 @@ void	display_sorted_env_vars(t_env **envv, int out_file)
 
 int	sub_main(t_cmd *cmd, t_env **env_var, char *holder, char *trimed)
 {
+	char	*tmp;
+
 	trimed = get_name_of_env_var(holder);
-	trimed = ft_strjoin_non_free(trimed, "=");
+	tmp = trimed;
+	trimed = ft_strjoin_non_free(tmp, "=");
+	if (tmp)
+		free(tmp);
 	create_env(env_var, trimed);
+	free(trimed);
 	return (1);
 }
 
@@ -96,16 +102,14 @@ int	get_index_of_env_var(t_env **envv, char *your_path)
 		tp2 = get_name_of_env_var(your_path);
 		if (ft_strcmp(tp, tp2) == 0)
 		{
-			//free(tp);
-			//free(tp2);
+			free(tp);
+			free(tp2);
 			return (index);
 		}
 		index++;
+		free(tp);
+		free(tp2);
 		tmp = tmp->next_env;
-		//free(tp);
-		//free(tp2);
 	}
-	//free(tp);
-	//free(tp2);
 	return (-1);
 }

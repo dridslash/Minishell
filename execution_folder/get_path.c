@@ -38,11 +38,11 @@ char	*get_env_from_list(t_env *env_var)
 		tmp2 = get_name_of_env_var(tmp->path_env);
 		if (ft_strcmp(tmp2, "PATH") == 0)
 		{
-			//free(tmp2);
+			free(tmp2);
 			return (tmp->path_env);
 		}
 		tmp = tmp->next_env;
-		//free(tmp2);
+		free(tmp2);
 	}
 	return (NULL);
 }
@@ -57,7 +57,7 @@ char	*get_path_helper(char *cmd, char **checkp, char **env_path)
 	{
 		tmp = env_path[i];
 		env_path[i] = ft_strjoin(env_path[i], "/");
-		//free(tmp);
+		free(tmp);
 	}
 	i = 0;
 	while (env_path[i])
@@ -65,13 +65,13 @@ char	*get_path_helper(char *cmd, char **checkp, char **env_path)
 		(*checkp) = ft_strjoin(env_path[i], cmd);
 		if (access((*checkp), X_OK) == 0)
 		{
-			//free_split_in(env_path);
+			free_split_in(env_path);
 			return ((*checkp));
 		}
-		//free(checkp);
+		free(*checkp);
 		i++;
 	}
-	//free_split_in(env_path);
+	free_split_in(env_path);
 	return (NULL);
 }
 
@@ -88,7 +88,7 @@ char	*get_path(char *cmd, t_env *envp)
 	env_path = ft_split_parsing(get_env_from_list(envp), ':');
 	tmp = env_path[0];
 	env_path[0] = ft_strtrim(env_path[0], "PATH=");
-	//free(tmp);
+	free(tmp);
 	return (get_path_helper(cmd, &checkp, env_path));
 }
 

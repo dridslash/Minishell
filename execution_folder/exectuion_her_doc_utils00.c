@@ -53,7 +53,8 @@ void	do_her_doc_helper_two(t_cmd *holder_nodes,
 		free(holder_nodes->here_doc_char);
 		holder_nodes->here_doc_char = readline(">");
 	}
-	free(holder_nodes->here_doc_char);
+	if (holder_nodes->here_doc_char)
+		free(holder_nodes->here_doc_char);
 }
 
 void	do_her_doc_helper_three(t_cmd *holder_nodes,
@@ -77,6 +78,7 @@ void	do_her_doc_helper_three(t_cmd *holder_nodes,
 		free(holder_nodes->here_doc_char);
 		holder_nodes->here_doc_char = readline(">");
 	}
+	
 }
 
 void	her_doc_helper_main(t_cmd *holder_nodes,

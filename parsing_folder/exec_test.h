@@ -71,8 +71,6 @@ int		ft_strlen(char *string);
 char	*get_after_dollar(char *your_path);
 void	sort_alpha(t_env **envv, int out_file);
 int		get_equal_index(char *table);
-char	*get_after_equal(char *your_path);
-char	*get_after_dollar(char *your_path);
 int		get_index_of_env_var(t_env **envv, char *your_path);
 void	append_env_vr(t_env **envv, char *var);
 int		check_for_minus(char *your_path);
@@ -224,7 +222,7 @@ int		execute_her_docs(t_cmd *cmd, t_env *env_var,
 			int original_cmds, int *pipes);
 // char    *ft_strjoin(char const *s1, char const *s2);
 // char    *ft_strdup(const char *src);
-int		main_execution_func(t_cmd	*cmd, t_env	*env_var);
+int		main_execution_func(t_cmd	*cmd, t_env	**env_var);
 char	*get_path(char *cmd, t_env *envp);
 int		count_argc(char **argv);
 char	**get_params(int index, char **argv);

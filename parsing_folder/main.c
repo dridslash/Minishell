@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 17:05:03 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 10:28:37 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int exit_status = 50;
 
 void	handler(int sig)
 {
-	char	*str;
+	/*char	*str;
 
 	if (sig == SIGINT)
 	{
@@ -34,19 +34,19 @@ void	handler(int sig)
 		rl_on_new_line();
 		rl_redisplay();
 		exit_status = 0;
-	}
+	}*/
 }
 
 void	signal_main(char **input)
 {
-	struct sigaction	sa;
+	/*struct sigaction	sa;
 	struct sigaction	act;
 
 	sa.sa_handler = handler;
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = 0;
 	sigaction(SIGINT, &sa, NULL);
-	sigaction(SIGQUIT, &sa, NULL);
+	sigaction(SIGQUIT, &sa, NULL);*/
 	take_input(input);
 }
 
@@ -73,10 +73,10 @@ int	main(int argc, char *argv[], char **env)
 			if ((commands->cmd_w_arg != NULL && ft_strcmp(commands->cmd_w_arg[0],"exit") == 0) && count_size_of_list(commands) == 1)
 				ft_exit(commands);
 			//execute_commands
-			main_execution_func(commands, env_var);
+			main_execution_func(commands,&env_var);
 			//printf("exit_status : %d\n",exit_status);
 			free_all(input_split, input, count_words(input), commands);
-			// system("leaks minishell");
+			system("leaks minishell");
 		}
 	}
 }

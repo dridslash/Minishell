@@ -87,4 +87,5 @@ void	sort_alpha(t_env **envv, int out_file)
 		write(out_file, "\n", 1);
 		i++;
 	}
+	free_split_in(holder);
 }

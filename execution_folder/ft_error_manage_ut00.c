@@ -28,7 +28,7 @@ int	ft_error_for_dir(t_cmd *cmd, t_env *env_var, char **tmp)
 	write(2, cmd->cmd_w_arg[0], ft_strlen(cmd->cmd_w_arg[0]));
 	write(2, ":", 1);
 	write(2, "No such file or directory\n", 26);
-	// free(tmp);
+	free(*tmp);
 	exit_status = 1;
 	return (1);
 }
@@ -40,7 +40,7 @@ int	ft_error_for_ex(t_cmd *cmd, t_env *env_var, char **tmp)
 		write(2, cmd->cmd_w_arg[0], ft_strlen(cmd->cmd_w_arg[0]));
 		write(2, ":", 1);
 		write(2, " No such file or directory\n", 27);
-		// free(tmp);
+		free(*tmp);
 		exit_status = 127;
 		return (1);
 	}
@@ -49,7 +49,7 @@ int	ft_error_for_ex(t_cmd *cmd, t_env *env_var, char **tmp)
 		write(2, cmd->cmd_w_arg[0], ft_strlen(cmd->cmd_w_arg[0]));
 		write(2, ":", 1);
 		write(2, " command not found\n", 19);
-		// free(tmp);
+		free(*tmp);
 		exit_status = 127;
 		return (1);
 	}

@@ -36,7 +36,7 @@ char	*get_after_equal(char *your_path)
 	{
 		if (your_path[i] == '=')
 		{
-			return (&your_path[i + 1]);
+			return (ft_strdup_execution(&your_path[i + 1]));
 		}
 		i++;
 	}
@@ -74,7 +74,7 @@ char	*get_name_of_env_var(char *tb)
 	{
 		if (chr[i] == '=' || (chr[i] == '+' && chr[i + 1] == '='))
 		{
-		chr[i] = '\0';
+			chr[i] = '\0';
 			break ;
 		}
 		i++;
@@ -91,7 +91,7 @@ char	*get_after_dollar(char *your_path)
 	{
 		if (your_path[i] == '$')
 		{
-			return (&your_path[i + 1]);
+			return (ft_strdup_execution(&your_path[i + 1]));
 		}
 		i++;
 	}

@@ -130,6 +130,7 @@ t_cmd	*alloc_linked_list(char **split);
 void	open_files(char **split_input2, int *i, t_cmd *tmp);
 void	append_red(t_cmd *cmd, char *file);
 void	in_output_red(t_cmd *cmd, char *file, char option);
+void	in2(t_cmd *cmd, char *file);
 
 //Pushing arguments
 void	push_string(char *to_push, t_cmd *cmd);

@@ -21,7 +21,7 @@ void	open_files(char **split_input2, int *i, t_cmd *cmd)
 	else if (ft_strcmp(split_input2[*i], ">>") == 0)
 		append_red(cmd, split_input2[*i + 1]);
 	else if (ft_strcmp(split_input2[*i], "<>") == 0)
-		in_output_red(cmd, split_input2[*i + 1], 'i');
+		in2(cmd, split_input2[*i + 1]);
 	(*i)++;
 }
 

@@ -15,3 +15,16 @@ ls
 pwd
 echo ss
 echo ss | pwd
+cd ..
+ls
+pwd
+pwd
+pwd
+pwd
+cd ..
+ls
+cd ..
+ls
+cd generate_minishell 
+ls
+cd generate_minishell 

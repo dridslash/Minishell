@@ -65,7 +65,6 @@ void	env_show(t_cmd *cmd, t_env **env_var, int out_file)
 		{
 			write(out_file, tmp->path_env, ft_strlen(tmp->path_env));
 			write(out_file, "\n", 1);
-			//printf("%s\n", env_var->path_env);
 			tmp = tmp->next_env;
 		}
 	}

@@ -24,16 +24,15 @@ char	*search_in_env(t_env **envv, char *your_var)
 	{
 		tmp = get_name_of_env_var(aff->path_env);
 		tmp2 = get_name_of_env_var(your_var);
-		if (ft_strcmp(tmp,
-				tmp2) == 0)
+		if (ft_strcmp(tmp, tmp2) == 0)
 		{
-			//free(tmp);
-			//free(tmp2);
+			free(tmp);
+			free(tmp2);
 			return (get_after_equal(aff->path_env));
 		}
 		aff = aff->next_env;
-		//free(tmp);
-		//free(tmp2);
+		free(tmp);
+		free(tmp2);
 	}
 	return (ft_strdup_execution(""));
 }

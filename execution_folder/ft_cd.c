@@ -21,6 +21,7 @@ void	ft_cd_helper_of_helper(t_cmd *cmd,
 		perror("cd ");
 	if (chdir(&path[0][1]) != 0)
 		perror("cd ");
+	free_split_in(path);
 }
 
 void	ft_cd_helper(t_cmd *cmd, int index, char *get_home)
