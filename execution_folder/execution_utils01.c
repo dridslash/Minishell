@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 12:38:33 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:12:32 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ void	help_for_execute_commands(t_cmd *holder_nodes,
 		|| holder_nodes->in_file_op == -100
 		|| holder_nodes->cmd_w_arg == NULL)
 		exit (1);
-	signal(SIGINT, SIG_DFL);
-	signal(SIGQUIT, SIG_DFL);
 	if (execut_helper_one(holder_nodes, it_it_fds, pipes, env_var) != 0)
 		execve(get_path(holder_nodes->cmd_w_arg[0], (*env_var)),
 			holder_nodes->cmd_w_arg, fill_envp((*env_var)));
@@ -73,6 +71,8 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 		it_it_fds[0] = iterate;
 		it_it_fds[1] = iterate_for_fds;
 		pids[iterate] = fork();
+		signal(SIGINT, handler);
+		signal(SIGQUIT, handler);
 		if (pids[iterate] == 0)
 			help_for_execute_commands(holder_nodes, env_var, pipes, it_it_fds);
 		iterate_func(&iterate, &iterate_for_fds, &holder_nodes);
@@ -86,6 +86,8 @@ int	execute_command(t_cmd *cmd, t_env **env_var)
 	int	pid;
 
 	pid = 0;
+	signal(SIGINT, handler_two);
+	signal(SIGQUIT, handler_two);
 	handle_q_mark(cmd);
 	if (is_there_a_built_in(cmd))
 		return (func_red_execut_command(cmd, env_var));
@@ -94,8 +96,6 @@ int	execute_command(t_cmd *cmd, t_env **env_var)
 		pid = fork();
 		if (pid == 0)
 		{
-			// signal(SIGINT, SIG_IGN);
-			// signal(SIGQUIT, SIG_IGN);
 			if (ft_error(cmd, (*env_var)))
 				exit(g_exit_status);
 			execute_command_helper_main(cmd, env_var);

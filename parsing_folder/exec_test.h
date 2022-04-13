@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 09:55:19 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:27:42 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:12:37 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,10 @@ int		ft_isalpha(int chr);
 int		ft_isascii(int arg);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
+void	handler(int sig);
+void	call_signal_try_help(t_cmd *holder_nodes);
+void	try_help(t_cmd *holder_nodes);
+void	handler_two(int sig);
 
 //END_OF_FUNCTIONS_NEEDED_FOR_EXECUTION
 

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 12:41:52 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:15:08 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ void	handler(int sig)
 		rl_redisplay();
 		g_exit_status = 0;
 	}
+}
+
+void	call_signal_try_help(t_cmd *holder_nodes)
+{
+	try_help(holder_nodes);
+	signal(SIGINT, handler);
+	signal(SIGQUIT, handler);
 }
 
 void	signal_main(char **input)
@@ -79,6 +86,5 @@ int	main(int argc, char *argv[], char **env)
 				ft_exit(commands);
 			free_all(input_split, input, count_words(input), commands);
 		}
-			// system("leaks minishell");
 	}
 }

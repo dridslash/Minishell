@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:49:46 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 14:30:26 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:14:57 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,21 @@ void	func_built_ins_send_redi_three(t_cmd *holder_nodes,
 		execute_cmds_close_files(pipes[iterate_for_fds - 2],
 			pipes[iterate_for_fds + 1],
 			(holder_nodes->size_of_list - 1) * 2, pipes);
+}
+
+void	handler_two(int sig)
+{
+	if (sig == SIGINT)
+	{
+		rl_replace_line("", 0);
+		rl_on_new_line();
+		rl_replace_line("", 0);
+		g_exit_status = 1;
+	}
+	else if (sig == SIGQUIT)
+	{
+		rl_on_new_line();
+		rl_redisplay();
+		g_exit_status = 0;
+	}
 }

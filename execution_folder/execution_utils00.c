@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:09:52 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 10:43:12 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/13 13:10:26 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	execute_her_docs(t_cmd *cmd, t_env *env_var, int original_cmds, int *pipes)
 	holder_nodes = cmd;
 	pids = malloc(sizeof(int) * original_cmds);
 	in_ss(&iterate, &iterate_for_fds);
-	try_help(holder_nodes);
+	call_signal_try_help(holder_nodes);
 	while (iterate < original_cmds && (holder_nodes))
 	{
 		it_it_fd[0] = iterate;
