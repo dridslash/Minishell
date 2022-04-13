@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 14:31:01 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 15:45:24 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,15 @@ int	execut_helper_one(t_cmd *holder_nodes,
 	handle_q_mark(holder_nodes);
 	if (it_it_fds[0] == 0)
 	{
-		if (ft_error(holder_nodes, (*env_var)))
-			exit(g_exit_status);
 		func_built_ins_send_redi(holder_nodes, pipes, it_it_fds[1], env_var);
 	}
 	else if (it_it_fds[0] + 1 == holder_nodes->size_of_list)
 	{
-		if (ft_error(holder_nodes, (*env_var)))
-			exit(g_exit_status);
 		func_built_ins_send_redi_two(holder_nodes,
 			pipes, it_it_fds[1], env_var);
 	}
 	else
 	{
-		if (ft_error(holder_nodes, (*env_var)))
-			exit(g_exit_status);
 		func_built_ins_send_redi_three(holder_nodes,
 			pipes, it_it_fds[1], env_var);
 	}
@@ -43,6 +37,9 @@ int	execut_helper_one(t_cmd *holder_nodes,
 void	help_for_execute_commands(t_cmd *holder_nodes,
 	t_env **env_var, int *pipes, int *it_it_fds)
 {
+	if (access(holder_nodes->cmd_w_arg[0], X_OK) == -1
+		&&ft_error(holder_nodes, (*env_var)))
+		exit(g_exit_status);
 	if (holder_nodes->out_file_op == -100
 		|| holder_nodes->in_file_op == -100
 		|| holder_nodes->cmd_w_arg == NULL)
@@ -97,7 +94,8 @@ int	execute_command(t_cmd *cmd, t_env **env_var)
 		pid = fork();
 		if (pid == 0)
 		{
-			if (ft_error(cmd, (*env_var)))
+			if (access(cmd->cmd_w_arg[0], X_OK) == -1
+				&& ft_error(cmd, (*env_var)))
 				exit(g_exit_status);
 			execute_command_helper_main(cmd, env_var);
 			exit (0);

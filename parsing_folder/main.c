@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 13:15:08 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 15:38:53 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	handler(int sig)
 
 void	call_signal_try_help(t_cmd *holder_nodes)
 {
-	try_help(holder_nodes);
 	signal(SIGINT, handler);
 	signal(SIGQUIT, handler);
+	try_help(holder_nodes);
 }
 
 void	signal_main(char **input)

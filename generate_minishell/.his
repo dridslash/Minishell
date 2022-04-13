@@ -3260,3 +3260,578 @@ cat << limiter -e << $USER$PATH | sort -r | cat -e << "$YO"| sort -r
 < mn
 < mn
 < m
+clear
+ls
+ls -l
+/bin/ls -l
+clear
+ls
+exho helo
+echo helo
+echo helllo
+echo hello
+echo hello les
+echo hello les amis
+echo -n hello les amis
+clear
+ls
+je m'appelle bob
+je m'appelle bob'
+unset me
+env
+unset LESS
+env
+ls
+ls -l
+ls
+pwd
+pwd | cat -e
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls -l
+/bin/ls -l | /bin/cat Makefile 
+which cat
+which cat
+/bin/ls -l | /bin/cat Makefile 
+ls -l | cat Makefile 
+which cat
+/bin/ls -l | /bin/cat Makefile 
+/bin/ls -l | /bin/cat Makefile 
+/bin/ls -l | /bin/cat Makefile 
+/bin/ls -l | /bin/cat Makefile 
+/bin/ls -l | /bin/cat Makefile 
+/bin/ls -l | /bin/cat Makefile 
+/bin/ls -l | /bin/cat Makefile 
+/bin/ls -l | /bin/cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+ls -l | cat Makefile 
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | cat -e
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+ls | cat Makefile 
+ls | cat Makefile 
+ls | cat Makefile 
+ls | cat Makefile 
+ls | cat Makefile 
+ls | cat Makefile 
+ls | cat Makefile 
+ls | cat Makefile 
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+ls
+s
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+
+
+/bin/ls
+/bin/ls
+
+/bin/ls
+/bin/ls
+
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+
+/bin/ls
+dqw
+/qwdwqd
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+
+
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls | /bib/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+/bin/ls | /bin/cat Makefile 
+qwfwq << lim 
+qdwad
+qwfwq << lim 
+cat << lim | dqwdw
+dqwd
+cat << lim | dqwdw
+dqwd
+cat << lim | dqwdw
+dqw
+cat << lim | cat -e
+cat << lim | dwqd
+ls | dwqd
+ls | dwqd | wc -l
