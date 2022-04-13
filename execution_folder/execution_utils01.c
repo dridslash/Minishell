@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 13:12:32 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 14:31:01 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,9 @@ int	execute_command(t_cmd *cmd, t_env **env_var)
 	pid = 0;
 	signal(SIGINT, handler_two);
 	signal(SIGQUIT, handler_two);
-	handle_q_mark(cmd);
-	if (is_there_a_built_in(cmd))
+	if (cmd->cmd_w_arg != NULL)
+		handle_q_mark(cmd);
+	if (cmd->cmd_w_arg != NULL && is_there_a_built_in(cmd))
 		return (func_red_execut_command(cmd, env_var));
 	else
 	{

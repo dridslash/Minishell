@@ -3174,3 +3174,89 @@ ls
 ls
 pwd
 sl
+/bin/ls
+/bin/ls
+/bin/ls
+ls
+ls l
+ls -l
+/bin/ls -l
+/bin/ls -l
+/bin/ls -l
+clear
+ls
+./minishell 
+ls
+ls -l
+/bin/ls
+./minishell 
+clear
+ls
+cat Makefile 
+clear
+ls
+vim Makefile 
+vim Makefile 
+clear
+ls
+cd ..
+ls -l 
+< Makefile cat -e
+< Makefile cat -e | ls -l 
+< Makefile cat -e | ls -l | wc -l
+clear
+cat << limiter asd
+
+ls -l
+clear
+net
+netstat
+ifconig
+ifconfig
+ifconfig | cat -e
+ifconfig | cat -e | sort -e
+ifconfig | cat -e | sort -r
+ls
+bash
+clear
+ls
+nmap
+clear
+ls -l
+ifconfig
+clear
+ls
+ls -l
+cat -e
+clear
+ls
+ls -l
+if
+hello world | ls -l
+wc -l
+ls -l
+touch new1
+chmod 000 new1
+cat new1
+< new1 
+< new1
+< main.c
+< hello
+< new
+< new cat
+<< limiter
+<< limiter cat -e
+ls -l
+< Makefile 
+< Makefile 
+dmas
+ls -l
+cat Makefile 
+clear
+cat << limiter -e << $USER$PATH | sort -r | cat -e << "$YO"| sort -r
+cat << limiter -e << $USER$PATH | sort -r | cat -e << "$YO"| sort -r
+< man
+< mn | ls
+< mn
+< mn
+< m
