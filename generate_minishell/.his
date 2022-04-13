@@ -3853,3 +3853,10 @@ cat test
 cat test
 cat <Makefile test1 | < Makefile sort -r > test
 cat  test
+cat test
+cat <Makefile test1 | < Makefile sort -r > test
+cat test
+cat << lim | <Makefile > test
+cat test
+cat << lim | <Makefile sort -r > test
+cat test
