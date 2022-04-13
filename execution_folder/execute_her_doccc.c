@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 18:47:23 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 15:44:09 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 20:28:24 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	execute_her_docc(t_cmd *holder_nodes,
 {
 	if (access(holder_nodes->cmd_w_arg[0], X_OK) == -1
 		&& ft_error(holder_nodes, env_var))
-			exit(g_exit_status);
+		exit(g_exit_status);
 	if (holder_nodes->out_file_op == -100
 		|| holder_nodes->in_file_op == -100
 		|| holder_nodes->cmd_w_arg == NULL)
