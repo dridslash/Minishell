@@ -3860,3 +3860,28 @@ cat << lim | <Makefile > test
 cat test
 cat << lim | <Makefile sort -r > test
 cat test
+cat << limiyrt
+adsfkm
+cat << limiter
+ls -l
+cat << limiter | << $? cat -e newplease | ls -l > new2
+cat new2
+ls
+< Makefile cat << lim1 << $PATH << $lim3 | sort -r >> new2
+cat new2
+clear
+<< limiter
+ls -l << l
+cat << limiter | << limiter2 sort -r | cat -e
+echo hello << lim
+echo hello << lim << p
+echo  << lim << p
+echo  -n << lim << p
+export << lim << p
+export hello=k << lim << p
+env
+exit<< lim << p
+pwd << lim << p
+cd  << lim << p
+pwd
+env << lim << p
