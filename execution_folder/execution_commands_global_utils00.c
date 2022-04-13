@@ -18,7 +18,7 @@ void	func_built_ins_send_redi_two(t_cmd *holder_nodes,
 {
 	if (is_there_a_built_in(holder_nodes))
 	{
-		help_func_send_redi_two(holder_nodes, pipes, iterate_for_fds, env_var);
+		help_func_send_redi_two(holder_nodes, env_var);
 	}
 	if (holder_nodes->out_file_op > 1)
 	{
@@ -51,7 +51,7 @@ void	help_send_redi_three(t_cmd *holder_nodes,
 	else if (ft_strcmp(which_built_in(holder_nodes), "pwd") == 0
 		&& (get_index_of_env_var(env_var, "PATH") == -1))
 	{
-		ft_pwd(holder_nodes, (*env_var), pipes[iterate_for_fds + 1]);
+		ft_pwd(holder_nodes, pipes[iterate_for_fds + 1]);
 		exit (0);
 	}
 	else if (ft_strcmp(which_built_in(holder_nodes), "unset") == 0)
@@ -65,7 +65,7 @@ void	help_send_redi_three(t_cmd *holder_nodes,
 	}
 	else if (ft_strcmp(which_built_in(holder_nodes), "echo") == 0)
 		ft_echo_send_redi_three_hlp(holder_nodes,
-			pipes, iterate_for_fds, env_var);
+			pipes, iterate_for_fds);
 }
 
 void	func_built_ins_send_redi_three(t_cmd *holder_nodes,

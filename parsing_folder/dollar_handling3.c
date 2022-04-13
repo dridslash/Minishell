@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:26:57 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/12 17:15:53 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 12:25:16 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*search_in_env1(t_env *env, char *string)
 	int		is_in_end;
 
 	is_in_end = check_dollar_end(&ret_string, &i, string);
-	split_string = ft_split_parsing(string, '$');
+	split_string = ft_split_execution(string, '$');
 	while (split_string[++i] != NULL)
 	{
 		j = -1;

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:09:05 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/12 17:30:13 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 21:38:53 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ int		check_do(char *input, int *i);
 //Dollar handling
 void	check_dollar(char *input, int *i1, char **split_input, t_env *env);
 void	check_env(char *input, char **split_input, t_env *env);
-void	skip_red2(char *input, int *i1, int *i2, char *s);
+void	skip_red2(char *input, int *i1, int *i2);
 void	get_dollar1(char *input, int *i1, char **string, t_env *env);
 void	get_dol_double_q(char *input, int *i1, char **string, t_env *env);
 void	get_single_q_dollar(char *input, int *i1, char **string);
 void	get_after_q2(char *input, int *i1, char **string, t_env *env);
-void	skip_for_exp(char *input, int *i1, int *i2, char **split_input);
+void	skip_for_exp(char *input, int *i1, int *i2t);
 char	*char_join(char *string, char c);
 int		le(char *string);
 //Dollar handling

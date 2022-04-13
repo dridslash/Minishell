@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:06:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:24:21 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 21:53:32 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	free_bi_iterate(char **tmp, char **tmp2, t_env **iterta)
 void	ft_pt_two_helper(t_cmd *cmd, t_env **env_var, int index, int *found)
 {
 	t_env	*iterta;
-	char	*expand_dollar;
 	char	*tmp;
 	char	*tmp2;
 	char	*tp;

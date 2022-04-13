@@ -54,7 +54,7 @@ void	separ_help_of_help_two_built_in_two(t_cmd *holder_nodes,
 	else if (ft_strcmp(which_built_in(holder_nodes), "pwd") == 0
 		&& (get_index_of_env_var(env_var, "PATH") == -1))
 		separ_ft_pwd_help_of_help_two_built_in_two(holder_nodes,
-			iterate_for_fds, pipes, env_var);
+			iterate_for_fds, pipes);
 	else if (ft_strcmp(which_built_in(holder_nodes), "unset") == 0)
 		exit (0);
 	else if (ft_strcmp(which_built_in(holder_nodes), "exit") == 0)
@@ -69,7 +69,7 @@ void	separ_help_of_help_two_built_in_two(t_cmd *holder_nodes,
 	}
 	else if (ft_strcmp(which_built_in(holder_nodes), "echo") == 0)
 		separ_ft_echo_help_of_help_two_built_in_two(holder_nodes,
-			iterate_for_fds, pipes, env_var);
+			iterate_for_fds, pipes);
 }
 
 void	help_of_help_two_built_in_two(t_cmd *holder_nodes,

@@ -94,12 +94,12 @@ NAME_EX = minishell
 REM = rm -f
 
 %.o : %.c
-	@${CC} -c  $< -o $@
+	@${CC} ${CFLAGS} -c  $< -o $@
 
 all : $(NAME_EX)
 $(NAME_EX) : $(OBJS)
 	@${CC} ${CFLAGS} ${READLINE} ${OBJS} -o $(NAME_EX)
-	@echo "minishel made"
+	@echo "minishell made"
 
 clean :
 	@${REM} ${OBJS}

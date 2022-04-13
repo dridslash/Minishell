@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 12:31:07 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:14:04 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:51:04 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_cd_helper(t_cmd *cmd, int index, char *get_home)
 {
 	char	**path;
 
+	path = NULL;
 	if (ft_strcmp(cmd->cmd_w_arg[0], "cd") == 0)
 	{
 		if (cmd->cmd_w_arg[index + 1] != NULL)
@@ -52,7 +53,7 @@ void	ft_cd_helper(t_cmd *cmd, int index, char *get_home)
 	}
 }
 
-void	ft_cd(t_cmd *cmd, t_env *env_var)
+void	ft_cd(t_cmd *cmd)
 {
 	char	current_dir[FILE_N_MAX];
 	char	*get_home;

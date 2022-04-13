@@ -6,14 +6,14 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 12:03:14 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:09:38 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 22:59:21 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-void	ft_pwd(t_cmd *cmd, t_env *env_var, int out_file)
+void	ft_pwd(t_cmd *cmd, int out_file)
 {
 	char	current_dir[FILE_N_MAX];
 

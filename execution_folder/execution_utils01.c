@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 13:11:09 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:09:25 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 12:38:33 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,21 +81,21 @@ int	execute_commands(t_cmd *cmd, t_env **env_var, int *pipes, int original_cmds)
 	return (0);
 }
 
-int	execute_command(t_cmd *cmd, t_env **env_var, int original_cmds)
+int	execute_command(t_cmd *cmd, t_env **env_var)
 {
 	int	pid;
 
 	pid = 0;
 	handle_q_mark(cmd);
 	if (is_there_a_built_in(cmd))
-		return (func_red_execut_command(cmd, env_var, original_cmds));
+		return (func_red_execut_command(cmd, env_var));
 	else
 	{
 		pid = fork();
 		if (pid == 0)
 		{
-			signal(SIGINT, SIG_DFL);
-			signal(SIGQUIT, SIG_DFL);
+			// signal(SIGINT, SIG_IGN);
+			// signal(SIGQUIT, SIG_IGN);
 			if (ft_error(cmd, (*env_var)))
 				exit(g_exit_status);
 			execute_command_helper_main(cmd, env_var);

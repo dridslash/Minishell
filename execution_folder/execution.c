@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:03:28 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:14:37 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:49:59 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	create_pipes(int **pipes, int how_many_cmds)
 {
 	int	iterate;
 	int	*holder_pipe;
-	int	*p;
 
 	holder_pipe = malloc(sizeof(int) * (how_many_cmds - 1) * 2);
 	iterate = 0;
@@ -84,6 +83,7 @@ int	main_execution_func(t_cmd *cmd, t_env **env_var)
 	int		*pipes;
 	int		original_cmds;
 
+	pipes = NULL;
 	original_cmds = count_size_of_list(cmd);
 	if (original_cmds > 1 && is_there_a_her_doc(cmd) == 0)
 	{
@@ -92,7 +92,7 @@ int	main_execution_func(t_cmd *cmd, t_env **env_var)
 		close_pipe_wait(pipes, original_cmds);
 	}
 	else if (original_cmds == 1 && is_there_a_her_doc(cmd) == 0)
-		return (execute_command(cmd, env_var, original_cmds));
+		return (execute_command(cmd, env_var));
 	else if (is_there_a_her_doc(cmd))
 	{
 		create_pipes(&pipes, original_cmds);

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:56:41 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/05 12:15:16 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 22:32:42 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_fill_array(t_env **envv, char **holder, t_env *pl)
 	holder[i] = NULL;
 }
 
-void	sort_alpha_helper(t_env **envv, char **holder)
+void	sort_alpha_helper(char **holder)
 {
 	char	*tmp;
 	int		i;
@@ -69,16 +69,14 @@ void	sort_alpha_helper(t_env **envv, char **holder)
 
 void	sort_alpha(t_env **envv, int out_file)
 {
-	char	*tmp;
 	char	**holder;
 	t_env	*pl;
 	int		i;
-	int		j;
 
 	pl = (*envv);
 	holder = (char **) malloc(sizeof(char *) * (size_of_list(envv) + 1));
 	ft_fill_array(envv, holder, pl);
-	sort_alpha_helper(envv, holder);
+	sort_alpha_helper(holder);
 	i = 0;
 	while (holder[i])
 	{

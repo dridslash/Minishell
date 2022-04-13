@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 16:42:31 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 11:48:53 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 12:24:49 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*get_path(char *cmd, t_env *envp)
 		return (cmd);
 	if (get_env_from_list(envp) == NULL)
 		return (NULL);
-	env_path = ft_split_parsing(get_env_from_list(envp), ':');
+	env_path = ft_split_execution(get_env_from_list(envp), ':');
 	tmp = env_path[0];
 	env_path[0] = ft_strtrim(env_path[0], "PATH=");
 	free(tmp);

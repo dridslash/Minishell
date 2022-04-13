@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:44:27 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:12:12 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:47:15 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	display_sorted_env_vars(t_env **envv, int out_file)
 	sort_alpha(envv, out_file);
 }
 
-int	sub_main(t_cmd *cmd, t_env **env_var, char *holder, char *trimed)
+int	sub_main(t_env **env_var, char *holder, char *trimed)
 {
 	char	*tmp;
 
@@ -31,7 +31,8 @@ int	sub_main(t_cmd *cmd, t_env **env_var, char *holder, char *trimed)
 	if (tmp)
 		free(tmp);
 	create_env(env_var, trimed);
-	free(trimed);
+	if (trimed)
+		free(trimed);
 	return (1);
 }
 
@@ -39,8 +40,8 @@ int	export_helper_main(t_cmd *cmd, t_env **env_var, int index)
 {
 	char	*holder;
 	char	*trimed;
-	char	*tmp;
 
+	trimed = NULL;
 	holder = cmd->cmd_w_arg[index + 1];
 	if (check_is_exportable(holder) == 11
 		|| check_errors_export(holder) == 2
@@ -54,7 +55,7 @@ int	export_helper_main(t_cmd *cmd, t_env **env_var, int index)
 		return (1);
 	}
 	else if (check_errors_export(holder) == 7)
-		return (sub_main(cmd, env_var, holder, trimed));
+		return (sub_main(env_var, holder, trimed));
 	else if (check_for_plus_to_export(holder) == 8)
 		return (part_two_of_export(cmd, env_var));
 	else if (check_if_there_is_a_dollar(holder) == 1)
@@ -68,7 +69,6 @@ void	ft_export_var(t_cmd *cmd, t_env **env_var, int out_file)
 {
 	int		i;
 	int		index;
-	char	*tmp;
 
 	i = 0;
 	index = 0;

@@ -2769,3 +2769,337 @@ echo $?
 lls
 ls
 pwd
+sad
+ls 
+ls -l
+cat -e Makefile 
+cat $PATH
+cat "$USER'$PATH"
+ls
+ls -l
+cat $USER
+cat << limiter
+ls -l
+cat Makefile
+ls -l
+ls
+ls -l minishell 
+clear
+l
+cd ..
+ls -l
+ls | cat -e | wc -l
+ls | cat -e | wc -l | cat << lim | export
+ls | cat -e | wc -l | cat << lim | export | cat -e | echo hello | cat -e
+
+ls | cat -e | wc -l | cat << lim | export | cat -e | echo hello | cat -e
+ls | cat -e | wc -l | cat << lim | export | cat -e | echo hello | cat -e | cat << stop < Makefile 
+ls | cat -e | wc -l | cat << lim | export | cat -e | echo hello | cat -e | cat << stop < Makefile > test
+cat test
+ls | cat -e | wc -l | cat << lim | export | cat -e | echo hello | cat -e | cat << stop < Makefile > test | pwd
+ls | cat -e | wc -l | cat << lim | export | cat -e | echo hello | cat -e | cat << stop < Makefile > test | pwd | sort -r
+ls | cat -e | wc -l | cat << lim | export | cat -e | echo hello | cat -e | cat << stop < Makefile > test | pwd | sort -r | export hello=world
+env
+ls | cat -e | wc -l | cat << lim | export | cat -e | echo hello | cat -e | cat << stop < Makefile > test | pwd | sort -r | export hello=world
+export hello=wqdw
+env
+unset hello
+export hello=dwqd
+env
+unset hello LESS PATH
+env
+env
+echo $?$?$?hello
+echo $?$?$?hello$?
+echo $?$?$?hello$? | cat -e
+ls | echo $?$?$?hello$? | cat -e
+ls | echo $?$?$?hello$? > test| cat -e
+cat test
+rm -rf test
+ls
+pwd
+cd ±
+export dqwd+=dqwd
+env
+export dqwd+=hello
+env
+export dqwd+=hello$PATH
+env
+export hello=$PATH
+env
+export hello=$?
+env
+export hello=ll
+env
+export hello=change
+env
+unset hello
+env
+unset HOMEBREW_TEMP
+env
+unset dqwd
+env
+exit
+exit | ls
+cd | ls
+export | ls
+echo hello | ls
+unset PATH | ls
+env
+pwd | ls
+ls
+pwd
+usnet PATH
+unset  PATH
+unset PATH
+env
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+
+echo $?asdasd
+echo $?asdasd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo dwqd
+echo echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd$?
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?asdasd
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+unset PATH
+env
+unset PATH
+unset PATH
+env
+env
+env
+export hello=dqwd
+env
+
+
+
+
+
+
+env
+pwd
+ls
+make clean
+./minishell 
+pwd
+ls | cat -e
+cat << lim
+llm
+i
+lm
+wd
+
+qpwdet
+dqxiei
+pwd
+./minishell 
+w
+pdp
+wdl
+pwd
+lsls
+./minishell 
+./
+./minishell 
+pwd
+ls
+./minishell 
+pwd
+ls
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+ls
+pwd
+ls
+./minishell 
+exit
+exit
+./minishell 
+exit
+exit
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+exit
+./minishell 
+dqwdqwdq!dqd
+dqwdqwdq!dqd'
+dqwdqwdq!dqd'
+dqwdqwdq!dqd'
+dqwdqwdq!dqd'
+dqwdqwdq!dqd'
+dqwdqwdq!dqd'
+dqwdqwdq!dqd'
+dqwdqwdq!dqd'
+dqwdqwdq!dqd'
+echoo $?
+echo $?
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+echo $?dqwdq
+./minishell 
+
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+./minishell 
+
+dqwd
+
+dqwdwqd
+
+
+

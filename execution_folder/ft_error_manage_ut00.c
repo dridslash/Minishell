@@ -6,14 +6,14 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 11:58:51 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:10:05 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:40:23 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-int	ft_error_for_qt(t_cmd *cmd, t_env *env_var)
+int	ft_error_for_qt(t_cmd *cmd)
 {
 	write(2, ":", 10);
 	write(2, cmd->cmd_w_arg[0], ft_strlen(cmd->cmd_w_arg[0]));
@@ -23,7 +23,7 @@ int	ft_error_for_qt(t_cmd *cmd, t_env *env_var)
 	return (1);
 }
 
-int	ft_error_for_dir(t_cmd *cmd, t_env *env_var, char **tmp)
+int	ft_error_for_dir(t_cmd *cmd, char **tmp)
 {
 	write(2, cmd->cmd_w_arg[0], ft_strlen(cmd->cmd_w_arg[0]));
 	write(2, ":", 1);

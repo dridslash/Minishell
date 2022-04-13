@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 18:06:55 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/11 17:10:54 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 23:19:45 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	hlp_main_two_built_in(t_cmd *holder_nodes, t_env **env_var, int *pipes)
 {
 	if (is_there_a_built_in(holder_nodes))
 	{
-		help_main_two_built_in_separ_one(holder_nodes, env_var, pipes);
+		help_main_two_built_in_separ_one(holder_nodes, env_var);
 	}
 	if (holder_nodes->out_file_op > 1)
 	{
@@ -41,15 +41,14 @@ void	hlp_main_two_built_in(t_cmd *holder_nodes, t_env **env_var, int *pipes)
 	}
 }
 
-void	separ_ft_pwd_help_main_two_two_bt(t_cmd *holder_nodes,
-	t_env **env_var, int *pipes, int iterate_for_fds)
+void	separ_ft_pwd_help_main_two_two_bt(t_cmd *holder_nodes)
 {
-	ft_pwd(holder_nodes, (*env_var), holder_nodes->out_file_op);
+	ft_pwd(holder_nodes, holder_nodes->out_file_op);
 	exit (0);
 }
 
 void	separ_hlp_main_two_bl_in_two(t_cmd *holder_nodes,
-	t_env **env_var, int *pipes, int iterate_for_fds)
+	t_env **env_var)
 {
 	if (ft_strcmp(which_built_in(holder_nodes), "cd") == 0)
 		exit (0);
@@ -60,8 +59,7 @@ void	separ_hlp_main_two_bl_in_two(t_cmd *holder_nodes,
 	}
 	else if (ft_strcmp(which_built_in(holder_nodes), "pwd") == 0
 		&& (get_index_of_env_var(env_var, "PATH") == -1))
-		separ_ft_pwd_help_main_two_two_bt(holder_nodes,
-			env_var, pipes, iterate_for_fds);
+		separ_ft_pwd_help_main_two_two_bt(holder_nodes);
 	else if (ft_strcmp(which_built_in(holder_nodes), "unset") == 0)
 		exit (0);
 	else if (ft_strcmp(which_built_in(holder_nodes), "exit") == 0)
@@ -84,7 +82,7 @@ void	hlp_main_two_built_in_two(t_cmd *holder_nodes,
 	if (is_there_a_built_in(holder_nodes))
 	{
 		separ_hlp_main_two_bl_in_two(holder_nodes,
-			env_var, pipes, iterate_for_fds);
+			env_var);
 	}
 	if (holder_nodes->out_file_op > 1)
 	{

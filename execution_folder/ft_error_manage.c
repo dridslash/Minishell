@@ -6,14 +6,14 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:10:22 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:05:52 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:37:50 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-char	*get_curr_dir(t_cmd *cmd)
+char	*get_curr_dir(void)
 {
 	char	current_dir[FILE_N_MAX];
 	char	*dir;
@@ -47,10 +47,10 @@ int	ft_error(t_cmd *cmd, t_env *env_var)
 		if (ft_strcmp(cmd->cmd_w_arg[0], "") == 0)
 		{
 			free(tmp);
-			return (ft_error_for_qt(cmd, env_var));
+			return (ft_error_for_qt(cmd));
 		}
 		if ((is_slash(cmd->cmd_w_arg[0]) && access(tmp, F_OK) == -1))
-			return (ft_error_for_dir(cmd, env_var, &tmp));
+			return (ft_error_for_dir(cmd, &tmp));
 		else if (access(tmp, X_OK) == -1
 			&& (ft_strcmp(cmd->cmd_w_arg[0], "cd") != 0
 				&& ft_strcmp(cmd->cmd_w_arg[0], "export") != 0

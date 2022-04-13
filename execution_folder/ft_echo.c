@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:14:56 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 11:53:07 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	ft_echo(t_cmd *cmd, int out_file)
 	{
 		if (minus_ns(cmd, index_tmp + 1) == how_many_args(cmd, index_tmp + 1))
 		{
-			write(out_file, "", 1);
+			write(out_file, "", 0);
 			return ;
 		}
 		if (cmd->cmd_w_arg[option_of_echo] != NULL)

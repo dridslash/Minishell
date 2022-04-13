@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:21:58 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:30:43 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 12:41:52 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	g_exit_status = 0;
 
 void	handler(int sig)
 {
-	char	*str;
-
 	if (sig == SIGINT)
 	{
 		rl_replace_line("", 0);
@@ -40,7 +38,6 @@ void	handler(int sig)
 void	signal_main(char **input)
 {
 	struct sigaction	sa;
-	struct sigaction	act;
 
 	sa.sa_handler = handler;
 	sigemptyset(&sa.sa_mask);
@@ -75,12 +72,13 @@ int	main(int argc, char *argv[], char **env)
 			input_split = split_input(input);
 			check_env(input, input_split, env_var);
 			commands = parse_everything(input_split, count_words(input));
+			main_execution_func(commands, &env_var);
 			if ((commands->cmd_w_arg != NULL
 					&& ft_strcmp(commands->cmd_w_arg[0], "exit") == 0)
 				&& count_size_of_list(commands) == 1)
 				ft_exit(commands);
-			main_execution_func(commands, &env_var);
 			free_all(input_split, input, count_words(input), commands);
 		}
+			// system("leaks minishell");
 	}
 }

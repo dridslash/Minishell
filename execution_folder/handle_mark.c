@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 17:22:50 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:10:43 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 12:02:49 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	f1(char **splited, t_cmd *cmd, int ll)
 			free(tmp);
 		}
 	}
+	splited[0][ft_strlen(splited[0])] = '\0';
 	free(cmd->cmd_w_arg[ll]);
 	cmd->cmd_w_arg[ll] = ft_strdup_execution(splited[0]);
 	i = -1;

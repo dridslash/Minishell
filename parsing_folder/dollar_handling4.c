@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:27:06 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/04 20:13:17 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 21:40:01 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	le(char *string)
 	return (i);
 }
 
-void	skip_for_exp(char *input, int *i1, int *i2, char **split_input)
+void	skip_for_exp(char *input, int *i1, int *i2)
 {
 	int	tmp;
 

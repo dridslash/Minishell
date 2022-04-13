@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:16:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:11:10 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:54:36 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	part_three_of_dollar_helper(t_cmd *cmd, t_env **env_var,
 void	handle_dollar_helper(t_cmd *cmd, t_env **env_var,
 	int index, char **big_boy)
 {
-	char	*test;
 	char	*tmp2;
 	char	*tmp3;
 
@@ -114,6 +113,7 @@ int	handle_dollar_export(t_cmd *cmd, t_env **env_var)
 	int		locker;
 	char	**big_boy;
 
+	big_boy = NULL;
 	locker = 0;
 	index = 0;
 	i = 0;

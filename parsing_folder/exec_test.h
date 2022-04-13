@@ -102,8 +102,7 @@ void	func_built_ins_send_redi_two(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
 void	func_built_ins_send_redi_three(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
-int		func_red_execut_command(t_cmd *cmd,
-			t_env **env_var, int original_cmds);
+int		func_red_execut_command(t_cmd *cmd, t_env **env_var);
 void	wait_stat(int pid);
 char	*which_built_in(t_cmd *holder_nodes);
 char	**fill_envp(t_env *env_var);
@@ -131,65 +130,60 @@ void	execute_her_docc(t_cmd *holder_nodes,
 void	in_ss(int *iterate, int *iterate_for_fds);
 void	execution_helper_main(t_cmd *holder_nodes,
 			int *it_it_fds, int *pipes, t_env **env_var);
-int		pwd_separ_built_in_red_two(t_cmd *holder_nodes,
-			t_env **env_var, int *pipes);
-int		ft_cd_separ_built_in_red_two(t_cmd *holder_nodes,
-			t_env **env_var, int *pipes);
-int		ft_echo_separ_buint_in_red_two(t_cmd *holder_nodes,
-			t_env **env_var, int *pipes);
+int		pwd_separ_built_in_red_two(t_cmd *holder_nodes);
+int		ft_cd_separ_built_in_red_two(t_cmd *holder_nodes);
+int		ft_echo_separ_buint_in_red_two(t_cmd *holder_nodes);
 int		separ_help_help_built_in_red_two(t_cmd *holder_nodes,
-			t_env **env_var, int *pipes);
-void	help_func_send_redi_two(t_cmd *holder_nodes,
-			int *pipes, int iterate_for_fds, t_env **env_var);
+			t_env **env_var);
+void	help_func_send_redi_two(t_cmd *holder_nodes, t_env **env_var);
 void	separ_ft_pwd_help_help_two_one(t_cmd *holder_nodes,
-			int iterate_for_fds, int *pipes, t_env **env_var);
+			int iterate_for_fds, int *pipes);
 void	separ_help_of_help_two_one(t_cmd *holder_nodes,
 			int iterate_for_fds, int *pipes, t_env **env_var);
-void	spera_ft_pwd_hlp_mn_two_one(t_cmd *holder_nodes,
-			t_env **env_var, int *pipes);
+void	spera_ft_pwd_hlp_mn_two_one(t_cmd *holder_nodes);
 void	help_main_two_built_in_separ_one(t_cmd *holder_nodes,
-			t_env **env_var, int *pipes);
+			t_env **env_var);
 void	separ_hlp_main_three_one_ft_pwd(t_cmd *holder_nodes,
-			int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds);
 void	hlp_main_three_serpar_one(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
-int		ft_error_for_qt(t_cmd *cmd, t_env *env_var);
-int		ft_error_for_dir(t_cmd *cmd, t_env *env_var, char **tmp);
+int		ft_error_for_qt(t_cmd *cmd);
+int		ft_error_for_dir(t_cmd *cmd, char **tmp);
 int		ft_error_for_ex(t_cmd *cmd, t_env *env_var, char **tmp);
 int		check_exit_status(t_cmd *cmd);
 int		check_is_dollar_after_equal(t_cmd *cmd);
 void	ft_echo_separat_send_redi(t_cmd *holder_nodes,
-			int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds);
 void	ft_export_separat_send_redi(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
 void	ft_pwd_separat_send_redi(t_cmd *holder_nodes,
-			int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds);
 void	ft_echo_send_redi_three_hlp(t_cmd *holder_nodes,
-			int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds);
 void	ft_export_send_redi_three_hlp(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
 void	ft_pwd_send_redi_three_hlp(t_cmd *holder_nodes,
-			int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds);
 void	env_show_send_redi_three_hlp(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
 void	execute_command_helper_main(t_cmd *cmd, t_env **env_var);
 void	separ_ft_pwd_help_of_help_two_built_in_two(t_cmd *holder_nodes,
-			int iterate_for_fds, int *pipes, t_env **env_var);
+			int iterate_for_fds, int *pipes);
 void	separ_ft_export_help_of_help_two_built_in_two(t_cmd *holder_nodes,
 			int iterate_for_fds, int *pipes, t_env **env_var);
 void	separ_ft_echo_help_of_help_two_built_in_two(t_cmd *holder_nodes,
-			int iterate_for_fds, int *pipes, t_env **env_var);
+			int iterate_for_fds, int *pipes);
 void	separ_ft_pwd_hlp_main_three_bt_two(t_cmd *holder_nodes,
-			int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds);
 void	separ_ft_export_hlp_main_three_bt_two(t_cmd *holder_nodes,
 			int *pipes, int iterate_for_fds, t_env **env_var);
 void	separ_ft_echo_hlp_main_three_bt_two(t_cmd *holder_nodes,
-			int *pipes, int iterate_for_fds, t_env **env_var);
+			int *pipes, int iterate_for_fds);
 
 //BUILT_INS
 
-void	ft_pwd(t_cmd *cmd, t_env *env_var, int out_file);
-void	ft_cd(t_cmd *cmd, t_env *env_var);
+void	ft_pwd(t_cmd *cmd, int out_file);
+void	ft_cd(t_cmd *cmd);
 void	ft_export_var(t_cmd *cmd, t_env **env_var, int out_file);
 void	env_show(t_cmd *cmd, t_env **env_var, int out_file);
 void	ft_echo(t_cmd *cmd, int out_file);
@@ -203,8 +197,7 @@ void	ft_exit(t_cmd *cmd);
 
 char	*search_test(t_env **envv, char *your_var);
 char	**ft_split_execution(char *s, char c);
-int		execution_help_of_hlp(t_cmd *holder_nodes,
-			int *it_it_fds, int *pipes, t_env **env_var);
+int		execution_help_of_hlp(t_cmd *holder_nodes, int *pipes, t_env **env_var);
 void	execution_help_of_hlp_two(t_cmd *holder_nodes,
 			int *it_it_fds, int *pipes, t_env **env_var);
 void	execution_hlp_main_one(t_cmd *holder_nodes,
@@ -223,9 +216,8 @@ int		execute_commands(t_cmd *cmd,
 			t_env **env_var, int *pipes, int original_cmds);
 void	execute_cmds_close_files(int in_file,
 			int out_file, int fds, int *pipes);
-int		execute_command(t_cmd *cmd, t_env **env_var, int original_cmds);
-void	her_doc_helper_main(t_cmd *holder_nodes,
-			t_env *env_var, int original_cmds);
+int		execute_command(t_cmd *cmd, t_env **env_var);
+void	her_doc_helper_main(t_cmd *holder_nodes);
 int		execute_her_docs(t_cmd *cmd, t_env *env_var,
 			int original_cmds, int *pipes);
 // char    *ft_strjoin(char const *s1, char const *s2);

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   error_functions2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:28:19 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 11:07:19 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:41:09 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "minishell.h"
 
 int	check_d_quotes(char *input, int *i)
@@ -44,8 +45,14 @@ int	pipe_beggining(char *input)
 	i = 0;
 	while (input[i] == ' ')
 		i++;
+	if (input[i] == '\0')
+	{
+		free (input);
+		return (0);
+	}
 	if (input[i] == '|')
 	{
+		free(input);
 		write(2, "Input Error !\n", 14);
 		return (0);
 	}

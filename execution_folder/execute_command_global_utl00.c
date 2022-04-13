@@ -6,40 +6,37 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:11:56 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:10:21 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 23:50:30 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-int	help_func_pwd_command_help(t_cmd *cmd,
-	t_env **env_var, int original_cmds)
+int	help_func_pwd_command_help(t_cmd *cmd)
 {
-	ft_pwd(cmd, (*env_var), cmd->out_file_op);
+	ft_pwd(cmd, cmd->out_file_op);
 	write(cmd->out_file_op, "\n", 1);
 	return (0);
 }
 
-int	help_func_cd_command_help(t_cmd *cmd,
-	t_env **env_var, int original_cmds)
+int	help_func_cd_command_help(t_cmd *cmd)
 {
-	ft_cd(cmd, (*env_var));
+	ft_cd(cmd);
 	return (0);
 }
 
-int	func_red_execut_command(t_cmd *cmd,
-	t_env **env_var, int original_cmds)
+int	func_red_execut_command(t_cmd *cmd, t_env **env_var)
 {
 	if (ft_strcmp(which_built_in(cmd), "cd") == 0)
-		return (help_func_cd_command_help(cmd, env_var, original_cmds));
+		return (help_func_cd_command_help(cmd));
 	else if (ft_strcmp(which_built_in(cmd), "export") == 0)
 	{
 		ft_export_var(cmd, env_var, cmd->out_file_op);
 		return (0);
 	}
 	else if (ft_strcmp(which_built_in(cmd), "pwd") == 0)
-		return (help_func_pwd_command_help(cmd, env_var, original_cmds));
+		return (help_func_pwd_command_help(cmd));
 	else if (ft_strcmp(which_built_in(cmd), "unset") == 0)
 	{
 		ft_unset(env_var, cmd);

@@ -6,15 +6,14 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 16:32:15 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/12 17:04:47 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 22:13:48 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-void	do_her_doc_helper_one(t_cmd *holder_nodes,
-		t_env *env_var, int original_cmds)
+void	do_her_doc_helper_one(t_cmd *holder_nodes)
 {
 	char	*tmp;
 
@@ -35,8 +34,7 @@ void	do_her_doc_helper_one(t_cmd *holder_nodes,
 	}
 }
 
-void	do_her_doc_helper_two(t_cmd *holder_nodes,
-	t_env *env_var, int original_cmds, int iterate_her_docs)
+void	do_her_doc_helper_two(t_cmd *holder_nodes, int iterate_her_docs)
 {
 	char	*tmp;
 
@@ -58,7 +56,7 @@ void	do_her_doc_helper_two(t_cmd *holder_nodes,
 }
 
 void	do_her_doc_helper_three(t_cmd *holder_nodes,
-	t_env *env_var, int original_cmds, int iterate_her_docs)
+		int iterate_her_docs)
 {
 	char	*tmp;
 
@@ -80,8 +78,7 @@ void	do_her_doc_helper_three(t_cmd *holder_nodes,
 	}
 }
 
-void	her_doc_helper_main(t_cmd *holder_nodes,
-	t_env *env_var, int original_cmds)
+void	her_doc_helper_main(t_cmd *holder_nodes)
 {
 	int	iterate_her_docs;
 
@@ -90,17 +87,15 @@ void	her_doc_helper_main(t_cmd *holder_nodes,
 	{
 		pipe(holder_nodes->fd_her_doc);
 		if (holder_nodes->how_many_here_doc == 1)
-			do_her_doc_helper_one(holder_nodes, env_var, original_cmds);
+			do_her_doc_helper_one(holder_nodes);
 		else
 		{
 			while (iterate_her_docs <= holder_nodes->how_many_here_doc)
 			{
 				if (iterate_her_docs != holder_nodes->how_many_here_doc)
-					do_her_doc_helper_two(holder_nodes,
-						env_var, original_cmds, iterate_her_docs);
+					do_her_doc_helper_two(holder_nodes, iterate_her_docs);
 				else
-					do_her_doc_helper_three(holder_nodes,
-						env_var, original_cmds, iterate_her_docs);
+					do_her_doc_helper_three(holder_nodes, iterate_her_docs);
 				iterate_her_docs++;
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:05:49 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 15:21:13 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 11:53:33 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	sub_echo_helper(t_cmd *cmd, int args, int option_of_echo, int out_file)
 		{
 			if (ft_strcmp(cmd->cmd_w_arg[args], "") == 0)
 			{
-				write(out_file, " ", 2);
+				write(out_file, " ", 1);
 			}
 			write(out_file, cmd->cmd_w_arg[args], strlen(cmd->cmd_w_arg[args]));
 			if (cmd->cmd_w_arg[args + 1])
@@ -97,7 +97,7 @@ void	sub_echo_helper_two(t_cmd *cmd,
 	{
 		if (minus_ns(cmd, index_tmp + 1) == how_many_args(cmd, index_tmp + 1))
 		{
-			write(out_file, "", 1);
+			write(out_file, "", 0);
 			return ;
 		}
 		args = option_of_echo + 1;

@@ -6,15 +6,14 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 10:30:57 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/10 18:33:10 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/12 23:23:46 by oessayeg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parsing_folder/exec_test.h"
 #include "../parsing_folder/minishell.h"
 
-int	execution_help_of_hlp(t_cmd *holder_nodes,
-	int *it_it_fds, int *pipes, t_env **env_var)
+int	execution_help_of_hlp(t_cmd *holder_nodes, int *pipes, t_env **env_var)
 {
 	if (holder_nodes->how_many_here_doc > 0)
 	{
@@ -51,8 +50,7 @@ int *it_it_fds, int *pipes, t_env **env_var)
 {
 	if (it_it_fds[0] + 1 == holder_nodes->size_of_list)
 	{
-		execution_help_of_hlp(holder_nodes,
-			it_it_fds, pipes, env_var);
+		execution_help_of_hlp(holder_nodes, pipes, env_var);
 	}
 	else
 	{

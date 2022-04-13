@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   error_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oessayeg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:23:27 by oessayeg          #+#    #+#             */
-/*   Updated: 2022/04/01 11:07:14 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:32:17 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "minishell.h"
 
 int	check_errors(char *input)
@@ -20,16 +21,15 @@ int	check_errors(char *input)
 	i = 0;
 	while (input[i] != '\0')
 	{
-		if (input[i] == '|' && !check_after_pipe(input, &i))
+		if ((input[i] == '|' && !check_after_pipe(input, &i))
+			|| (input[i] == '>' && !check_out_red(input, &i))
+			|| (input[i] == '<' && !check_in_red(input, &i))
+			|| (input[i] == 34 && !check_d_quotes(input, &i))
+			|| (input[i] == 39 && !check_s_quotes(input, &i)))
+		{
+			free(input);
 			return (0);
-		else if (input[i] == '>' && !check_out_red(input, &i))
-			return (0);
-		else if (input[i] == '<' && !check_in_red(input, &i))
-			return (0);
-		else if (input[i] == 34 && !check_d_quotes(input, &i))
-			return (0);
-		else if (input[i] == 39 && !check_s_quotes(input, &i))
-			return (0);
+		}
 		i++;
 	}
 	return (1);
