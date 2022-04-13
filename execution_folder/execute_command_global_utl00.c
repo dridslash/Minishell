@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:11:56 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 13:13:50 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 13:16:27 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,3 @@ void	execute_command_helper_main(t_cmd *cmd, t_env **env_var)
 	execve(get_path(cmd->cmd_w_arg[0],
 			(*env_var)), cmd->cmd_w_arg, fill_envp((*env_var)));
 }
-
