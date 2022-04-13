@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 11:58:51 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 10:40:23 by oessayeg         ###   ########.fr       */
+/*   Updated: 2022/04/13 18:39:53 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_error_for_dir(t_cmd *cmd, char **tmp)
 	write(2, ":", 1);
 	write(2, "No such file or directory\n", 26);
 	free(*tmp);
-	g_exit_status = 1;
+	g_exit_status = 127;
 	return (1);
 }
 

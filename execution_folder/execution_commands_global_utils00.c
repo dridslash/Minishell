@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:49:46 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 13:14:57 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/13 18:57:00 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	func_built_ins_send_redi_two(t_cmd *holder_nodes,
 			holder_nodes->out_file_op,
 			(holder_nodes->size_of_list - 1) * 2, pipes);
 	}
-	else if (holder_nodes->in_file_op > 0)
+	if (holder_nodes->in_file_op > 0)
 	{
 		execute_cmds_close_files(holder_nodes->in_file_op,
 			holder_nodes->out_file_op,
