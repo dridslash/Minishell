@@ -99,15 +99,15 @@ REM = rm -f
 all : $(NAME_EX)
 $(NAME_EX) : $(OBJS)
 	@${CC} ${CFLAGS} ${READLINE} ${OBJS} -o $(NAME_EX)
-	@echo "minishell made"
+	@echo "\033[33;3mMinishell made !\033[0m"
 
 clean :
 	@${REM} ${OBJS}
-	@echo "object files deleted"
+	@echo "\033[31;5mObject files deleted !\033[0m"
 
 fclean : clean
 	@${REM} ${NAME_EX}
-	@echo "all files deleted"
+	@echo "\033[31;5mAll files deleted !\033[0m"
 
 re : fclean all
 
