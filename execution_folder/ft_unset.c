@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 09:58:06 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/13 11:50:54 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/14 10:46:02 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,20 @@ void	unset_else(t_env *looper, t_env **prev, t_env *tmp, char **tp)
 	(*prev)->next_env = tmp->next_env;
 	free(tmp->path_env);
 	free(tmp);
-	free(*tp);
+	free (*tp);
 	return ;
 }
 
-void	ft_unset_helper(t_env **env_var, t_cmd *cmd, int index, t_env *looper)
+void	unset_if(t_env **env_var, t_env *tmp, char **tp)
+{
+	tmp = (*env_var);
+	(*env_var) = (*env_var)->next_env;
+	free(tmp->path_env);
+	free(tmp);
+	free(*tp);
+}
+
+int	ft_unset_helper(t_env **env_var, t_cmd *cmd, int index, t_env *looper)
 {
 	t_env	*prev;
 	t_env	*tmp;
@@ -36,26 +45,26 @@ void	ft_unset_helper(t_env **env_var, t_cmd *cmd, int index, t_env *looper)
 	{
 		if (get_index_of_env_var(env_var, looper->path_env) == 0)
 		{
-			tmp = (*env_var);
-			(*env_var) = (*env_var)->next_env;
-			free(tmp);
-			return ;
+			unset_if(env_var, tmp, &tp);
+			return (1);
 		}
 		else
 		{
 			unset_else(looper, &prev, tmp, &tp);
-			return ;
+			return (1);
 		}
 	}
 	free(tp);
 	prev = looper;
+	return (0);
 }
 
 void	call_in_loop(t_env **env_var, t_cmd *cmd, int index, t_env *looper)
 {
 	while (looper != NULL)
 	{
-		ft_unset_helper(env_var, cmd, index, looper);
+		if (ft_unset_helper(env_var, cmd, index, looper) == 1)
+			break ;
 				looper = looper->next_env;
 	}
 }

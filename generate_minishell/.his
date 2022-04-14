@@ -3885,3 +3885,44 @@ pwd << lim << p
 cd  << lim << p
 pwd
 env << lim << p
+env
+unset TERM_SESSION_ID
+env
+unset TERM_SESSION_ID
+unset TERM_SESSION_ID
+env
+unset PATH
+unset TERM_SESSION_ID
+unset PATH
+env
+usnet LESS
+unset LESS
+env
+usnet dwqd
+unset dwqd
+unset dwqd
+unset TERM_SESSION_ID
+unset PATH
+env
+unset LESS
+unset PATH
+unset PATH
+env
+unset LESS
+env
+unset TERM_SESSION_ID
+unset PATH
+unset PATH
+env
+unset LESS
+env
+unset TERM_SESSION_ID
+env
+unset ZSH
+env
+unset TERM_SESSION_ID
+env
+unset PATH
+env
+unset ZSH
+env
