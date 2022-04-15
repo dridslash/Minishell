@@ -89,16 +89,16 @@ SRCS = ../execution_folder/ft_split_execution.c \
 	
 OBJS = ${SRCS:.c=.o}
 
-NAME_EX = minishell
+NAME = minishell
 
 REM = rm -f
 
 %.o : %.c
 	@${CC} ${CFLAGS} -c  $< -o $@
 
-all : $(NAME_EX)
-$(NAME_EX) : $(OBJS)
-	@${CC} ${CFLAGS} ${READLINE} ${OBJS} -o $(NAME_EX)
+all : $(NAME)
+$(NAME) : $(OBJS)
+	@${CC} ${CFLAGS} ${READLINE} ${OBJS} -o $(NAME)
 	@echo "\033[33;3mMinishell made !\033[0m"
 
 clean :
@@ -106,7 +106,7 @@ clean :
 	@echo "\033[31;5mObject files deleted !\033[0m"
 
 fclean : clean
-	@${REM} ${NAME_EX}
+	@${REM} ${NAME}
 	@echo "\033[31;5mAll files deleted !\033[0m"
 
 re : fclean all
