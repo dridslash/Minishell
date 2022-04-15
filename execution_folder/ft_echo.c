@@ -6,7 +6,7 @@
 /*   By: mnaqqad <mnaqqad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:09:45 by mnaqqad           #+#    #+#             */
-/*   Updated: 2022/04/15 10:49:05 by mnaqqad          ###   ########.fr       */
+/*   Updated: 2022/04/15 11:58:27 by mnaqqad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,8 @@ int	proper_n(char *arg)
 void	ft_echo_helper_main(t_cmd *cmd,
 	int args, int option_of_echo, int out_file)
 {
-	if (ft_strcmp(cmd->cmd_w_arg[option_of_echo], "-n") != 0 && (proper_n(cmd->cmd_w_arg[option_of_echo]) == 0))
+	if (ft_strcmp(cmd->cmd_w_arg[option_of_echo], "-n") != 0
+		&& (proper_n(cmd->cmd_w_arg[option_of_echo]) == 0))
 	{
 		sub_echo_helper(cmd, args, option_of_echo, out_file);
 	}
